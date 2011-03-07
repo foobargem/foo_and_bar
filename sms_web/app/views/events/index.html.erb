@@ -1,0 +1,12 @@
+
+<h2>Event</h2>
+
+<ul>
+<% @events.each do |event| %>
+  <li>
+    <%= event.name %>
+    <%= link_to "응모하기", new_event_applicant_path(event) %>
+  </li>
+<% end %>
+</ul>
+

@@ -1,0 +1,24 @@
+
+<h1><%= @event.name %> 응모하기</h1>
+
+<%= form_for [@event, @applicant] do |f| %>
+  <ul>
+    <li>
+      <%= f.label :name, "이름" %>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <%= f.label :address, "주소" %>
+      <%= f.text_field :address %>
+    </li>
+    <li>
+      <%= f.label :phone_number, "연락처" %>
+      <%= f.text_field :phone_number %>
+    </li>
+  </ul>
+
+  <div class="buttons">
+    <%= f.submit "응모하기" %>
+    <%= link_to "홈으로", root_path %>
+  </div>
+<% end %>

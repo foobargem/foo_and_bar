@@ -4,4 +4,4 @@ log/*.log
 tmp/
 Gemfile.lock
 db/schema.rb
-public/_files/**/*
+public/_file/**/*

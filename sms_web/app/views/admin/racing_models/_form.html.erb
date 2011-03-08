@@ -1,0 +1,84 @@
+
+<%= form_for [:admin, @racing_model], :html => { :multipart => true } do |f| %>
+
+  <% if @racing_model.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@racing_model.errors.count, "error") %> prohibited this admin_racing_model from being saved:</h2>
+
+      <ul>
+      <% @racing_model.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :company_id, "소속 업체" %>
+    <%= f.select :company_id, company_collection("car"), :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :name, "이름" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :birth, "생일" %>
+    <%= f.text_field :birth %>
+  </div>
+  <div class="field">
+    <%= f.label :blood_type, "혈액형" %>
+    <%= f.text_field :blood_type %>
+  </div>
+  <div class="field">
+    <%= f.label :height, "신장" %>
+    <%= f.text_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :weight, "몸무게" %>
+    <%= f.text_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :dress_size, "의상사이즈" %>
+    <%= f.text_field :dress_size %>
+  </div>
+  <div class="field">
+    <%= f.label :bwh, "신체사이즈" %>
+    <%= f.text_field :bwh %>
+  </div>
+  <div class="field">
+    <%= f.label :shoe_size, "신발사이즈" %>
+    <%= f.text_field :shoe_size %>
+  </div>
+  <div class="field">
+    <%= f.label :hobby, "취미" %>
+    <%= f.text_field :hobby %>
+  </div>
+  <div class="field">
+    <%= f.label :homepage_url, "미니홈피 URL" %>
+    <%= f.text_field :homepage_url %>
+  </div>
+  <div class="field">
+    <%= f.label :fan_site_url, "팬 카페 URL" %>
+    <%= f.text_field :fan_site_url %>
+  </div>
+  <div class="field">
+    <%= f.label :career_desc, "경력사항" %>
+    <%= f.text_area :career_desc %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image_raw, "사진" %>
+    <%= f.file_field :image_raw %>
+  </div>
+  <div class="image_preview">
+    <% if @racing_model.image_raw.file? %>
+      <%= image_tag @racing_model.image_raw.url(:thumb, false) %>
+    <% end %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

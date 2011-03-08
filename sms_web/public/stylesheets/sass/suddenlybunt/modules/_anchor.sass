@@ -1,0 +1,26 @@
+
+//
+
+=unstyled_anchor
+  :color inherit
+  :text-decoration inherit
+  :background-color inherit
+  :cursor inherit
+  &:active, &:focus
+    :outline none
+
+
+//
+
+=normal_anchor_style($color, $bg_color: "inherit", $text_decoration: "none")
+  &, &:visited
+    :color $color
+    :background-color $bg_color
+    :text-decoration $text_decoration
+
+=active_anchor_style($color, $bg_color: "inherit", $text_decoration: "none")
+  &:hover, &:active
+    :color $color
+    :background-color $bg_color
+    :text-decoration $text_decoration
+

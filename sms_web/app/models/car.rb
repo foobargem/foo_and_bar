@@ -6,6 +6,9 @@ class Car < ActiveRecord::Base
   validates_presence_of :name, :price
 
 
+  belongs_to :company
+
+
   # image_raw
   has_attached_file :image_raw,
     :styles => {

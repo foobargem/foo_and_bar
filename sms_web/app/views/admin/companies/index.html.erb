@@ -1,22 +1,36 @@
-<h1>Listing admin_companies</h1>
+<h1>업체관리</h1>
 
-<table>
-  <tr>
-    <th>회사명</th>
-    <th></th>
-  </tr>
+<div class="action_container">
+  <%= link_to "업체 추가하기", new_admin_company_path %>
+</div>
 
-<% @companies.each do |company| %>
-  <tr>
-    <td><%= company.name %></td>
-    <td>
-      <%= link_to 'Edit', edit_admin_company_path(company) %>
-      <%= link_to 'Destroy', admin_company_path(company), :confirm => 'Are you sure?', :method => :delete %>
-    </td>
-  </tr>
-<% end %>
+<table class="companies">
+  <thead>
+    <tr>
+      <th class="name">업체명</th>
+      <th class="category">참가분야</th>
+      <th class="logo">로고</th>
+      <th class="site_url">Site URL</th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td class="name"><%= company.name %></td>
+        <td class="category"><%= display_category_name(company.category) %></td>
+        <td class="logo">
+          <%= image_tag company.image_raw.url(:thumb, false) %>
+        </td>
+        <td class="site_url">
+          <%= link_to company.site_url, company.site_url, :target => "_blank" %>
+        </td>
+        <td class="actions">
+          <%= link_to 'Edit', edit_admin_company_path(company) %>
+          <%= link_to 'Destroy', admin_company_path(company), :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Company', new_admin_company_path %>

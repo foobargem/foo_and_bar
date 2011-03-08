@@ -1,25 +1,34 @@
-<h1>Listing admin_racing_models</h1>
+<h1>레이싱 모델</h1>
 
-<table>
-  <tr>
-    <th>이름</th>
-    <th>사진</th>
-    <th></th>
-  </tr>
+<div class="action_container">
+  <%= link_to '모델 등록하기', new_admin_racing_model_path %>
+</div>
 
-<% @racing_models.each do |racing_model| %>
-  <tr>
-    <td><%= racing_model.name %></td>
-    <td><%= image_tag racing_model.image_raw.url(:thumb, false) %></td>
-    <td>
-      <%= link_to 'Show', [:admin, racing_model] %>
-      <%= link_to 'Edit', edit_admin_racing_model_path(racing_model) %>
-      <%= link_to 'Destroy', [:admin, racing_model], :confirm => 'Are you sure?', :method => :delete %>
-    </td>
-  </tr>
-<% end %>
+<table class="racing_models">
+  <thead>
+    <tr>
+      <th class="photo">사진</th>
+      <th class="name">이름</th>
+      <th class="birth">생일</th>
+      <th class="height">키</td>
+      <th class="weight">체중</td>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @racing_models.each do |racing_model| %>
+      <tr>
+        <td class="photo"><%= image_tag racing_model.image_raw.url(:thumb, false) %></td>
+        <td class="name"><%= racing_model.name %></td>
+        <td class="birth"><%= racing_model.birth %></td>
+        <td class="height"><%= racing_model.height %></td>
+        <td class="weight"><%= racing_model.weight %></td>
+        <td class="actions">
+          <%= link_to 'Edit', edit_admin_racing_model_path(racing_model) %>
+          <%= link_to 'Destroy', [:admin, racing_model], :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Racing model', new_admin_racing_model_path %>

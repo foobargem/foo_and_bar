@@ -1,0 +1,230 @@
+@import mixin
+
+$global_width = 1000px + 4px
+$global_main_width = 1000px
+$global_main_padding = 16px
+$global_side_width = 155px
+$aux_width = 0px
+$main_width = 800px
+$side_width = 210px
+
+
+=global_container($width: $global_width)
+  :width $width
+  :margin 0 auto
+  +clearfix
+
+=global_wrapper($width: $global_main_width, $padding_width: $global_main_padding)
+  :width $width
+  +float_left
+  :padding 0 $padding_width
+
+=global_sidebar($width: $global_side_width)
+  :width $width
+  +float_right
+
+
+=main_container($width: $global_main_width, $main_width: $main_width, $side_width: $side_width)
+  +clearfix
+  :width $width
+  .main
+    :width $main_width
+  .side
+    :width $side_width
+
+=content_wrapper($width: $global_width, $aux: $aux_width, $padding_x: 5px, $padding_y: 3px)
+  :width $global_width
+  :margin 0 auto
+  :padding $padding_y $padding_x
+  +clearfix
+
+=content_aux($width: $aux_width, $padding_x: 5px, $padding_y: 3px)
+  :width $width
+  :padding $padding_y $padding_x
+  +clearfix
+
+
+//
+
+$global_background_color = #D2D3D3
+
+body
+  :background #fff
+
+#headline
+  .headline_container
+    +global_container
+  .headline_wrapper
+    +global_wrapper
+  ul.category_nav
+    +float_left
+    :margin-left 100px
+    li
+      +float_left
+    li.spacer
+      :width 1px
+      :height 32px
+  ul.social_links
+    +float_right
+    :margin-right 5px
+    li
+      +float_left
+      :margin 8px 5px 0
+      &.catchphrase
+        :margin-top 0
+        +image_replacement("/images/nav/category_slogan.gif", 88px, 32px)
+        +image_replacement("", 0px, 32px)
+      &.twitter
+        a
+          +image_replacement("/images/icons/twitter.png", 16px, 16px)
+      &.facebook
+        a
+          +image_replacement("/images/icons/facebook.png", 16px, 16px)
+      &.rss
+        a
+          +image_replacement("/images/icons/rss.png", 16px, 16px)
+
+#header
+  +global_container
+  :padding-top 30px
+  :padding-bottom 9px
+  .header_wrapper
+    +global_wrapper
+  div.logo
+    +float_left
+    a
+      :font-size 3em
+      :font-weight bold
+      :line-height 1.5em
+      +image_replacement("/images/logo.gif", 211px, 63px)
+  div.notice
+    +float_left
+    :margin-left 40px
+    :margin-top 20px
+  div.header_banner
+    +float_right
+    :margin-top 13px
+    .banner_wrapper
+      +float_right
+      img
+        +float_right
+
+#gnb
+  +global_container
+  .gnb_wrapper
+    +global_wrapper
+    :background #fff
+  ul.global_nav
+    +float_left
+    :padding-left 20px
+    li
+      +float_left
+      :padding 0 10px
+  div.gnb_sub
+    +float_right
+    :margin-top 12px
+    :margin-right 10px
+    :height 31px
+    :padding 0 0 0 10px
+  ul.account_nav
+    +clearfix
+    :height 31px
+    :display block
+    :padding 0 20px 0 10px
+    :margin-right -10px
+    li
+      +float_left
+      img
+        +float_left
+        :margin-top 7px
+        :margin-right 5px
+      a
+        +float_left
+        :display block
+        :color #999999
+        :font-weight normal
+        :font-size 11px
+        :padding 6px 3px
+    li.spacer
+      :padding 5px 5px 0
+      :color #515151
+        
+
+
+#content
+  .content_container
+    +global_container
+  .content_wrapper
+    +global_wrapper
+  .content_sidebar
+    +global_sidebar
+  div.main_container
+    +main_container
+    .main
+      +float_left
+    .side
+      +float_right
+    .side_with_price_section
+      :padding-top 530px
+
+
+#footer
+  :background $global_background_color
+  .footer_container
+    +global_container
+  .footer_wrapper
+    :padding 40px 10px 50px 250px
+    ul.links
+      +clearfix
+      li
+        +float_left
+        &.splitter
+          :margin 0 10px
+          :color #585858
+        a
+          :color #585858
+          :font-size 0.9em
+    .company_info
+      :font-size 12px
+      :line-height 140%
+      :color #777
+      :padding 20px 0
+    .copyright
+      :font-size 12px
+      :color #575757
+
+
+
+// main_wrappers
+
+.main_wrapper
+  .main_alt
+    +float_left
+    :width 610px
+    :padding 5px
+    :min-height 200px
+  .side_alt
+    +float_right
+    :width 350px
+    :padding 5px
+    :min-height 200px
+
+
+// boxes
+
+.side_box
+  :margin-bottom 10px
+  .side_box_title
+    h3
+  .side_box_wrapper
+    :background $global_background_color
+
+
+
+// floating
+
+.floating_menu
+  :position absolute
+  :margin-left 220px
+
+

@@ -1,5 +1,5 @@
 
-<%= form_for [:admin, @racing_model], :html => { :multipart => true } do |f| %>
+<%= form_for [:admin, @racing_model], :html => { :multipart => true, :class => "table_form" } do |f| %>
 
   <% if @racing_model.errors.any? %>
     <div id="error_explanation">

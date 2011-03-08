@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Admin::CarsHelper
 
   def company_collection(category)
@@ -14,6 +15,14 @@ module Admin::CarsHelper
     
     scoped.select("id, name").all.map do |company|
       [company.name, company.id]
+    end
+  end
+
+  def display_company_name(car)
+    unless car.company.nil?
+      car.company.name
+    else
+      "삭제된 제조사"
     end
   end
 

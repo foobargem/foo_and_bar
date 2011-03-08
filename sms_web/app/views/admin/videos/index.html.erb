@@ -1,25 +1,28 @@
-<h1>Listing admin_videos</h1>
+<h1>비디오 관리</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>URL</th>
-    <th></th>
-  </tr>
+<div class="action_container">
+  <%= link_to 'New Video', new_admin_video_path %>
+</div>
 
-<% @videos.each do |video| %>
-  <tr>
-    <td><%= video.title %></td>
-    <td><%= video.stream_url %></td>
-    <td>
-      <%= link_to 'Show', [:admin, video] %>
-      <%= link_to 'Edit', edit_admin_video_path(video) %>
-      <%= link_to 'Destroy', [:admin, video], :confirm => 'Are you sure?', :method => :delete %>
-    </td>
-  </tr>
-<% end %>
+<table class="videos">
+  <thead>
+    <tr>
+      <th class="title">제목</th>
+      <th class="stream_url">URL</th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr>
+        <td class="title"><%= video.title %></td>
+        <td class="stream_url"><%= video.stream_url %></td>
+        <td class="actions">
+          <%= link_to 'Edit', edit_admin_video_path(video) %>
+          <%= link_to 'Destroy', [:admin, video], :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Video', new_admin_video_path %>

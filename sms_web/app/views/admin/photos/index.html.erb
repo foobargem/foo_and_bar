@@ -1,23 +1,26 @@
-<h1>Listing admin_photos</h1>
+<h1>사진관리</h1>
 
-<table>
-  <tr>
-    <th>사진</th>
-    <th></th>
-  </tr>
+<div class="action_container">
+  <%= link_to '사진등록', new_admin_photo_path %>
+</div>
 
-<% @photos.each do |photo| %>
-  <tr>
-    <td><%= image_tag photo.image_raw.url(:thumb, false) %></td>
-    <td>
-      <%= link_to 'Show', [:admin, photo] %>
-      <%= link_to 'Edit', edit_admin_photo_path(photo) %>
-      <%= link_to 'Destroy', [:admin, photo], :confirm => 'Are you sure?', :method => :delete %>
-    </td>
-  </tr>
-<% end %>
+<table class="photos">
+  <thead>
+    <tr>
+      <th class="photo">사진</th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @photos.each do |photo| %>
+      <tr>
+        <td class="photo"><%= image_tag photo.image_raw.url(:thumb, false) %></td>
+        <td class="actions">
+          <%= link_to 'Edit', edit_admin_photo_path(photo) %>
+          <%= link_to 'Destroy', [:admin, photo], :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Photo', new_admin_photo_path %>

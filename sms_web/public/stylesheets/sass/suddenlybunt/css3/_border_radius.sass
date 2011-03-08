@@ -1,0 +1,28 @@
+
+//
+
+=border_radius($size: 5px)
+  :border-radius $size
+  :-moz-border-radius $size
+  :-webkit-border-radius $size
+
+
+//
+
+=border_corner_radius($v, $h, $size: 5px)
+  :border-#{$v}-#{$h}-radius $size
+  :-moz-border-radius-#{$v}#{$h} $size
+  :-webkit-border-#{$v}-#{$h}-radius $size
+
+=border_top_left_radius($size: 5px)
+  +border_corner_radius("top", "left", $size)
+
+=border_top_right_radius($size: 5px)
+  +border_corner_radius("top", "right", $size)
+
+=border_bottom_left_radius($size: 5px)
+  +border_corner_radius("bottom", "left", $size)
+
+=border_bottom_right_radius($size: 5px)
+  +border_corner_radius("bottom", "right", $size)
+

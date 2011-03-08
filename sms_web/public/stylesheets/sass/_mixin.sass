@@ -1,0 +1,125 @@
+@import suddenlybunt/screen
+
+
+//
+// button styles
+//
+
+=background_button($image, $bg_color, $font_color: #fff, $padding_top: 5px, $padding_bottom: 4px, $padding_left_right: 20px)
+  :color $font_color
+  :padding $padding_top $padding_left_right $padding_bottom
+  @if $font_color == #fff
+    :text-shadow $bg_color 0 -1px 0
+  @end
+  :border 1px solid $bg_color
+  :background url($image) repeat-x
+  .IE &
+    :border #666
+    :background-color $bg_color
+    :font-weight bold
+    :padding ($padding_top + 1) ($padding_left_right * 0.8) ($padding_bottom - 1)
+  +border_radius(4px)
+  :cursor pointer
+  &:hover
+    :background-position 0 -5px
+
+
+=image_background_anchor($image, $padding_top, $padding_bottom, $padding_left_right)
+  :display block
+  :background url($image) left no-repeat
+  :padding-left $padding_left_right
+  a
+    :display block
+    :margin 0
+    :background url($image) right no-repeat
+    :padding $padding_top $padding_left_right $padding_bottom 0
+    .IE &
+      :font-weight bold
+
+
+
+//
+// tabnav
+//
+
+=tabnav_fixed_width($image, $tab_width, $tab_height, $image_bg)
+  @if $image_bg
+    :background url($image_bg) repeat-x
+  @endif
+  ul.tabnav
+    +clearfix
+    li
+      +float_left
+      :width $tab_width
+      :height $tab_height
+      :background url($image) no-repeat
+      a
+        :display block
+        :text-align center
+        :font-size 15px
+        :padding-top ($tab_height - 15)/2
+        :padding-bottom ($tab_height - 15)/2
+      a:hover
+        :background url($image) no-repeat left (-1 * $tab_height)
+    li.current
+      :background url($image) no-repeat left (-2 * $tab_height)
+      a
+
+=tabnav_element($image, $width, $height)
+  a
+    :display block
+    :width $width
+    :height $height
+    +hide_text
+    :background url($image) no-repeat left top
+    &:hover
+      :background url($image) no-repeat left (-1 * $height)
+  &.current
+    a
+      :background url($image) no-repeat left (-2 * $height)
+
+
+
+//
+// image buttons
+// 
+
+=anchor_image($image, $width, $height)
+  :display block
+  :width $width
+  :height $height
+  :cursor pointer
+  +hide_text
+  :background url($image) no-repeat left top
+  &:hover
+    :background url($image) no-repeat left (-1 * $height)
+  &:active
+    :background url($image) no-repeat left (-2 * $height)
+
+=anchor_image_one($image, $width, $height)
+  :display block
+  :width $width
+  :height $height
+  :cursor pointer
+  +hide_text
+  :background url($image) no-repeat left top
+  &:hover
+    :background url($image) no-repeat left top
+  &:active
+    :background url($image) no-repeat left top
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

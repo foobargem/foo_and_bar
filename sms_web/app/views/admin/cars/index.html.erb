@@ -1,25 +1,36 @@
-<h1>Listing admin_cars</h1>
+<h1>차량 관리</h1>
 
-<table>
-  <tr>
-    <th>차명</th>
-    <th>가격</th>
-    <th></th>
-  </tr>
+<div class="action_container">
+  <%= link_to '새로 등록하기', new_admin_car_path %>
+</div>
 
-<% @cars.each do |car| %>
-  <tr>
-    <td><%= car.name %></td>
-    <td><%= car.price %></td>
-    <td>
-      <%= link_to 'Show', [:admin, car] %>
-      <%= link_to 'Edit', edit_admin_car_path(car) %>
-      <%= link_to 'Destroy', [:admin, car], :confirm => 'Are you sure?', :method => :delete %>
-    </td>
-  </tr>
-<% end %>
+<table class="cars">
+  <thead>
+    <tr>
+      <th class="company_name">제조사</th>
+      <th class="name">차명</th>
+      <th class="voice_stream_url">음성 URL</th>
+      <th class="video_stream_url">영상 URL</th>
+      <th class="photo">사진</th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td class="company_name"><%= display_company_name(car) %></td>
+        <td class="name"><%= car.name %></td>
+        <td class="voice_stream_url"><%= car.voice_stream_url %></td>
+        <td class="video_stream_url"><%= car.video_stream_url %></td>
+        <td class="photo">
+          <%= image_tag car.image_raw.url(:thumb, false) %>
+        </td>
+        <td class="actions">
+          <%= link_to 'Edit', edit_admin_car_path(car) %>
+          <%= link_to 'Destroy', [:admin, car], :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Car', new_admin_car_path %>

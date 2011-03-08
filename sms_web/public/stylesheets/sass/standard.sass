@@ -1,0 +1,1496 @@
+@import reset
+@import layout
+@import form
+@import typo
+@import popup
+@import giftcard
+
+/* deals */
+
+=deal_category
+  +clearfix
+  :padding 5px
+  span
+    +float_left
+    :display block
+    :margin 0 5px
+    :padding 0 5px
+    :background #393
+    :color #fff
+
+
+// index
+
+.deal_index
+  +clearfix
+  :background #fff
+  :min-height 1100px
+  .deal_index_title
+    :padding 0 20px
+    h2
+      :border-bottom 1px solid #cfcfcf
+      :margin-bottom 30px
+      :padding 0 10px
+      :font-size 1.8em
+      +image_replacement("/images/cs/today_deal_title.png", 215px, 40px)
+  ul.deals
+    +clearfix
+    li.deal
+      +float_left
+      :width 720px
+      :height 200px
+      :margin 15px 40px
+      div.timestamp
+        :padding 0 12px 5px
+        :color #333
+      div.summary
+        .summary_header
+          +clearfix
+          :padding 5px 10px
+          :border 2px solid #bcbbbb
+          :color #555
+          .title
+            +float_left
+            :font-weight bold
+            :font-size 1.2em
+            +heading_font_family
+        .summary_main
+          +clearfix
+          :padding 10px
+          :border 1px solid #fff
+          :border-top none
+          .discount_rate
+            +float_left
+            :background url(/images/master/discount_orange.png) no-repeat
+            :width 103px
+            :height 102px
+            .rate
+              +float_left
+              :margin-top 36px
+              :margin-left 24px
+          .preview_info
+            +float_left
+            :width 360px
+            :margin-left 20px
+            :margin-top 20px
+            .price
+              +float_right
+              :font-size 20px
+              :line-height 140%
+              :font-weight bold
+              :text-align right
+            .original_price
+              +float_right
+              :margin-right 20px
+              :margin-top 6px
+              :font-size 16px
+              :line-height 140%
+              :color #777
+              :text-decoration line-through
+              :text-align right
+            .desc
+              +clear
+              :color #333
+              :padding-top 10px
+          .preview_image
+            +float_right
+            :margin-right 15px
+            .thumbnail
+              img
+                :width 183px
+                :height 112px
+            .soldout
+              :position absolute
+              +image_replacement("/images/master/soldout_thumb2.png", 183px, 107px)
+    li.current
+      :cursor pointer
+      div.summary
+        .summary_main
+          :background #fafdec
+          :border 1px solid #bcbbbb
+          :border-top none
+
+
+
+
+
+
+// about
+
+.page_title
+  :background #fff url(/images/master/gnb_shadow1020.png) no-repeat
+  :padding 35px 20px 0px
+  h2
+    :font-size 1.8em
+  .about_title
+    :border-bottom 1px solid #cfcfcf
+    h2
+      :padding 0 10px
+      +image_replacement("/images/cs/about_title.png", 180px, 40px)
+
+.main_container
+  .about_content
+    :margin-top 5em 
+    :margin-bottom 10em
+    :background white 
+    :padding-bottom 200px    
+    p
+      :margin 10px 2em 10px 2em
+      :font-size 1.2em
+    div
+      +clearfix
+      :margin 2em 2em 2em 2em
+      :font-size 1.2em
+      h2
+        :margin-bottom 1em
+      ul
+        list-style: square
+        li
+          :font-size 1.2em
+          :margin-bottom 1em
+          :line-height 1.5em
+          p
+            :font-size 1em
+            :margin 0
+            :padding 0
+    div.center
+      :text-align center
+      :margin-top 4em
+      :margin-bottom 4em
+    ul
+      li
+        :font-size 1.2em
+    div.sungges
+      ul
+        li
+          +float_left
+          :text-align center
+          :font-size 1.5em
+        li.spacer                  
+          p
+            :margin 5em 0 0 0
+            :padding 0
+          
+
+
+
+// agreement
+
+.page_title
+  :background #fff url(/images/master/gnb_shadow1020.png) no-repeat
+  :padding 35px 20px 0px
+  h2
+    :font-size 1.8em
+  .agreement_title
+    :border-bottom 1px solid #cfcfcf
+    h2
+      :padding 0 10px
+      +image_replacement("/images/cs/terms_title.png", 123px, 40px)
+.main_container
+  .agreement_content
+    :background white
+    :padding-bottom 200px
+
+
+// privacy_policy
+
+.page_title
+  :background #fff url(/images/master/gnb_shadow1020.png) no-repeat
+  :padding 35px 20px 0px
+  h2
+    :font-size 1.8em
+  .privacy_policy_title
+    :border-bottom 1px solid #cfcfcf
+    h2
+      :padding 0 10px
+      +image_replacement("/images/cs/policy_title.png", 242px, 40px)
+.main_container
+  .privacy_policy_content
+    :background white 
+    :padding-bottom 200px
+    
+    
+// faq
+
+.page_title
+  :background #fff url(/images/master/gnb_shadow1020.png) no-repeat
+  :padding 35px 20px 0px
+  h2
+    :font-size 1.8em
+  .faq_title
+    :border-bottom 1px solid #cfcfcf
+    h2
+      :padding 0 10px
+      +image_replacement("/images/cs/faq_title.png", 87px, 40px)
+.main_container
+  .faq_content
+    :background white
+    :padding-bottom 200px    
+
+
+// contact_info
+
+.page_title
+  :background #fff url(/images/master/gnb_shadow1020.png) no-repeat
+  :padding 35px 20px 0px
+  h2
+    :font-size 1.8em
+  .contact_info_title
+    :border-bottom 1px solid #cfcfcf
+    h2
+      :padding 0 10px
+      +image_replacement("/images/cs/contact_title.png", 121px, 40px)
+.main_container
+  .contact_info_content
+    :background white 
+    :padding-bottom 200px    
+    
+    
+// recent
+
+.page_title
+  :background #fff url(/images/master/gnb_shadow1020.png) no-repeat
+  :padding 35px 20px 0px
+  h2
+    :font-size 1.8em
+  .recent_deal_title
+    :border-bottom 1px solid #cfcfcf
+    h2
+      :padding 0 10px
+      +image_replacement("/images/cs/recent_deal_title.png", 191px, 40px)
+  .current_deal_title
+
+  .purchase_deal_title, .confirm_order_title, .completed_order_title
+    +clearfix
+    :border-bottom 1px solid #cfcfcf
+    :padding 2px 12px
+    h2, h3
+      +float_left
+      :line-height 30px
+      :margin-right 10px
+    h3
+      :color #999
+  .new_giftcard_title
+
+.deal_recent
+  +clearfix
+  :padding 20px
+  :background #fff
+  ul.deals
+    +clearfix
+    li.deal
+      +float_left
+      :width 450px
+      :height 200px
+      :margin 15px 20px
+      div.timestamp
+        :padding 0 12px 5px
+        :color #333
+      div.summary
+        .summary_header
+          +clearfix
+          :padding 5px 10px
+          :border 2px solid #bcbbbb
+          :color #555
+          .title
+            +float_left
+            :font-weight bold
+            +heading_font_family
+        .summary_main
+          +clearfix
+          :padding 10px
+          :border 1px solid #fff
+          :border-top none
+          .discount_rate
+            +float_left
+            :background url(/images/master/discount_gray.png) no-repeat
+            :width 103px
+            :height 102px
+            .rate
+              +float_left
+              :margin-top 36px
+              :margin-left 24px
+          .preview_info
+            +float_left
+            :width 115px
+            :text-align right
+            :margin-top 40px
+            .price
+              :font-size 20px
+              :line-height 140%
+              :font-weight bold
+            .original_price
+              :font-size 16px
+              :line-height 140%
+              :color #777
+              :text-decoration line-through
+            .amount
+              :font-size 16px
+              :line-height 140%
+              :color #333
+          .preview_image
+            +float_right
+            :margin-right 15px
+            .thumbnail
+              img
+                :width 183px
+                :height 112px
+            .soldout
+              :position absolute
+              +image_replacement("/images/master/soldout_thumb2.png", 183px, 107px)
+    li.current
+      :cursor pointer
+      div.summary
+        .summary_main
+          :background #f6f6f6
+          :border 1px solid #e2e1e1
+          :border-top none
+
+// notice
+.notice_index_title
+  :border-bottom 1px solid #cfcfcf
+  h2
+    :padding 0 10px
+    +image_replacement("/images/cs/notice_title.png", 271px, 40px)
+      
+ul.notices
+  :margin-top 3em
+  li.notice
+    div.summary
+      .summary_header
+        :padding 5px 10px
+        :border 2px solid #bcbbbb
+        :color #555
+        +clearfix
+        .title
+          +float_left
+          :font-weight bold
+          +heading_font_family
+        div.timestamp
+          +float_right
+          :padding 0 12px 5px
+          :color #333
+      .summary_main
+        +clearfix
+        :padding 10px
+        :border 1px solid #fff
+        :border-top none
+  li.current
+    :cursor pointer
+  li.latest
+    :cursor pointer
+    div.summary
+      .summary_header
+        :background-color #ffbf2c
+        .title
+          :color #000
+          .new
+            :font-size 0.7em
+            :color #d00
+
+      
+
+
+
+
+/* deals SHOW */
+
+div.deal_main
+  +clearfix
+  .deal_title
+    :position absolute
+    :background url(/images/master/gnb_shadow.png) no-repeat
+    :width 800px
+    +hide_text
+    h2
+    .desc
+  .deal_status
+    :position absolute
+    div
+      &.sold_out
+        +image_replacement("/images/master/notice_soldout.png", 800px, 70px)
+      &.upcoming
+        +image_replacement("/images/master/notice_upcoming.png", 800px, 70px)
+      &.passed
+        +image_replacement("/images/master/notice_completed.png", 800px, 70px)
+  .deal_category_and_date
+    :position absolute
+    :margin-top 100px
+    :margin-left -25px
+    img
+  .top_image
+    +clearfix
+    img.main_image
+      +float_left
+  .deal_usage
+    :border-top 1px dotted #666
+    :padding 30px 20px 40px
+    :background #fff
+    img
+      :margin-right 20px
+  .deal_price
+    +float_left
+    :position absolute
+    :background url(/images/master/deal_price_bg_white.png) no-repeat
+    :padding 0 10px 11px
+    :width 218px
+    :height 500px
+    :margin-top -420px
+    :margin-left 789px
+    .prices
+      :margin 0 10px 5px
+      :background url(/images/master/discount_orange.png) no-repeat
+      .discount_rate
+        +clearfix
+        :padding-top 36px
+        :margin-right 134px
+        :letter-spacing 0px
+        :font-weight bold
+        :font-size 36px
+        :color white
+      .original_price
+        +clearfix
+        :margin-top 25px
+        :padding 0 8px
+        :text-align right
+        :font-size 24px
+        :line-height 100%
+        :color #525252
+        :text-decoration line-through
+      .price
+        +clearfix
+        :margin-top 10px
+        :padding 0 8px
+        :text-align right
+        :font-size 36px
+        :line-height 100%
+    .buy
+      .buttons_wrapper
+        :padding 10px 15px
+        .buy_button
+          :margin-bottom 10px
+          a
+            +anchor_image("/images/master/btn_buy.png", 188px, 52px)
+            :font-size 1.5em
+        .gift_button
+          a
+            +anchor_image("/images/master/btn_gift.png", 188px, 40px)
+            :font-size 1.2em
+      .soldout
+        :margin-left 2px
+        :background url(/images/master/buy_soldout.png) no-repeat
+        :width 190px
+        :height 93px
+        :padding 15px
+        +heading_font_family
+        p
+          :color #fff
+          :font-size 13px
+      .completed
+        :margin-left 2px
+        :background url(/images/master/buy_completed.png) no-repeat
+        :width 190px
+        :height 93px
+        :padding 15px
+        +heading_font_family
+        p
+          :color #fff
+          :font-size 13px
+    .time
+      :padding 10px 10px 5px
+      .close_date
+        :margin-left 22px
+        :padding 3px 0 6px 35px
+        :font-size 12px
+        :color #4E4E4E
+        :background url(/images/icons/old_clock.png) no-repeat
+      .soldout
+        :text-align center
+        :color #4E4E4E
+        :padding-top 5px
+        :font-size 12px
+        +hide_text
+    .countdown_board
+      :margin-top 5px
+    .stats
+      +clear
+      :padding 10px 10px 10px
+      .IE &
+        :padding-top 3px
+      .require
+        +clearfix
+        :margin-left 4px
+        div.current_count
+          +float_left
+          :font-size 10px
+          :color #0A72C7
+          :padding 2px 3px 13px 3px
+          :background url(/images/master/graph_marker.png) no-repeat 0 18px
+        div.bar_graph
+          +clear
+          +clearfix
+          :margin-left 2px
+          .area_1
+            +float_left
+            :height 11px
+            :background url(/images/master/graph_on.png) no-repeat left top
+          .area_0
+            +float_left
+            :height 11px
+            :background url(/images/master/graph_off.png) no-repeat right top
+        .left_label
+          +float_left
+          :font-size 11px
+          :margin-top 2px
+        .right_label
+          +float_right
+          :font-size 11px
+          :margin-top 2px
+      .stats_caption
+        :text-align center
+        :margin 5px auto 0
+        :width 188px
+        .need_more
+          :background url(/images/master/graph_caption1.png) no-repeat
+          :font-size 12px
+          :padding 3px 0
+          :color #0A72C7
+          span.number
+            :color #0A72C7
+            :font-weight bold
+        .satisfied
+          :border 1px solid blue
+          span.number
+            :color #0A72C7
+            :font-weight bold
+    .share_box
+      +clearfix
+      :padding-left 15px
+      .retweet
+        +float_left
+      .fb_like
+        +float_right
+
+
+=clock_font($size)
+  :font-size $size
+  :font-weight bold
+  :font-family Times
+  :line-height 100%
+  :color white
+
+.countdown_board
+  +float_right
+  :margin-right 2px
+  div
+    +float_left
+  .day
+    :background url(/images/master/clock_bg_day.png) no-repeat
+    :width 47px
+    :height 26px
+  .hour
+  .minute
+  .second
+  .spacer
+    :background url(/images/master/clock_spacer.png) no-repeat
+    :margin 9px 2px 0
+    :padding 8px 1px 0
+  span
+    &.numbers
+      +clock_font(20px)
+      +float_left
+      :margin-top 3px
+      :margin-left 7px
+      :letter-spacing 3px
+    &.number_first
+      +float_left
+      +clock_font(20px)
+      :background url(/images/master/clock_bg.png) no-repeat
+      :width 20px
+      :height 26px
+      :margin-right 1px
+      span
+        +float_left
+        :padding-top 3px
+        :text-align center
+        :width 100%
+    &.number_second
+      +float_left
+      +clock_font(20px)
+      :background url(/images/master/clock_bg.png) no-repeat
+      :width 20px
+      :height 26px
+      span
+        +float_left
+        :padding-top 3px
+        :text-align center
+        :width 100%
+
+
+.deal_nav
+  ul.tabnav
+    +clearfix
+    :background url(/images/nav/deal_bg.gif) repeat-x
+    :padding 0 20px
+    li
+      +float_left
+      &.detail
+        +tabnav_element("/images/nav/deal01.png", 131px, 47px)
+      &.talks
+        +tabnav_element("/images/nav/deal02.png", 131px, 47px)
+      &.inquiries
+        +tabnav_element("/images/nav/deal03.png", 132px, 47px)
+
+.inner_deal_layout
+  :padding 20px 0
+  :background #fff
+  :min-height 800px
+
+
+
+// deal info
+
+.deal_info
+  +clearfix
+
+.deal_merchant
+  +clearfix
+
+.deal_caution
+  +clearfix
+
+.deal_desc
+  +clearfix
+  :min-height 800px
+
+.deal_reviews
+  +clearfix
+  .review_link
+    +float_right
+    a
+      +image_replacement("/images/master/review_link.png", 275px, 203px)
+
+.deal_map
+  +clearfix
+  :margin-top -10px
+  .map_section
+    :border-top 2px solid #000
+  .map_alt
+    :position absolute
+    :margin-top 10px
+    :margin-left 630px
+    ul
+      +clearfix
+      li
+        +float_left
+        :margin 0 3px
+        a
+          &.naver_map
+            +image_replacement("/images/icons/map_naver.png", 71px, 18px)
+          &.daum_map
+            +image_replacement("/images/icons/map_daum.png", 71px, 18px)
+  .address_section
+    :min-height 120px
+    :background #333
+
+
+
+// talks
+
+.deal_talks
+  +clearfix
+  :padding 20px
+  h3
+    :background url(/images/master/talks_info.png) no-repeat
+    :padding 50px 0 10px 80px
+    :margin 10px 0
+    :font-size 1.3em
+    :color #666
+  p.notice
+    +heading_font_family
+    :color #666
+    :padding 15px 5px 1px
+  .talk_form
+    +clearfix
+    :padding-bottom 10px
+    :margin-bottom 10px
+    div.talk_content
+      +float_left
+      textarea
+        :padding 5px
+        :border 1px solid #ccc
+        :height 59px
+    div.buttons
+      +float_right
+      input.image_submit
+        +image_submit("/images/form/submit_comment.png", 59px, 71px)
+        +hide_text
+      a
+        +image_replacement("/images/form/submit_comment.png", 59px, 71px)
+  .level_0
+    :border-top 1px solid #eee
+    textarea
+      :width 680px
+      :background #f5f5f5
+  .level_1
+    :margin 5px 0 0 20px
+    :padding 5px 20px 5px 20px
+    :background #f6f6f6 url(/images/icons/talk_comment.png) no-repeat 5px 7px
+    textarea
+      :width 610px
+      :background #fff
+  .level_2
+    :margin 0 0 0 20px
+    :padding 5px 30px 5px 40px
+    :background #f6f6f6 url(/images/icons/talk_comment.png) no-repeat 25px 7px
+    textarea
+      :width 580px
+  .level_3
+    :margin 0 0 0 20px
+    :padding 5px 40px 5px 60px
+    :background #f6f6f6 url(/images/icons/talk_comment.png) no-repeat 45px 7px
+    textarea
+      :width 550px
+  .level_4
+    :margin 0 0 0 20px
+    :padding 5px 50px 5px 80px
+    :background #f6f6f6 url(/images/icons/talk_comment.png) no-repeat 65px 7px
+    textarea
+      :width 520px
+
+ul.talks
+  :border-top 1px solid #333
+  :padding 10px 5px
+  li
+    +clearfix
+    :padding 10px 5px 0
+    :margin-top 10px
+    :margin-bottom 0
+    .talk_user
+      +float_left
+      :width 100px
+      :font-size 11px
+      :color #666
+      .user
+        :background url(/images/icons/talk_user.png) no-repeat 1px 3px
+        :padding-left 19px
+      .admin
+        :background url(/images/icons/talk_pangsday.png) no-repeat left 1px
+        :padding-left 19px
+      .merchant
+        :background url(/images/icons/talk_user.png) no-repeat 1px 3px
+        :padding-left 19px
+    .talk_content
+      +float_left
+      :font-size 12px
+      :color #333
+      .timestamp
+        :color #ccc
+        :font-size 10px
+        :padding-left 10px
+    .actions
+      +float_right
+      a
+        +float_left
+        :margin 2px 1px 0
+        &.delete_button
+          +image_replacement("/images/icons/talk_delete.gif", 14px, 14px)
+        &.edit_button
+          +image_replacement("/images/icons/talk_edit.gif", 14px, 14px)
+        &.reply_button
+          +image_replacement("/images/icons/talk_reply.gif", 14px, 14px)
+    .msg
+    &:first-child
+      :border-top none
+
+div.pagination
+  :margin 0 auto
+  :margin-top 15px
+  :border-top 1px solid #333
+  :padding 20px 0
+  :text-align center
+  span
+    :padding 0 3px
+    :margin 0 2px
+    &.next_page
+    &.previous_page
+  em
+    :padding 2px 5px
+    :margin 0 2px
+    :border 1px solid #666
+  a, a:visited
+    :padding 0 3px
+    :margin 0 2px
+    :color #666
+    &.next_page
+    &.previous_page
+  a:hover, a:active
+  img
+    :position absolute
+    :margin-left 10px
+
+div.pagination_recent
+  :margin 0 auto
+  :margin-top 15px
+  :border-top 1px solid #cfcfcf
+  :padding 20px 0
+  :text-align center
+  span
+    :padding 0 3px
+    :margin 0 2px
+    &.next_page
+    &.previous_page
+  em
+    :padding 2px 5px
+    :margin 0 2px
+    :color #333
+  a, a:visited
+    :padding 2px 5px
+    :margin 0 2px
+    :color #777
+    :border 1px solid #ddd
+    &.next_page
+      :border none
+    &.previous_page
+      :border none
+  a:hover, a:active
+    :color #fff
+    :background #92d0db
+    :border 1px solid #038fb0
+  img
+    :position absolute
+    :margin-left 10px
+
+
+
+// inquiries
+
+div.inquiry
+  :padding 20px
+  h2
+    +image_replacement("/images/master/inquiry_info.png", 498px, 149px)
+    :margin 10px auto 30px
+  .inquiry_form
+    :border-top 1px solid #efd2d7
+    .buttons
+      :padding-left 300px
+      input.image_submit
+        +image_submit("/images/form/submit_inquiry.png", 90px, 44px)
+        +hide_text
+  .msg
+    :margin 200px auto
+    :text-align center
+
+div.inquiry_list
+  :margin-top -200px
+  :padding 80px 40px 20px
+  :background #fff url(/images/master/my_inquiry_border.png) no-repeat
+  h3
+    :background url(/images/icons/my_inquiry.png) no-repeat 5px
+    :padding 10px 0 1px 40px
+    :color #555
+  ul.inquiries
+    :margin-top 5px
+    :border-top 1px solid #f0d1d9
+    :padding-top 10px
+    :padding-bottom 30px
+    li
+      +clearfix
+      :border-bottom 1px solid #eee
+      :padding 8px 10px
+      .timestamp
+        +float_left
+        :width 120px
+        :text-align center
+        :color #666
+        :font-size 12px
+      .question_title
+        +float_left
+        :width 480px
+        a
+          :color #017bc2
+      .status
+        +float_right
+        :text-align center
+        span
+          &.answer_wait
+            :color #666
+          &.answer_done
+            :color #f6801d
+      .detail
+        +clear
+        :padding 10px 10px
+        .question_body
+          :padding 10px 10px
+          :margin-bottom 10px
+        .answer
+          :background #f6f6f6 url(/images/icons/talk_comment.png) no-repeat 12px 12px
+          :padding 10px 10px 10px 30px
+          +border_radius(10px)
+          p
+            :color #999
+            :font-size 0.9em
+            :margin-bottom 5px
+    li:last-child
+      :border none
+
+
+.select_popup
+  :width 486px
+  :border none
+  :background none
+  :margin-left -35px
+  :margin-top -30px
+  .options_popup_wrapper
+    :background url(/images/master/option_popup_bottom.png) no-repeat left bottom
+    :padding-bottom 30px
+    .options_wrapper
+      :background url(/images/master/option_popup_top.png) no-repeat
+      :padding 15px 30px 0 15px
+      .options_title
+        +clearfix
+        :margin-bottom 10px
+        h3
+          +float_left
+        a
+          +float_right
+      ul.deal_options
+        li
+          +clearfix
+          :padding 10px
+          .option_info
+            +float_left
+            :width 340px
+            .option_name
+              +clearfix
+              .option_title
+                +float_left
+                :width 80px
+                :color #0981be
+                :font-weight bold
+              ul.option_stats
+                +float_left
+                li
+                  +float_left
+                  :padding 0
+                  :text-align center
+                  &.splitter
+                    :margin 0 5px
+                .price
+                  :width 80px
+                  :font-weight bold
+                .value
+                  :width 70px
+            .option_desc
+              :margin-top 5px
+              :color #777
+          .option_button
+            +float_right
+            a
+              +image_replacement("/images/master/btn_buy_small.png", 75px, 32px)
+          &.odd
+            :background #eee
+          &.even
+
+
+
+
+/* Side Widgets */
+
+.side_box
+  :margin-top 20px
+  .side_box_header
+    :height 52px
+    :background url("/images/side/box_header_bar.png") no-repeat
+    h3
+      :padding 15px 10px 0
+      :color #ffffff
+  .side_box_content
+    :border-left 1px solid #aaaaaa
+    :border-right 1px solid #aaaaaa
+    :background #fff
+    :padding 5px
+  .side_box_footer
+    :height 10px
+    :background url("/images/side/box_footer_bar.png") no-repeat
+
+
+.side_deals_banner
+  h3
+    +image_replacement("/images/master/deals_box_top.png", 155px, 42px)
+  ul.side_deals
+    :background url(/images/master/deals_box_body.png) repeat-y
+    li.deal
+      +clearfix
+      :padding 10px
+      .sd_content
+        +clearfix
+        .preview
+          +float_left
+          a
+            +float_left
+            :border 1px solid #ccc
+            img
+              +float_left
+              :width 133px
+              :height 77px
+          a:hover
+            :border 1px solid #666
+      .sd_summary
+        +clearfix
+        :padding 5px
+        :background url(/images/master/deals_box_spacer.png) no-repeat left bottom
+        .sd_category
+          +float_left
+          :font-size 0.9em
+        .sd_price
+          +float_right
+  a.more_deals
+    +image_replacement("/images/master/deals_box_bottom.png", 155px, 28px)
+
+
+.twitter_widget
+
+.facebook_widget
+  .side_box_title
+    :background url(/images/master/facebook_title.png) no-repeat
+    :height 52px
+    :padding-left 10px
+    :color #fff
+    h3
+      :font-size 11px
+      :font-weight normal
+      :padding-top 10px
+      :line-height 1.2em
+    h4
+      :font-size 16px
+      :line-height 1.2em
+  iframe
+    :background #fff
+
+.subscription_widget
+  :background url(/images/master/subscription_title.png) no-repeat
+  :padding-top 52px
+  .subscription_form
+    :background url(/images/master/subscription_footer.png) no-repeat left bottom
+    :padding-bottom 10px
+    form
+      :background white
+      .text_field
+        :width 120px
+        :margin-right 3px
+        :float left
+      &.email_subscription
+        :padding 17px 8px 5px
+      &.sms_subscription
+        :padding 5px 8px 17px
+      .subscription_submit
+        :margin-top 1px
+        +button_image_replacement("/images/master/btn_subscription.png", 44px, 23px)
+        
+.news_widget
+  :height 200px
+
+.giftcard_widget
+  .point_current
+    :margin-bottom 15px
+  .point_use
+    :margin-bottom 20px
+    label
+      :font-size 0.95em
+    #giftcard_code
+      :margin-right 4px
+      :float left
+    .giftcard_submit
+      :margin-top 1px
+      +button_image_replacement("/images/master/btn_giftcard_submit.png", 64px, 23px)
+  .point_buy
+
+.payment_faq_widget
+  .faq_section
+    :margin-bottom 20px
+    h5
+      :margin-bottom 10px
+    .blank
+      :padding 10px 10px
+      :color #666
+
+
+
+
+
+
+
+
+/* purchase & checkout */
+
+// purchase
+
+div.order_ticket
+  :padding 10px 20px 30px 20px
+  :background #fff
+  ul.actions
+    +clearfix
+    :margin 30px
+    li
+      +float_left
+      &.spacer
+        :text-indent -9999em
+        :width 30px
+      a.go_main_btn
+        +anchor_image("/images/master/go_main_btn.png", 170px, 30px)
+      a.go_mypage_btn
+        +anchor_image("/images/master/go_mypage_btn.png", 170px, 30px)
+
+.order_info
+  :padding 10px
+  :margin-top 10px
+  :background #d6f0ff
+  p
+    :font-size 0.9em
+    :color #111
+
+.order_error_messages
+  :padding 10px
+  :margin-top 10px
+  :border 1px solid red
+  p
+    :padding 3px 5px
+    :color red
+
+table.order
+  :width 100%
+  :margin-top 15px
+  thead
+    th
+      :border-bottom 1px solid gray
+      :padding 1px 5px
+      &.item
+      &.amount
+        :width 100px
+        :text-align center
+      &.price
+        :width 100px
+        :text-align center
+      &.total
+        :width 100px
+        :text-align right
+  tbody
+    tr
+      td
+        :padding 4px 5px
+        &.item
+          select
+            :width 90%
+        &.amount
+          :text-align center
+        &.price
+          :text-align center
+        &.total
+          :text-align right
+
+.order_toolbox
+  +clearfix
+  :margin 15px 0 0
+  .left_side
+    +float_left
+    :padding-left 4px
+    a
+      :font-size 0.9em
+      +image_replacement("/images/order/for_gift_btn.png", 139px, 63px)
+  .right_side
+    +float_right
+    a
+      :font-size 0.9em
+
+.gift_option
+  :padding 20px
+  :margin 0
+  .gift_frame
+    :border 2px solid #a27030
+    :position relative
+    .ribbon_wrapper
+      :position absolute
+      :left -20px
+      :top -10px
+      +image_replacement("/images/icons/ribbon_decoration.png", 121px, 106px)
+    .info_wrapper
+      :margin-top 10px
+      :background #c59659
+      :padding 10px 10px 10px 150px
+      p.info
+        :color #eee
+        span.important
+          :color #ffffff
+          :font-weight bold
+    .form_wrapper
+      :margin 10px 0 10px 150px
+      .wrapper
+        +clearfix
+        :padding 5px 0
+        label
+          +float_left
+          :width 100px
+          :margin-top 3px
+        input, textarea
+        p.desc
+          :margin-left 100px
+          :font-size 0.9em
+          :color #777
+      .action
+        :padding 10px 0 10px 105px
+        a.cancel_gift_option
+          +float_left
+          +image_replacement("/images/order/cancel_gift_btn.png", 98px, 22px)
+
+.order_address
+  :padding 0
+  :margin 10px 0
+  p
+    :background #e5e5e5
+    :padding 10px
+    :margin-bottom 10px
+  div
+    :padding 5px
+    label
+      +float_left
+      :width 100px
+      :margin-top 3px
+    input
+  a.find_postnumber
+    :font-size 0.9em
+
+
+.total_amount
+  +clearfix
+  :margin-top 30px
+  .point_info
+    +clearfix
+    :background #e5e5e5
+    :padding 10px
+    .user_point
+      +float_left
+    .cause_message
+      +float_right
+      :text-align left
+  .wrapper
+    +clearfix
+    :padding 0 70px
+    :margin-top 10px
+  .caption
+    +float_left
+    :clear left
+    :width 130px
+    :text-align right
+    :margin-bottom 3px
+  .amount
+    +float_left
+    :width 200px
+    :padding-right 20px
+    :text-align right
+    :margin-bottom 3px
+  .amount_option
+    +float_left
+    :color #999
+    :font-size 0.9em
+    a.apply_point_button
+      +image_replacement("/images/order/apply_point_btn.png", 98px, 22px)
+  .sub_total
+    :margin-top 15px
+    :margin-bottom 15px
+    :border-bottom 1px solid #ddd
+    .caption, .amount
+      :padding-bottom 5px
+  .total
+    :font-size 1.2em
+    :color #f60
+    :margin 15px 0
+    :border-top 1px solid #ddd
+    .caption, .amount
+      :padding-top 15px
+  .payment
+    :border-top 1px solid #ddd
+    :border-bottom 1px solid #bbb
+    .caption, .amount
+      :margin 20px 0
+
+
+.complete_order
+  +clearfix
+  :margin-top 10px
+  :margin-bottom 30px
+  :padding 20px
+  .payment_method
+    +clearfix
+    :padding-bottom 10px
+    label
+      +float_left
+      :width 100px
+      :margin-top 3px
+  .complete_button
+    +float_left
+    input
+      :border 0
+      +anchor_image("/images/order/order_btn.png", 128px, 30px)
+  .cancel_link
+    +float_left
+    :margin-left 50px
+    a
+      +anchor_image("/images/order/cancel_btn.png", 129px, 30px)
+      :font-size 0.9em
+
+
+
+// order confirm
+
+
+
+// completed & summary
+
+.order_result_wrapper
+  +clearfix
+  :margin-top 20px
+  :background #f5f5f5
+  :padding 20px
+  .result_logo_for_complete
+    +float_left
+    +image_replacement("/images/character/order_complete.png", 70px, 74px)
+    :margin-left 180px
+  .result_logo_for_error
+    +float_left
+    +image_replacement("/images/character/order_complete.png", 70px, 74px)
+    :margin-left 110px
+  .result_messages
+    +float_left
+    :margin-left 15px
+    li
+      :font-size 1.45em
+      :font-weight bold
+      :padding 8px
+      &.reason
+        :color #cc1010
+
+.main_section
+  :padding 10px
+  :margin-top 10px
+  h3
+
+table.v_box
+  :width 100%
+  :margin 10px 0
+  tr
+    td
+      :border-top 1px solid #999
+      :border-bottom 1px solid #999
+      :padding 7px 10px 5px
+      &.caption
+        :border-right 1px solid #999
+        :width 150px
+      &.value
+
+table.h_box
+  :width 100%
+  :margin 10px 0
+  th, td
+    :padding 7px 10px 5px
+    :text-align center
+    :border 1px solid #999
+    &.first
+      :border-left none
+    &.last
+      :border-right none
+  th
+    :background #ddd
+  td
+  .actions
+    :width 100px
+
+.order_summary
+  h2
+  .gift_summary
+    :padding 10px
+    :margin-top 10px
+    :background #fee
+  .summary_notice
+    :background #eee
+    :padding 10px
+    :margin-top 10px
+  .refund_info
+    :background #e5e5e5
+    :padding 10px
+    :margin-top 10px
+
+
+
+// giftcard
+
+.edit_giftcard, .confirm_giftcard, .completed_giftcard
+  +clearfix
+  :background #fff
+  :padding 20px
+  :padding-bottom 20px
+  .left_side
+    +float_left
+    +clearfix
+    :width 36%
+    :padding-left 20px
+    .payment_summary
+      :margin-top 20px
+    .actions
+      :margin-top 20px
+    form
+      div.input
+        +clearfix
+        :padding 5px
+        label
+          +float_left
+          :width 120px
+        textarea
+          :width 200px
+        span
+          &.hint
+            :margin-left 125px
+            :display block
+            :color #999
+            :font-size 0.85em
+          &.error
+            :margin-left 125px
+            :color red
+            :font-size 0.9em
+            :display block
+
+        .collection_wrapper
+          +float_left
+          li
+            +clearfix
+            :padding 3px
+          span.error
+            :margin-left 0px
+
+        input.disabled
+          :background #eee
+      .buttons
+        :margin 10px 0 20px 125px
+        .buy_button
+          :border 0px
+          +anchor_image("/images/master/btn_buy.png", 188px, 52px)
+
+  .right_side
+    +float_right
+    :width 60%
+
+  ul.guides
+    :padding 10px
+  ul.suggests
+    :padding 10px
+    
+
+
+
+.giftcard_confirm
+  
+  :background #fff
+  .giftcard_preview
+    :padding 20px
+
+

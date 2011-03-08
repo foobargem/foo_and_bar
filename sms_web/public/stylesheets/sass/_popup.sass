@@ -1,0 +1,75 @@
+@import mixin
+
+
+.popup
+  :max-width 600px
+  :border 5px solid #444
+  :padding 10px
+  :background-color white
+  :position absolute
+
+#popup_overlay
+  :background-color #333
+  +opacity(0.5)
+  :position absolute
+  :top 0
+  :left 0
+  :width 100%
+  :height 500px
+
+span.popup_link, a.popup_link
+  :cursor pointer
+
+.popup_draghandle
+  :cursor move
+
+
+//
+
+.edit_popup
+  :width 800px
+  :text-align left
+
+
+//
+
+.message_popup
+  :background #333
+  +opacity(0.8)
+  :border-bottom 1px solid gray
+  :position absolute
+  div.text
+    :color #fff
+    :font-size 1.1em
+    :text-align center
+    :padding 20px
+  a
+    +float_right
+    :position absolute
+    :top 15px
+    :right 30px
+    +normal_anchor_style(#ffa, transparent, underline)
+
+
+
+//
+
+.giftcard_print_popup
+  :width 600px
+  :padding 10px
+  :background #fff
+
+// ZipCode Popup
+
+.zipcode_search_popup
+  h3
+    :padding-bottom 15px
+  form
+  #zipcodes
+    :padding 10px 0
+    :margin-top 10px
+    :height 150px
+    :overflow-y auto
+    ul
+      :height 100%
+        

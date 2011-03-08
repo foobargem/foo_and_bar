@@ -1,0 +1,48 @@
+@import mixin
+
+
+div.giftcard
+  :position relative
+  div.left
+    :position absolute
+    :left 15px
+    :top 220px
+    :width 154px
+    :height 40px
+    div#card_amount
+      :color #fff
+      :font-size 2.0em
+      :font-weight bold
+      :text-align center
+      :letter-spacing -3px
+    div#card_code
+      :position absolute
+      :width 154px
+      :top 60px
+      :font-size 0.9em
+      :font-weight bold
+      :text-align center
+      :padding-top 4px
+  div.right
+    :position absolute
+    :left 190px
+    :top 110px
+    :height 130px
+    :width 310px
+    #card_to
+      :font-size 0.9em
+      :font-weight bold
+      :padding-bottom 10px
+    #card_message
+      :font-size 0.85em
+      :line-height 140%
+    #card_from
+      :position absolute
+      :width 310px
+      :top 180px
+      :font-size 0.9em
+      :text-align right
+      span
+        :font-size 1.2em
+        :font-weight bold
+

@@ -1,0 +1,656 @@
+@import reset
+@import typo
+@import form
+@import popup
+@import giftcard
+
+/*  Layout  */
+
+
+=global_wrapper($padding_x: 10px, $padding_y: 5px)
+  :padding $padding_y $padding_x
+  +clearfix
+
+=admin_tabnav_element($image, $width, $height, $padding_y: 0px)
+  a
+    :display block
+    :width $width
+    :height ($height - $padding_y)
+    :padding-top $padding_y
+    :background url($image) no-repeat left top
+    &:hover
+      :background url($image) no-repeat left (-1 * $height)
+  &.current
+    a
+      :background url($image) no-repeat left (-2 * $height)
+
+
+//
+body
+  :min-width 1000px
+
+#headline
+  .headline_wrapper 
+    +global_wrapper
+    :padding 0px
+    :height 83px
+    +clearfix
+   
+  h1
+    +float_left
+    :margin-top 10px
+    :margin-left 10px
+    :margin-right 10px
+    
+  ul.account_nav
+    :color #fcf2ab
+    +float_right
+    :background #2b4782
+    :margin-right 10px
+    :margin-top 30px
+    :padding 0px 15px
+    li
+      +float_left
+      :margin 0 10px
+      a
+        :display block
+        :color #fcf2ab
+        :font-size 12px
+        :padding 7px 0
+      span
+        :display block
+        :padding 7px 0
+    li.spacer
+      :width 1px
+      :height 34px
+
+#header
+  :background #fff
+
+
+#gnb
+  .gnb_wrapper
+    :height 56px
+    :padding 0px
+    :border 0px solid red
+    +clearfix
+  
+  ul.nav_left
+    +float_left
+    :padding 0px 0px
+    li
+      :margin-right 20px
+      a
+        :color #000066
+        :display block
+        :text-align center
+        :font-size 15px
+
+      +float_left
+	
+  ul.nav_right
+    +float_right
+    :padding 0px 0px
+    :margin-top 11px
+    :margin-right 10px
+    li
+      :padding 0px 0px
+      :margin-left 5px
+      a
+        :color #d5e5fe
+        :display block
+        :text-align center
+        :font-size 12px
+        
+      +float_left
+
+
+#content
+  :background #fff
+  :margin-top 10px
+  .content_wrapper
+    +global_wrapper
+  .main
+    +float_left
+    :width 82%
+    :min-height 1200px
+  .side
+    +float_right
+    :width 17%
+    :min-height 800px
+    :border-left 2px dotted #ccc
+
+
+#footer
+  :background #ddd
+  :color #444
+  :padding 10px
+  .footer_wrapper
+    +global_wrapper
+
+
+
+
+// dashboard
+
+.dashboard_header
+
+.dashboard_section
+  :margin-bottom 10px
+  :padding 10px
+  .section_title
+    +clearfix
+    h3
+      +float_left
+      :margin-bottom 10px
+      :border-bottom 1px solid #999
+      :padding 0 20px 0 10px
+    a
+      +float_left
+      :margin-left 10px
+      :font-size 12px
+      :margin-top 3px
+  table
+    +clear
+    :margin-left 10px
+    tr
+    td
+      :padding 5px 15px
+
+table.sidebox
+  +clear
+  :margin-left 10px
+  :margin-top 10px
+  :margin-bottom 10px
+  tr
+  td
+    :padding 5px 5px
+
+
+
+// boxes
+
+.main_title
+  +clearfix
+  ul.histories
+    +float_left
+    :padding 0 10px 10px
+    li
+      +float_left
+      :margin-right 10px
+  ul.main_selector
+    +float_right
+    :padding 0 10px
+    li
+      +float_left
+      :margin-bottom 10px
+    li.splitter
+      :margin 0 8px
+      :color #666
+      :font-size 11px
+    li.linebreak
+      :clear left
+  h2
+    +clear
+    :padding 0 10px
+    :font-size 1.5em
+  div.desc
+    +clear
+    :padding 10px 0
+  ul.title_nav
+    +clearfix
+    :padding 15px 0
+    li
+      +float_left
+      a
+        :padding 0 10px
+        :display block
+      &.current
+        a
+          :color #f60
+    li.splitter
+      :margin 0 5px
+      :color #999
+    
+
+.main_filter
+  +clearfix
+  :padding-bottom 2px
+  ul
+    li
+      +float_left
+  ul.filter
+    li
+      a
+        :padding 0 8px
+        :border-right 1px solid #ccc
+        +normal_anchor_style(#999, transparent, none)
+        +active_anchor_style(#666, transparent, underline)
+    li.current
+      a
+        +normal_anchor_style(#f60, transparent, none)
+        +active_anchor_style(#f60, transparent, none)
+        :font-weight bold
+    li:last-child
+      a
+        :border none
+  ul.toolbox
+    +float_left
+    :margin-top 5px
+    :margin-right 15px
+    li
+      :margin 0 5px
+      a
+        +normal_anchor_style(#777, #fff, none)
+        +active_anchor_style(#000, #fff, none)
+        :border 1px solid #bbb
+        :padding 4px 5px 2px
+        :font-size 12px
+  div.fbox
+    :padding 5px
+  .left
+    +float_left
+    :padding 5px 0
+  .right
+    +float_right
+    :padding 5px 0
+  ul.search
+    +float_right
+    :padding-bottom 4px
+    li
+      :margin-left 1px
+      .IE &
+        :margin-left 3px
+
+.main_content
+  :margin 10px 0
+
+.main_section
+  :margin-bottom 30px
+  :padding 5px
+  h3
+    :padding-left 5px
+    :margin-bottom 5px
+    :color #555
+    :font-size 1.1em
+  h4
+    :padding-left 5px
+    :margin-bottom 5px
+    :color #555
+    :font-size 1em
+    :text-decoration underline
+
+#center_content
+  :border 0px solid gray
+  +border_radius(20px)
+  :width 700px
+  :padding 30px
+  :margin 100px auto
+  :min-height 350px
+  .content_wrapper
+
+
+//
+.side_box
+  :padding 10px 0 10px 15px
+  .sb_title
+    :border-bottom 1px solid #aaa
+    h4
+      :padding 5px 5px 2px
+  #analystics_div
+    :padding 0
+    :margin 0
+    :margin-top 4px
+    h4#analystics_title
+      :padding 0
+      :margin 0 0.5em 0 0
+      +float_left
+    a#analystics_link
+      :font-size 0.9em
+      +clearfix
+      
+  .sb_body
+    .spacer
+      :color #999
+      :padding 20px
+    iframe
+      :width 90%
+    
+
+=sidebar_list
+  :padding 10px 5px
+  li
+    +clearfix
+    :padding 1px 0
+    :font-size 0.95em
+
+ul.inquiries_side
+  +sidebar_list
+  .question
+    +float_left
+
+ul.need_charge
+  +sidebar_list
+  .name
+    +float_left
+  .days
+    +float_right
+
+.side_box
+  .filter_wrapper
+    :padding 10px
+    :background #eaf6ff
+    form
+      .element
+        :text-align right
+        :padding 5px 0
+        label
+          :display block
+          :text-align left
+          &.right
+            :text-align right
+            :padding-right 5px
+          .IE &
+            :padding-bottom 3px
+          :font-size 0.95em
+      .date_select
+        input
+          :width 120px
+      .buttons
+        :margin-top 10px
+        :text-align right
+  .action_wrapper
+    +clearfix
+    a
+      :display block
+      :color #000
+      :padding-left 7px
+      :font-size 1.5em
+      :margin-bottom 15px
+    .add_action
+      a
+        :padding-left 25px
+        :background url(/images/icons/add_entry.png) no-repeat left 2px
+    .delete_action
+      a
+        :padding-left 25px
+        :color red
+        :background url(/images/icons/remove_entry.png) no-repeat left 2px
+    .popup_action
+      a
+        :padding-left 25px
+        :background url(/images/icons/btn_preview.png) no-repeat left 2px
+    div.warning
+      :margin 30px 5px 20px 0
+      :padding 15px 10px
+      :background #fdd
+      p
+
+=side_box_widget
+  :padding 5px
+  .name
+    :margin-bottom 5px
+    a
+      :font-size 0.9em
+      :margin-left 10px
+  ul.infos
+    li
+      :text-align right
+      a
+        :color #666
+        :font-size 0.95em
+
+.admin_widget
+  +side_box_widget
+
+
+
+
+/* Forms */
+
+.form_deal_options
+  :padding 10px 30px
+  :border 1px solid #ddd
+  :margin-bottom 50px
+  .nested_form_container
+    fieldset
+      :background #f3f3f3
+    a.remove_entry
+      +anchor_image_one('/images/admin/btn_option_delete.png', 98px, 22px)
+      :padding-left 20px
+    .deal_option
+  .nested_form_button
+    :padding 5px
+    :margin-top 10px
+    a.add_entry
+      +anchor_image_one('/images/admin/btn_option_add.png', 98px, 22px)
+      :padding-top 1px
+      :padding-left 18px
+
+#deal_desc_merchant_editor
+  :height 500px
+#deal_desc_info_editor
+  :height 800px
+#deal_desc_map_editor
+  :height 500px
+#mail_message_template_message_content_editor
+  :height 600px
+#mail_message_message_content_editor
+  :height 600px
+
+
+div.deal_conditions
+  +clearfix
+  label.check_boxes
+    +float_left
+    :width 100%
+  label.collection_check_boxes
+    +float_left
+    :width 30%
+    :padding 10px 5px
+    img
+      :padding-left 10px
+      :vertical-align middle
+
+#map_canvas
+  :padding 5px
+  :border 1px solid #ccc
+
+
+
+/* Pagination */
+
+div.pagination
+  :margin 20px auto
+  :text-align center
+  span
+    &.next_page
+    &.previous_page
+  em
+  a, a:visited
+    &.next_page
+    &.previous_page
+  a:hover, a:active
+  img
+    :position absolute
+    :margin-left 10px
+
+
+
+/* Asset */
+
+.new_asset_form
+  :border 1px solid blue
+  :padding 5px
+
+ul.assets
+  +clearfix
+  :width 375px
+  li.asset
+    +float_left
+    :margin 10px 5px
+    .asset_preview
+      :text-align center
+    .asset_actions
+      :font-size 0.95em
+      :text-align center
+
+
+.action_container
+  :padding 10px
+  a
+    :size 16px
+    :font-weight bold
+
+
+/* Tables */
+
+table.v_box
+  :width 100%
+  :margin 1px 0
+  :border 1px solid #ccc
+  tr
+    td
+      :border-top 1px solid #ccc
+      :border-bottom 1px solid #ccc
+      :padding 7px 20px 5px
+      &.caption
+        :border-right 1px solid #ccc
+        :width 150px
+      &.value
+
+table.h_box
+  :width 100%
+  :margin 1px 0
+  :border 1px solid #ccc
+  th, td
+    :padding 7px 20px 5px
+    :text-align center
+      
+    :border 1px solid #ccc
+    &.first
+      :border-left none
+    &.last
+      :border-right none
+  th
+    :background #ddd
+  td
+  .actions
+    :width 100px
+
+
+=default_table_style
+  :width 100%
+  thead
+    tr
+      th
+        :background #eee
+        :border 1px solid #ddd
+        :padding 8px 5px
+        :font-weight bold
+        a
+          :color #222
+  tbody
+    tr
+      td
+        :border 1px solid #ddd
+        :padding 8px 5px
+  th, td
+    :text-align center
+    :vertical-align top
+    &.number
+      :text-align right
+    &.actions
+      :text-align center
+      :padding 4px 0 0 5px
+      a
+        +float_left
+        :margin 0 5px
+    &.cb
+      :width 30px
+      :padding 8px 0
+
+
+form.table_form
+  :font-size 14px
+  :border 1px solid #999
+  :border-bottom 2px solid #999
+  :padding 5px
+  .field
+    +clearfix
+    :padding 3px
+    :margin-bottom 10px
+    label
+      +float_left
+      :width 160px
+    input
+      +float_left
+      :height 20px
+      :font-size 14px
+      :border 1px solid #999
+  .actions
+    :margin-left 160px
+    :padding 10px 0
+  .image_preview
+    :margin-left 160px
+
+
+
+table.companies
+  +default_table_style
+  th, td
+    &.name
+    &.category
+      :width 100px
+    &.logo
+      :width 140px
+    &.site_url
+      :width 160px
+    &.actions
+      :width 100px
+
+
+table.cars
+  +default_table_style
+  th, td
+    &.company_name
+      :width 100px
+    &.name
+    &.voice_stream_url
+      :width 160px
+    &.video_stream_url
+      :width 160px
+    &.photo
+      :width 160px
+    &.actions
+      :width 100px
+
+
+table.racing_models
+  +default_table_style
+  th, td
+    &.name
+    &.photo
+      :width 160px
+    &.actions
+      :width 100px
+
+
+table.photos
+  +default_table_style
+  th, td
+    &.photo
+    &.actions
+      :width 100px
+
+
+table.videos
+  +default_table_style
+  th, td
+    &.title
+    &.stream_url
+      :width 300px
+    &.actions
+      :width 100px
+
+

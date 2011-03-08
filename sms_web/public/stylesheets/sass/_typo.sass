@@ -1,0 +1,224 @@
+@import mixin
+
+
+// default
+
+body
+  :color #000
+
+body, p, ol, ul, td, pre
+  +default_font_family
+  :font-size 13px
+  :line-height 1.5em
+  
+input, textarea
+  .IE &
+    :padding 2px 1px
+  .FF &, .Safari &, .Chrome &
+    :font-size 12px
+    :line-height 1em
+
+input[type="submit"]
+  .FF &
+    :font-size 12px
+
+h1, h2, h3, h4, h5, h6
+  +heading_font_family
+  .IE &
+    :font-family NanumGothicExtraBold
+
+
+
+// headings
+
+h1
+  :font
+    :size 2.5em
+    :weight bold
+  :line-height 1.5em
+
+h2
+  :font
+    :size 1.4em
+    :weight bold
+  :line-height 1.5em
+
+h3
+  :font
+    :size 1.2em
+    :weight bold
+  :line-height 1.5em
+
+h4
+  :font
+    :size 1em
+    :weight bold
+  :line-height 1.5em
+
+
+
+// anchors
+
+$anchor_color: #4559E9
+$anchor_hover_color: blue
+
+
+a
+  +normal_anchor_style($anchor_color, transparent, none)
+  +active_anchor_style($anchor_hover_color, transparent, underline)
+
+a.action
+  +normal_anchor_style($anchor_color, transparent, none)
+  +active_anchor_style(#fff, $anchor_color, none)
+
+a.silent
+  +normal_anchor_style(auto, transparent, none)
+  +active_anchor_style(auto, transparent, none)
+
+a.careful
+  +normal_anchor_style(red, transparent, underline)
+  +active_anchor_style(#fff, red, underline)
+
+a.careful_action
+  +normal_anchor_style(#0769b8, transparent, underline)
+  +active_anchor_style(red, transparent, underline)
+
+a.blue
+  +normal_anchor_style(#29a5af, transparent, none)
+  +active_anchor_style(#29a5af, transparent, underline)
+
+a.blue_simple
+  +normal_anchor_style(#29a5af, transparent, none)
+  +active_anchor_style($anchor_hover_color, transparent, underline)
+
+a.gray
+  +normal_anchor_style(#333, transparent, underline)
+  +active_anchor_style(#fff, #222, none)
+
+a.gray_simple
+  +normal_anchor_style(#333, transparent, none)
+  +active_anchor_style($anchor_hover_color, transparent, underline)
+
+a.lgray
+  +normal_anchor_style(#666, transparent, none)
+  +active_anchor_style(#fff, #555, none)
+
+a.lgray_simple
+  +normal_anchor_style(#666, transparent, none)
+  +active_anchor_style($anchor_hover_color, transparent, underline)
+
+a.black
+  +normal_anchor_style(#000, transparent, underline)
+  +active_anchor_style(#fff, #000, none)
+
+a.black_simple
+  +normal_anchor_style(#000, transparent, none)
+  +active_anchor_style(#000, transparent, underline)
+
+
+
+// texts
+
+
+
+
+
+
+
+
+
+
+// hardcopy numbers
+
+=imagefont
+  +float_right
+  span.hardcopy
+    +float_left
+
+.imagefont_1
+  +imagefont
+  .value_0
+    +image_replacement("/images/hardcopy/b0.png", 19px, 35px)
+  .value_1
+    +image_replacement("/images/hardcopy/b1.png", 10px, 35px)
+  .value_2
+    +image_replacement("/images/hardcopy/b2.png", 18px, 35px)
+  .value_3
+    +image_replacement("/images/hardcopy/b3.png", 18px, 35px)
+  .value_4
+    +image_replacement("/images/hardcopy/b4.png", 19px, 35px)
+  .value_5
+    +image_replacement("/images/hardcopy/b5.png", 18px, 35px)
+  .value_6
+    +image_replacement("/images/hardcopy/b6.png", 18px, 35px)
+  .value_7
+    +image_replacement("/images/hardcopy/b7.png", 17px, 35px)
+  .value_8
+    +image_replacement("/images/hardcopy/b8.png", 19px, 35px)
+  .value_9
+    +image_replacement("/images/hardcopy/b9.png", 18px, 35px)
+  .value_number
+    :margin-left 1px
+  .value_comma
+    +image_replacement("/images/hardcopy/b_comma.png", 7px, 35px)
+    :margin-left 1px
+  .value_won
+    +image_replacement("/images/hardcopy/b_won.png", 28px, 35px)
+    :margin-left 2px
+
+.imagefont_2
+  :padding 0 3px
+  :background url(/images/hardcopy/s_line.png) repeat-x left 10px
+  +imagefont
+  .value_0
+    +image_replacement("/images/hardcopy/s0.png", 12px, 22px)
+  .value_1
+    +image_replacement("/images/hardcopy/s1.png", 6px, 22px)
+  .value_2
+    +image_replacement("/images/hardcopy/s2.png", 11px, 22px)
+  .value_3
+    +image_replacement("/images/hardcopy/s3.png", 11px, 22px)
+  .value_4
+    +image_replacement("/images/hardcopy/s4.png", 11px, 22px)
+  .value_5
+    +image_replacement("/images/hardcopy/s5.png", 11px, 22px)
+  .value_6
+    +image_replacement("/images/hardcopy/s6.png", 11px, 22px)
+  .value_7
+    +image_replacement("/images/hardcopy/s9.png", 10px, 22px)
+  .value_8
+    +image_replacement("/images/hardcopy/s8.png", 12px, 22px)
+  .value_9
+    +image_replacement("/images/hardcopy/s9.png", 11px, 22px)
+  .value_number
+  .value_comma
+    +image_replacement("/images/hardcopy/s_comma.png", 4px, 22px)
+  .value_won
+    +image_replacement("/images/hardcopy/s_won.png", 18px, 22px)
+    :margin-left 2px
+
+.imagefont_3
+  +imagefont
+  .value_0
+    +image_replacement("/images/hardcopy/w0.png", 18px, 29px)
+  .value_1
+    +image_replacement("/images/hardcopy/w1.png", 13px, 29px)
+  .value_2
+    +image_replacement("/images/hardcopy/w2.png", 19px, 29px)
+  .value_3
+    +image_replacement("/images/hardcopy/w3.png", 18px, 29px)
+  .value_4
+    +image_replacement("/images/hardcopy/w4.png", 20px, 29px)
+  .value_5
+    +image_replacement("/images/hardcopy/w5.png", 19px, 29px)
+  .value_6
+    +image_replacement("/images/hardcopy/w6.png", 19px, 29px)
+  .value_7
+    +image_replacement("/images/hardcopy/w7.png", 18px, 29px)
+  .value_8
+    +image_replacement("/images/hardcopy/w8.png", 19px, 29px)
+  .value_9
+    +image_replacement("/images/hardcopy/w9.png", 19px, 29px)
+  .value_number
+    :margin-left 1px
+

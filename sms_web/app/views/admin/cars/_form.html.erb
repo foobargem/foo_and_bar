@@ -1,5 +1,5 @@
 
-<%= form_for [:admin, @car], :html => { :multipart => true } do |f| %>
+<%= form_for [:admin, @car], :html => { :multipart => true, :class => "table_form" } do |f| %>
 
   <% if @car.errors.any? %>
     <div id="error_explanation">
@@ -12,7 +12,6 @@
       </ul>
     </div>
   <% end %>
-
 
   <div class="field">
     <%= f.label :company_id, "제조사" %>
@@ -86,4 +85,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

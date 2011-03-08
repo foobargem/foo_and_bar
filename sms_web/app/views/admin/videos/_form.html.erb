@@ -1,5 +1,5 @@
 
-<%= form_for [:admin, @video] do |f| %>
+<%= form_for [:admin, @video], :html => { :class => "table_form" } do |f| %>
 
   <% if @video.errors.any? %>
     <div id="error_explanation">

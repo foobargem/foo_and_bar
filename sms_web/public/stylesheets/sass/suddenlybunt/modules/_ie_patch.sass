@@ -1,0 +1,19 @@
+@import hacks.sass
+
+
+=IE_transparent_layer
+  :background transparent
+  +hack_IE("background", 'url("/images/master/transparentGif.gif")')
+
+
+=IE_transparent_border($color: #0004ff, $width: 1px, $mode: "on")
+  @if $mode == "on"
+    :border-color $color
+    :-ms-filter unquote("progid:DXImageTransform.Microsoft.Chroma(color=#{$color})")
+    :filter unquote("chroma(color=#{$color})")
+    :width $width
+  @if $mode == "off"
+    :border-color $color
+    :-ms-filter none
+    :filter none
+

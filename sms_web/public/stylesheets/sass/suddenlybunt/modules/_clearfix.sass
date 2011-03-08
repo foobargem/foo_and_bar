@@ -1,0 +1,19 @@
+@import hacks.sass
+
+//
+
+=clearfix
+  &:after
+    :content "."
+    :display block
+    :height 0
+    :clear both
+    :overflow hidden
+    :visibility hidden
+  *+html &
+    :display inline-block
+    +has_layout
+
+=has_layout
+  +hack_IE("height", "1%")
+

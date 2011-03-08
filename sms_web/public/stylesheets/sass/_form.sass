@@ -1,0 +1,402 @@
+@import mixin
+
+
+//
+=image_submit($image, $width, $height)
+  :background url($image) no-repeat
+  :border none
+  :width $width
+  :height $height
+  :color #fff
+  :cursor pointer
+
+
+
+/* simple form */
+
+$label_width = 120px
+$label_margin = 10px
+// 
+// .side_box
+//   :border 0px solid gray
+//   :padding 0px
+//   :margin 2px 0
+//   +clearfix
+//   
+//   .side_box_wrapper
+//     :border 0px solid red
+//     :background url('/images/admin/stbox_left.gif') repeat left top
+//     :height 37      
+// 
+//     h2
+//       :font-size 1.5em
+//       :margin-left 16px
+//       :padding-top 5px
+//       :height 32px
+//       :border 0px solid gray
+//       :background url('/images/admin/stbox_bg.gif') repeat right top
+//       
+.table_form
+  :padding 0px
+  .field_title
+    +clearfix
+    :margin 2px 0
+    :padding 0px
+    .field_title_wrapper
+      :background url(/images/admin/stbox_left.gif) repeat left top
+      :height 37px
+      h3
+        :background url(/images/admin/stbox_bg.gif) repeat right top
+        :padding-top 7px
+        :margin-left 16px
+        :height 30px
+  div.field_groups
+    :border 1px solid #ddd
+    :margin-bottom 50px
+
+  span.desc
+    :color #666
+    :font-size 0.95em
+  span.hint
+    :color #666
+  span.error
+    :color red
+  div.input, div.password
+    +clearfix
+    :padding 20px 20px
+    :border-bottom 1px solid #ddd
+    :margin-bottom 3px
+    label
+      +float_left
+      :width $label_width
+      :margin-right $label_margin
+      &.boolean
+        :width auto
+    .string, .password, .select, .datetime
+      :margin-bottom 3px
+    input
+      &.string, &.password
+        :padding 3px 2px
+    select
+      :padding 3px 2px
+    span.hint
+      :display block
+      :margin-left $label_width + $label_margin
+      :font-size 0.95em
+    span.error
+      :display block
+      :margin-left $label_width + $label_margin
+      :font-size 0.95em
+  div.boolean
+    input
+      +float_left
+    span.hint,
+    span.error
+      +clear
+      :margin-left 0
+  div.image_preview
+    :margin-left $label_width + $label_margin
+    img
+      :margin 10px 5px 20px
+  div.field_with_errors
+    input
+      :border 2px solid red
+  .buttons
+    +clearfix
+    :padding 10px 0
+    :margin-left $label_width + $label_margin
+    :margin-bottom 50px
+    input
+      +float_left
+    a
+      +float_left
+      :margin-left 10px
+      :font-size 0.95em
+    &.with_image
+      .submit_image
+        +image_submit("/images/admin/btn_save.png", 129px, 30px)
+      a
+        :margin-left 15px
+        :margin-top 7px
+  fieldset
+    :padding 10px
+    :margin-bottom 10px
+    .field_set_header
+      +clearfix
+      :padding 3px 5px
+      :background #7d7d7d
+      :color #fff
+      h4
+        +float_left
+      a
+        +float_right
+  div.editor, iframe.editor
+    :margin-left $label_width + $label_margin + 5px
+    :width 65%
+  .field_groups, fieldset
+    div.input:last-child
+      :border-bottom none
+  .subgroup
+    :background #fff
+    :border-bottom 1px solid #ccc
+    :padding 20px 50px
+    div.input
+      :border none
+  div.ckeditor
+    :margin-left $label_width
+    :width 85%
+
+
+form
+  .number
+    :text-align right
+
+
+
+/* basic form */
+
+$basic_label_width = 90px
+$basic_label_margin = 10px
+
+.basic_form
+  :padding 10px
+  h3
+    :padding 20px 5px 2px
+    :border-bottom 2px solid #ccc
+    :margin-bottom 5px
+  span.desc
+    :color #666
+    :font-size 0.95em
+  span.hint
+    :color #666
+  span.error
+    :color red
+  div.input, div.password
+    +clearfix
+    :padding 10px 10px
+    :border-bottom 1px solid #ddd
+    :margin-bottom 3px
+    label
+      +float_left
+      :width $basic_label_width
+      :margin-right $basic_label_margin
+      :margin-top 3px
+      :text-align right
+      :color #888
+      &.boolean
+        :width auto
+    .string, .password, .select, .datetime
+      :margin-bottom 3px
+    input
+      &.string, &.password
+        :padding 3px 2px
+        :border 1px solid #bbb
+    textarea
+      :width 660 - ($basic_label_width + $basic_label_margin)
+      :padding 5px
+      :border 1px solid #bbb
+    select
+      :padding 3px 2px
+    span.hint
+      :display block
+      :margin-left $basic_label_width + $basic_label_margin
+      :font-size 0.95em
+    span.error
+      :display block
+      :margin-left $basic_label_width + $basic_label_margin
+      :font-size 0.95em
+  div.boolean
+    input
+      +float_left
+    span.hint,
+    span.error
+      +clear
+      :margin-left 0
+  div.field_with_errors
+    input
+      :border 2px solid red
+  div.buttons
+    +clearfix
+    :padding 30px 0 0
+    input
+      +float_left
+  .subgroup
+    :background #fff
+    :border-bottom 1px solid #ccc
+    div.input
+      :border none
+
+#categories_checkboxes
+  .input
+    label.collection_check_boxes
+      :margin-left 150px
+      :width 100%
+    .hint
+      +clearfix
+      :font-size 15px
+      :font-weight 700
+      :display block
+      :width 100%
+
+
+/* Popup Form */
+
+.popup_form
+  :padding 10px
+  :border 1px solid #ccc
+  h3
+    :margin-bottom 10px
+  span.desc
+    :color #666
+    :font-size 0.95em
+  span.hint
+    :color #666
+  span.error
+    :color red
+  div.input, div.password
+    +clearfix
+    :padding 5px
+    :border-bottom 1px solid #ddd
+    :margin-bottom 3px
+    label
+      +float_left
+      :width 100px
+      :text-align right
+      :margin-right 10px
+      :margin-top 3px
+      &.boolean
+        :width auto
+        :text-align auto
+    .string, .password, .select, .datetime
+      :margin-bottom 3px
+    input
+      &.string, &.password
+        :padding 3px 2px
+    select
+      :padding 3px 2px
+    span.hint
+      :display block
+      :margin-left 130px
+      :font-size 0.95em
+    span.error
+      :display block
+      :margin-left 130px
+      :font-size 0.95em
+  div.field_with_errors
+    input
+      :border 2px solid red
+  div.buttons
+    +clearfix
+    :padding 10px 0
+    :margin-left 120px
+    input
+      +float_left
+    a
+      +float_left
+      :margin-left 10px
+      :font-size 0.95em
+  .hint_important
+    :padding 10px
+    :padding-left 120px
+    :background #eef
+
+
+
+/* wysihat editor */
+
+.editor
+  +clear
+  :border 1px solid #aaa
+  :min-height 200px
+  :margin 5px
+
+.editor_toolbar
+  a
+    :float left
+    :width 16px
+    :height 16px
+    :margin 5px
+    :background-repeat no-repeat
+  span
+    :display none
+
+.editor_toolbar
+  .button
+    background-image: url('/images/wysihat_icons/exclamation.png')
+
+  .bold
+    background-image: url('/images/wysihat_icons/text_bold.png')
+
+  .italic
+    background-image: url('/images/wysihat_icons/text_italic.png')
+
+  .underline
+    background-image: url('/images/wysihat_icons/text_underline.png')
+
+  .strikethrough
+    background-image: url('/images/wysihat_icons/text_strikethrough.png')
+
+  .justifyleft
+    background-image: url('/images/wysihat_icons/text_align_left.png')
+
+  .justifycenter
+    background-image: url('/images/wysihat_icons/text_align_center.png')
+
+  .justifyright
+    background-image: url('/images/wysihat_icons/text_align_right.png')
+
+  .undo
+    background-image: url('/images/wysihat_icons/arrow_undo.png')
+
+  .redo
+    background-image: url('/images/wysihat_icons/arrow_redo.png')
+
+  .insertorderedlist
+    background-image: url('/images/wysihat_icons/text_list_numbers.png')
+
+  .insertunorderedlist
+    background-image: url('/images/wysihat_icons/text_list_bullets.png')
+
+  .link
+    background-image: url('/images/wysihat_icons/link.png')
+
+  .image
+    background-image: url('/images/wysihat_icons/image.png')
+
+  .html
+    background-image: url('/images/wysihat_icons/page_code.png')
+
+  .h1
+    background-image: url('/images/wysihat_icons/text_heading_1.png')
+
+  .h2
+    background-image: url('/images/wysihat_icons/text_heading_2.png')
+
+  .h3
+    background-image: url('/images/wysihat_icons/text_heading_3.png')
+
+  .h4
+    background-image: url('/images/wysihat_icons/text_heading_4.png')
+
+  .h5
+    background-image: url('/images/wysihat_icons/text_heading_5.png')
+
+  .h6
+    background-image: url('/images/wysihat_icons/text_heading_6.png')
+
+  .p
+    background-image: url('/images/wysihat_icons/cancel.png')
+
+  .paste
+    background-image: url('/images/wysihat_icons/paste_word.png')
+
+
+
+
+
+
+
+
+
+
+

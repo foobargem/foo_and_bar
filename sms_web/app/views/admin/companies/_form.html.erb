@@ -1,4 +1,4 @@
-<%= form_for [:admin, @company], :html => { :multipart => true } do |f| %>
+<%= form_for [:admin, @company], :html => { :multipart => true, :class => "table_form" } do |f| %>
 
   <% if @company.errors.any? %>
     <div id="error_explanation">
@@ -54,4 +54,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

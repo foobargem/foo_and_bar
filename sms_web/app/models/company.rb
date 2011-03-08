@@ -2,6 +2,15 @@ class Company < ActiveRecord::Base
 
   validates_presence_of :name
 
+  has_many :cars
+  #has_many :models
+
+
+  scope :car_part, where("category = ?", "car")
+  scope :component_part, where("category = ?", "component")
+  scope :goods_part, where("category = ?", "goods")
+
+
   # image_raw
   has_attached_file :image_raw,
     :styles => {

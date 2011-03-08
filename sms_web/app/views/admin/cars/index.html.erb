@@ -11,7 +11,8 @@
       <th class="name">차명</th>
       <th class="voice_stream_url">음성 URL</th>
       <th class="video_stream_url">영상 URL</th>
-      <th class="photo">사진</th>
+      <th class="photo">대표 사진</th>
+      <th class="photos">연관 사진</th>
       <th class="actions"></th>
     </tr>
   </thead>
@@ -24,6 +25,9 @@
         <td class="video_stream_url"><%= car.video_stream_url %></td>
         <td class="photo">
           <%= image_tag car.image_raw.url(:thumb, false) %>
+        </td>
+        <td class="photos">
+          <%= link_to number_with_delimiter(car.photos.size), admin_photos_path(:car_id => car.id) %>
         </td>
         <td class="actions">
           <%= link_to 'Edit', edit_admin_car_path(car) %>

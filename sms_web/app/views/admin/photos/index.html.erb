@@ -8,6 +8,8 @@
   <thead>
     <tr>
       <th class="photo">사진</th>
+      <th class="car">연관된 차</th>
+      <th class="racing_model">연관된 모델</th>
       <th class="actions"></th>
     </tr>
   </thead>
@@ -15,6 +17,8 @@
     <% @photos.each do |photo| %>
       <tr>
         <td class="photo"><%= image_tag photo.image_raw.url(:thumb, false) %></td>
+        <td class="car"><%= display_photo_car_info(photo) %></td>
+        <td class="racing_model"><%= display_photo_racing_model_info(photo) %></td>
         <td class="actions">
           <%= link_to 'Edit', edit_admin_photo_path(photo) %>
           <%= link_to 'Destroy', [:admin, photo], :confirm => 'Are you sure?', :method => :delete %>

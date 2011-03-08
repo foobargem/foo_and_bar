@@ -15,6 +15,14 @@
 
 
   <div class="field">
+    <%= f.label :car_id, "차" %>
+    <%= f.select :car_id, car_collection, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :racing_model_id, "레이싱 모델" %>
+    <%= f.select :racing_model_id, racing_model_collection, :include_blank => true %>
+  </div>
+  <div class="field">
     <%= f.label :image_raw, "사진" %>
     <%= f.file_field :image_raw %>
   </div>

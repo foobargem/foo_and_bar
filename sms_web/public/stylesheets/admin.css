@@ -2146,6 +2146,10 @@ table.photos {
     table.photos th.cb, table.photos td.cb {
       width: 30px;
       padding: 8px 0; }
+  table.photos th.car, table.photos td.car {
+    width: 100px; }
+  table.photos th.racing_model, table.photos td.racing_model {
+    width: 100px; }
   table.photos th.actions, table.photos td.actions {
     width: 100px; }
 

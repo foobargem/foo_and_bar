@@ -7,6 +7,7 @@ class Car < ActiveRecord::Base
 
 
   belongs_to :company
+  has_many :photos
 
 
   # image_raw

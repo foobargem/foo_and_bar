@@ -2,6 +2,8 @@ class RacingModel < ActiveRecord::Base
 
   validates_presence_of :name
 
+  has_many :photos
+
   # image_raw
   has_attached_file :image_raw,
     :styles => {

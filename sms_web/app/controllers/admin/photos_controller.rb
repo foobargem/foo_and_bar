@@ -6,12 +6,12 @@ class Admin::PhotosController < ApplicationController
   # GET /admin/photos
   # GET /admin/photos.xml
   def index
+    #@photos = Photo.scoped
+    #if params[:car_id]
+    #elsif params[:racing_model_id]
+    #else
+    #end
     @photos = Photo.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @photos }
-    end
   end
 
   # GET /admin/photos/1

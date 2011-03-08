@@ -1,6 +1,10 @@
 class CreatePhotos < ActiveRecord::Migration
   def self.up
     create_table :photos do |t|
+      t.integer :company_id
+      t.integer :car_id
+      t.integer :racing_model_id
+
       t.string :large_url
       t.string :thumb_url
 

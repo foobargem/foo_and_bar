@@ -7,8 +7,8 @@ class RacingModel < ActiveRecord::Base
     :styles => {
       :thumb => "128x128#"
     },
-    :url  => "/_file/cars/:id_partition/raw/:style/:basename.:extension",
-    :path => ":rails_root/public/_file/cars/:id_partition/raw/:style/:basename.:extension"
+    :url  => "/_file/racing_models/:id_partition/raw/:style/:basename.:extension",
+    :path => ":rails_root/public/_file/racing_models/:id_partition/raw/:style/:basename.:extension"
 
 
 end

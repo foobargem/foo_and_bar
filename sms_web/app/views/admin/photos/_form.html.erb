@@ -1,0 +1,30 @@
+
+<%= form_for [:admin, @photo], :html => { :multipart => true } do |f| %>
+
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this admin_photo from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :image_raw, "사진" %>
+    <%= f.file_field :image_raw %>
+  </div>
+  <div class="image_preview">
+    <% if @photo.image_raw.file? %>
+      <%= image_tag @photo.image_raw.url(:thumb, false) %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

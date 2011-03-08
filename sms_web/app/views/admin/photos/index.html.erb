@@ -1,0 +1,23 @@
+<h1>Listing admin_photos</h1>
+
+<table>
+  <tr>
+    <th>사진</th>
+    <th></th>
+  </tr>
+
+<% @photos.each do |photo| %>
+  <tr>
+    <td><%= image_tag photo.image_raw.url(:thumb, false) %></td>
+    <td>
+      <%= link_to 'Show', [:admin, photo] %>
+      <%= link_to 'Edit', edit_admin_photo_path(photo) %>
+      <%= link_to 'Destroy', [:admin, photo], :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Photo', new_admin_photo_path %>

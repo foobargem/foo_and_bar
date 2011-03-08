@@ -1,6 +1,7 @@
 class Admin::RacingModelsController < ApplicationController
 
   layout "admin"
+  before_filter :authenticate_admin!
 
   # GET /admin/racing_models
   # GET /admin/racing_models.xml

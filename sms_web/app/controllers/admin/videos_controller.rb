@@ -1,6 +1,7 @@
 class Admin::VideosController < ApplicationController
 
   layout "admin"
+  before_filter :authenticate_admin!
 
   # GET /admin/videos
   # GET /admin/videos.xml

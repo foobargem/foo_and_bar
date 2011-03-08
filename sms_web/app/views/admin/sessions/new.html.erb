@@ -1,0 +1,14 @@
+<h2>Sign in</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+  <p><%= flash[:alert] %></p>
+
+  <p><%= f.label :login %><br />
+  <%= f.email_field :login %></p>
+
+  <p><%= f.label :password %><br />
+  <%= f.password_field :password %></p>
+
+  <p><%= f.submit "Sign in" %></p>
+<% end %>

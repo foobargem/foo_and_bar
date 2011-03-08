@@ -9,6 +9,10 @@
 <body>
 
 <ul>
+  <%= link_to "관리자 로그아웃", destroy_admin_session_path %>
+</ul>
+
+<ul>
   <li><%= link_to "업체관리", [:admin, :companies] %></li>
   <li><%= link_to "차 관리", [:admin, :cars] %></li>
   <li><%= link_to "레이싱 모델 관리", [:admin, :racing_models] %></li>

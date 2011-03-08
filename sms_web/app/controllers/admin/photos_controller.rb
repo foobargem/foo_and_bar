@@ -1,6 +1,7 @@
 class Admin::PhotosController < ApplicationController
 
   layout "admin"
+  before_filter :authenticate_admin!
 
   # GET /admin/photos
   # GET /admin/photos.xml

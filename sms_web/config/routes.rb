@@ -1,6 +1,11 @@
 SmsWeb::Application.routes.draw do
 
-  devise_for :admins
+  devise_for :admins,
+    :path => "admin",
+    :controllers => {
+      :sessions => "admin/sessions"
+    }
+ 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -64,6 +69,7 @@ SmsWeb::Application.routes.draw do
     resources :photos
     resources :videos
   end
+  match "/admin" => "admin/companies#index", :as => :admin_root
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.

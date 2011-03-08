@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+if Admin.count < 1
+  Admin.create!(
+    :email => "admin@m.top-rider.co.kr",
+    :login => "admin",
+    :password => "xkqfkdlej",
+    :password_confirmation => "xkqfkdlej"
+  )
+end

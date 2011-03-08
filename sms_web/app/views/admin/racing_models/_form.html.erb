@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= f.label :company_id, "소속 업체" %>
-    <%= f.select :company_id, company_collection("car"), :include_blank => true %>
+    <%= f.select :company_id, grouped_options_for_select(grouped_company_collection, @racing_model.company_id), :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :name, "이름" %>

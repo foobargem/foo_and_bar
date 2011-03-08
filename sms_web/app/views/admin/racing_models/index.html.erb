@@ -8,6 +8,7 @@
   <thead>
     <tr>
       <th class="photo">사진</th>
+      <th class="company">소속업체(부스)</th>
       <th class="name">이름</th>
       <th class="birth">생일</th>
       <th class="height">키</td>
@@ -20,6 +21,7 @@
     <% @racing_models.each do |racing_model| %>
       <tr>
         <td class="photo"><%= image_tag racing_model.image_raw.url(:thumb, false) %></td>
+        <td class="company"><%= display_company_name(racing_model.company) %></td>
         <td class="name"><%= racing_model.name %></td>
         <td class="birth"><%= racing_model.birth %></td>
         <td class="height"><%= racing_model.height %></td>

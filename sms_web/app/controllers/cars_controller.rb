@@ -7,10 +7,10 @@ class CarsController < ApplicationController
       scoped = scoped.where("company_id = ?", params[:company_id])
     end
 
-    @cars = scoped.select("id, photo_thumb_url, photo_large_url")
+    @cars = scoped.includes(:photos).select("cars.id")
 
     respond_to do |format|
-      format.json { render :json => @cars.to_json }
+      format.json { render :json => @cars.to_json(:include => :photos) }
     end
   end
 

@@ -7,9 +7,10 @@
 <table class="companies">
   <thead>
     <tr>
+      <th class="logo">로고</th>
       <th class="name">업체명</th>
       <th class="category">참가분야</th>
-      <th class="logo">로고</th>
+      <th class="product">출품</th>
       <th class="site_url">Site URL</th>
       <th class="actions"></th>
     </tr>
@@ -17,11 +18,12 @@
   <tbody>
     <% @companies.each do |company| %>
       <tr>
-        <td class="name"><%= company.name %></td>
-        <td class="category"><%= display_category_name(company.category) %></td>
         <td class="logo">
           <%= image_tag company.image_raw.url(:thumb, false) %>
         </td>
+        <td class="name"><%= company.name %></td>
+        <td class="category"><%= display_category_name(company.category) %></td>
+        <td class="product"><%= company.product %></td>
         <td class="site_url">
           <%= link_to company.site_url, company.site_url, :target => "_blank" %>
         </td>

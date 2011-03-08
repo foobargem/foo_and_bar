@@ -2041,11 +2041,13 @@ table.companies {
       width: 30px;
       padding: 8px 0; }
   table.companies th.category, table.companies td.category {
-    width: 100px; }
+    width: 120px; }
+  table.companies th.product, table.companies td.product {
+    width: 200px; }
   table.companies th.logo, table.companies td.logo {
     width: 140px; }
   table.companies th.site_url, table.companies td.site_url {
-    width: 160px; }
+    width: 180px; }
   table.companies th.actions, table.companies td.actions {
     width: 100px; }
 
@@ -2116,6 +2118,8 @@ table.racing_models {
       padding: 8px 0; }
   table.racing_models th.photo, table.racing_models td.photo {
     width: 160px; }
+  table.racing_models th.company, table.racing_models td.company {
+    width: 100px; }
   table.racing_models th.birth, table.racing_models td.birth {
     width: 100px; }
   table.racing_models th.height, table.racing_models td.height {

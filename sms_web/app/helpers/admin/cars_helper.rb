@@ -18,12 +18,4 @@ module Admin::CarsHelper
     end
   end
 
-  def display_company_name(car)
-    unless car.company.nil?
-      car.company.name
-    else
-      "삭제된 제조사"
-    end
-  end
-
 end

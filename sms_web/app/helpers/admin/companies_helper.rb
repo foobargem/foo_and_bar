@@ -16,4 +16,26 @@ module Admin::CompaniesHelper
     end
   end
 
+  def display_company_name(company)
+    unless company.nil?
+      company.name
+    else
+      "-"
+    end
+  end
+
+  def grouped_company_collection
+    Company.select("id, name, category").all.group_by(&:category).map do |k, v|
+      cate_name = case k
+                  when "component"
+                    "부품"
+                  when "goods"
+                    "용품"
+                  else
+                    "완성차"
+                  end
+      [cate_name, v.map{ |m| [m.name, m.id] }]
+    end
+  end
+
 end

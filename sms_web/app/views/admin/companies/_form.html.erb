@@ -1,0 +1,56 @@
+<%= form_for [:admin, @company], :html => { :multipart => true } do |f| %>
+
+  <% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this admin_company from being saved:</h2>
+
+      <ul>
+      <% @company.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category, "사업분야" %>
+    <%= f.select :category, category_collection, :include_blank => false %>
+  </div>
+  <div class="field">
+    <%= f.label :name, "회사명" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :contact, "연락처" %>
+    <%= f.text_field :contact %>
+  </div>
+  <div class="field">
+    <%= f.label :address, "주소" %>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :product, "출품" %>
+    <%= f.text_field :product %>
+  </div>
+  <div class="field">
+    <%= f.label :desc, "설명" %>
+    <%= f.text_area :desc %>
+  </div>
+  <div class="field">
+    <%= f.label :site_url, "사이트 URL" %>
+    <%= f.text_field :site_url %>
+  </div>
+  <div class="field">
+    <%= f.label :image_raw, "로고파일" %>
+    <%= f.file_field :image_raw %>
+  </div>
+  <div class="image_preview">
+    <% if @company.image_raw.file? %>
+      <%= image_tag @company.image_raw.url(:thumb, false) %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

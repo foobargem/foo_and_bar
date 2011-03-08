@@ -12,6 +12,8 @@ SmsWeb::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
+  match "flickr_auth/new" => "flickr_auth#new", :as => :flickr_auth
+  match "flickr_auth/callback" => "flickr_auth#callback", :as => :flickr_callback
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
@@ -51,6 +53,13 @@ SmsWeb::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  namespace :admin do
+    resources :companies do
+      member do
+        get "upload_to_flickr"
+      end
+    end
+  end
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.

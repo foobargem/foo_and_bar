@@ -59,7 +59,7 @@ class Admin::PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
 
     if @photo.update_attributes(params[:photo])
-      redirect_to [:admin, @photo]
+      redirect_to [:admin, :photos]
     else
       render :action => "edit"
     end

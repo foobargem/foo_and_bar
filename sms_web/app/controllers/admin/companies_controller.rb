@@ -48,7 +48,7 @@ class Admin::CompaniesController < ApplicationController
     @company = Company.new(params[:company])
 
     if @company.save
-      redirect_to [:admin, @company], :notice => 'Company was successfully created.'
+      redirect_to [:admin, :companies]
     else
       render :action => "new"
     end
@@ -60,7 +60,7 @@ class Admin::CompaniesController < ApplicationController
     @company = Company.find(params[:id])
 
     if @company.update_attributes(params[:company])
-      redirect_to [:admin, @company], :notice => 'Company was successfully updated.'
+      redirect_to [:admin, :companies]
     else
       render :action => "edit"
     end
@@ -72,10 +72,7 @@ class Admin::CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @company.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(admin_companies_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to [:admin, :companies]
   end
 
 

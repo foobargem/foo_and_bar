@@ -47,7 +47,7 @@ class Admin::CarsController < ApplicationController
     @car = Car.new(params[:car])
 
     if @car.save
-      redirect_to admin_cars_path
+      redirect_to [:admin, :cars]
     else
       render :action => "new"
     end
@@ -59,7 +59,7 @@ class Admin::CarsController < ApplicationController
     @car = Car.find(params[:id])
 
     if @car.update_attributes(params[:car])
-      redirect_to [:admin, @car]
+      redirect_to [:admin, :cars]
     else
       render :action => "edit"
     end
@@ -71,6 +71,6 @@ class Admin::CarsController < ApplicationController
     @car = Car.find(params[:id])
     @car.destroy
 
-    redirect_to admin_cars_path
+    redirect_to [:admin, :cars]
   end
 end

@@ -59,7 +59,7 @@ class Admin::VideosController < ApplicationController
     @video = Video.find(params[:id])
 
     if @video.update_attributes(params[:video])
-      redirect_to [:admin, @video]
+      redirect_to [:admin, :videos]
     else
       render :action => "edit"
     end

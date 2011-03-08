@@ -59,7 +59,7 @@ class Admin::RacingModelsController < ApplicationController
     @racing_model = RacingModel.find(params[:id])
 
     if @racing_model.update_attributes(params[:racing_model])
-      redirect_to [:admin, @racing_model]
+      redirect_to [:admin, :racing_models]
     else
       render :action => "edit"
     end

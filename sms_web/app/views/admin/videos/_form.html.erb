@@ -1,0 +1,28 @@
+
+<%= form_for [:admin, @video] do |f| %>
+
+  <% if @video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this admin_video from being saved:</h2>
+
+      <ul>
+      <% @video.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, "제목" %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :stream_url, "영상 스트리밍 URL" %>
+    <%= f.text_field :stream_url %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

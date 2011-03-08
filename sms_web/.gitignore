@@ -5,3 +5,4 @@ tmp/
 Gemfile.lock
 db/schema.rb
 public/_file/**/*
+config/database.yml

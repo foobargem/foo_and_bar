@@ -59,6 +59,10 @@ SmsWeb::Application.routes.draw do
         get "upload_to_flickr"
       end
     end
+    resources :cars
+    resources :racing_models
+    resources :photos
+    resources :videos
   end
 
   # You can have the root of your site routed with "root"

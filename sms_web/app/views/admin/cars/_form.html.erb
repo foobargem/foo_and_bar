@@ -1,0 +1,89 @@
+
+<%= form_for [:admin, @car], :html => { :multipart => true } do |f| %>
+
+  <% if @car.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@car.errors.count, "error") %> prohibited this admin_car from being saved:</h2>
+
+      <ul>
+      <% @car.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :company_id, "제조사" %>
+    <%= f.select :company_id, company_collection("car"), :include_blank => false %>
+  </div>
+  <div class="field">
+    <%= f.label :name, "차명" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :price, "가격" %>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :vehicle_type, "차종" %>
+    <%= f.text_field :vehicle_type %>
+  </div>
+  <div class="field">
+    <%= f.label :engine_type, "엔진" %>
+    <%= f.text_field :engine_type %>
+  </div>
+  <div class="field">
+    <%= f.label :fuel, "연료" %>
+    <%= f.text_field :fuel %>
+  </div>
+  <div class="field">
+    <%= f.label :fuel_mileage, "연비" %>
+    <%= f.text_field :fuel_mileage %>
+  </div>
+  <div class="field">
+    <%= f.label :peak_output, "최대출력" %>
+    <%= f.text_field :peak_output %>
+  </div>
+  <div class="field">
+    <%= f.label :seat_capacity, "승차인원" %>
+    <%= f.text_field :seat_capacity %>
+  </div>
+  <div class="field">
+    <%= f.label :drive_type, "구동방식" %>
+    <%= f.text_field :drive_type %>
+  </div>
+  <div class="field">
+    <%= f.label :transmission, "변속기" %>
+    <%= f.text_field :transmission %>
+  </div>
+
+  <div class="field">
+    <%= f.label :voice_stream_url, "음성 스트리밍 URL" %>
+    <%= f.text_field :voice_stream_url %>
+  </div>
+  <div class="field">
+    <%= f.label :video_stream_url, "영상 스트리밍 URL" %>
+    <%= f.text_field :video_stream_url %>
+  </div>
+  <div class="field">
+    <%= f.label :represent_on, "대표 차량 설정" %>
+    <%= f.check_box :represent_on, :value => 1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image_raw, "차 사진" %>
+    <%= f.file_field :image_raw %>
+  </div>
+  <div class="image_preview">
+    <% if @car.image_raw.file? %>
+      <%= image_tag @car.image_raw.url(:thumb, false) %>
+    <% end %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

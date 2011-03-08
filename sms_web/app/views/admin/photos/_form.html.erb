@@ -15,12 +15,14 @@
 
 
   <div class="field">
-    <%= f.label :car_id, "차" %>
+    <%= f.label :car_id, "연관된 차" %>
     <%= f.select :car_id, car_collection, :include_blank => true %>
+    <span class="hint">차를 지정하시면, 모바일 앱에서 차량의 사진으로 보여지 됩니다.</span>
   </div>
   <div class="field">
-    <%= f.label :racing_model_id, "레이싱 모델" %>
+    <%= f.label :racing_model_id, "연관된 레이싱 모델" %>
     <%= f.select :racing_model_id, racing_model_collection, :include_blank => true %>
+    <span class="hint">레이싱 모델을 지정하시면, 모바일 앱에서 모델의 사진으로 보여지 됩니다.</span>
   </div>
   <div class="field">
     <%= f.label :image_raw, "사진" %>

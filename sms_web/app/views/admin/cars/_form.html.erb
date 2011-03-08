@@ -20,14 +20,17 @@
   <div class="field">
     <%= f.label :name, "차명" %>
     <%= f.text_field :name %>
+    <span class="hint">예) 마티즈2</span>
   </div>
   <div class="field">
     <%= f.label :price, "가격" %>
     <%= f.text_field :price %>
+    <span class="hint">단위까지 적어 주세요. 예) 950만원</span>
   </div>
   <div class="field">
     <%= f.label :vehicle_type, "차종" %>
     <%= f.text_field :vehicle_type %>
+    <span class="hint">예) 국산 경차, 외산 SUV</span>
   </div>
   <div class="field">
     <%= f.label :engine_type, "엔진" %>
@@ -56,6 +59,7 @@
   <div class="field">
     <%= f.label :drive_type, "구동방식" %>
     <%= f.text_field :drive_type %>
+    <span class="hint">예) 4륜구동, 후륜구동</span>
   </div>
   <div class="field">
     <%= f.label :transmission, "변속기" %>
@@ -65,19 +69,24 @@
   <div class="field">
     <%= f.label :voice_stream_url, "음성 스트리밍 URL" %>
     <%= f.text_field :voice_stream_url %>
+    <span class="hint">예) http://www.youtube.com/embed/sxLmS9XQmE0</span>
   </div>
   <div class="field">
     <%= f.label :video_stream_url, "영상 스트리밍 URL" %>
     <%= f.text_field :video_stream_url %>
+    <span class="hint">예) http://www.youtube.com/embed/sxLmS9XQmE0</span>
   </div>
+  <!--
   <div class="field">
     <%= f.label :represent_on, "대표 차량 설정" %>
     <%= f.check_box :represent_on, :value => 1 %>
   </div>
+  -->
 
   <div class="field">
     <%= f.label :image_raw, "차 사진" %>
     <%= f.file_field :image_raw %>
+    <span class="hint"> </span>
   </div>
   <div class="image_preview">
     <% if @car.image_raw.file? %>

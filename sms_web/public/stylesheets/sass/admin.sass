@@ -572,6 +572,7 @@ table.h_box
 
 
 form.table_form
+  +clearfix
   :font-size 14px
   :border 1px solid #999
   :border-bottom 2px solid #999
@@ -583,15 +584,23 @@ form.table_form
     label
       +float_left
       :width 160px
-    input
+    input, select
       +float_left
       :height 20px
       :font-size 14px
       :border 1px solid #999
+    span.hint
+      :display block
+      :margin-left 160px
+      :font-size 12px
+      :color #889
+      :margin-top 30px
   .actions
+    +clearfix
     :margin-left 160px
     :padding 10px 0
   .image_preview
+    +clearfix
     :margin-left 160px
 
 

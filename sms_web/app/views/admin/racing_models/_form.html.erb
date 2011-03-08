@@ -32,14 +32,17 @@
   <div class="field">
     <%= f.label :height, "신장" %>
     <%= f.text_field :height %>
+    <span class="hint">단위까지 적어주세요. 예) 172cm</span>
   </div>
   <div class="field">
     <%= f.label :weight, "몸무게" %>
     <%= f.text_field :weight %>
+    <span class="hint">단위까지 적어주세요. 예) 70kg</span>
   </div>
   <div class="field">
     <%= f.label :dress_size, "의상사이즈" %>
     <%= f.text_field :dress_size %>
+    <span class="hint">단위까지 적어주세요.</span>
   </div>
   <div class="field">
     <%= f.label :bwh, "신체사이즈" %>
@@ -48,6 +51,7 @@
   <div class="field">
     <%= f.label :shoe_size, "신발사이즈" %>
     <%= f.text_field :shoe_size %>
+    <span class="hint">단위까지 적어주세요.</span>
   </div>
   <div class="field">
     <%= f.label :hobby, "취미" %>
@@ -56,19 +60,22 @@
   <div class="field">
     <%= f.label :homepage_url, "미니홈피 URL" %>
     <%= f.text_field :homepage_url %>
+    <span class="hint">예) http://cyworld.com/foo</span>
   </div>
   <div class="field">
     <%= f.label :fan_site_url, "팬 카페 URL" %>
     <%= f.text_field :fan_site_url %>
+    <span class="hint">예) http://cafe.daum.new/bar</span>
   </div>
   <div class="field">
     <%= f.label :career_desc, "경력사항" %>
-    <%= f.text_area :career_desc %>
+    <%= f.text_area :career_desc, :size => "40x8" %>
   </div>
 
   <div class="field">
     <%= f.label :image_raw, "사진" %>
     <%= f.file_field :image_raw %>
+    <span class="hint"> </span>
   </div>
   <div class="image_preview">
     <% if @racing_model.image_raw.file? %>

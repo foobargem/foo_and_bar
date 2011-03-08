@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :category, "사업분야" %>
+    <%= f.label :category, "참가분야" %>
     <%= f.select :category, category_collection, :include_blank => false %>
   </div>
   <div class="field">
@@ -31,14 +31,16 @@
   <div class="field">
     <%= f.label :product, "출품" %>
     <%= f.text_field :product %>
+    <span class="hint">전시회에 출품하는 제품입니다. 예)K5, K7, 모닝</span>
   </div>
   <div class="field">
     <%= f.label :desc, "설명" %>
-    <%= f.text_area :desc %>
+    <%= f.text_area :desc, :size => "40x4" %>
   </div>
   <div class="field">
     <%= f.label :site_url, "사이트 URL" %>
     <%= f.text_field :site_url %>
+    <span class="hint">예) http://wapl.co.kr</span>
   </div>
 
   <div class="field">

@@ -1983,6 +1983,17 @@ form.table_form {
   border: 1px solid #999999;
   border-bottom: 2px solid #999999;
   padding: 5px; }
+  form.table_form:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
+  * + html form.table_form {
+    display: inline-block; }
+    .IE * + html form.table_form {
+      height: 1%; }
   form.table_form .field {
     padding: 3px;
     margin-bottom: 10px; }
@@ -2001,17 +2012,45 @@ form.table_form {
       display: inline;
       float: left;
       width: 160px; }
-    form.table_form .field input {
+    form.table_form .field input, form.table_form .field select {
       display: inline;
       float: left;
       height: 20px;
       font-size: 14px;
       border: 1px solid #999999; }
+    form.table_form .field span.hint {
+      display: block;
+      margin-left: 160px;
+      font-size: 12px;
+      color: #888899;
+      margin-top: 30px; }
   form.table_form .actions {
     margin-left: 160px;
     padding: 10px 0; }
+    form.table_form .actions:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      overflow: hidden;
+      visibility: hidden; }
+    * + html form.table_form .actions {
+      display: inline-block; }
+      .IE * + html form.table_form .actions {
+        height: 1%; }
   form.table_form .image_preview {
     margin-left: 160px; }
+    form.table_form .image_preview:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      overflow: hidden;
+      visibility: hidden; }
+    * + html form.table_form .image_preview {
+      display: inline-block; }
+      .IE * + html form.table_form .image_preview {
+        height: 1%; }
 
 table.companies {
   width: 100%; }

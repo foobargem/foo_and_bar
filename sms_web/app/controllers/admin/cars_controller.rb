@@ -6,12 +6,7 @@ class Admin::CarsController < ApplicationController
   # GET /admin/cars
   # GET /admin/cars.xml
   def index
-    @cars = Car.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @cars }
-    end
+    @cars = Car.scoped.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /admin/cars/1

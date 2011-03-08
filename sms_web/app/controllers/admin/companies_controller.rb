@@ -7,12 +7,7 @@ class Admin::CompaniesController < ApplicationController
   # GET /admin/companies
   # GET /admin/companies.xml
   def index
-    @companies = Company.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @admin_companies }
-    end
+    @companies = Company.scoped.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /admin/companies/1

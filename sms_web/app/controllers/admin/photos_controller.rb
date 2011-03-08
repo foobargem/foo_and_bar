@@ -14,7 +14,7 @@ class Admin::PhotosController < ApplicationController
              else
               scoped
              end
-    @photos = scoped
+    @photos = scoped.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /admin/photos/1

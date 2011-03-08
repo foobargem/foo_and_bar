@@ -6,12 +6,7 @@ class Admin::VideosController < ApplicationController
   # GET /admin/videos
   # GET /admin/videos.xml
   def index
-    @videos = Video.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @videos }
-    end
+    @videos = Video.scoped.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /admin/videos/1

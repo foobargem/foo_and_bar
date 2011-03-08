@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SmsWeb::Admin</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+<ul>
+  <li><%= link_to "업체관리", [:admin, :companies] %></li>
+  <li><%= link_to "차 관리", [:admin, :cars] %></li>
+  <li><%= link_to "레이싱 모델 관리", [:admin, :racing_models] %></li>
+  <li><%= link_to "사진 관리", [:admin, :photos] %></li>
+</ul>
+
+<%= yield %>
+
+</body>
+</html>

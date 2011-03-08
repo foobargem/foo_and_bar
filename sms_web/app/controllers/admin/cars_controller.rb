@@ -1,5 +1,7 @@
 class Admin::CarsController < ApplicationController
 
+  layout "admin"
+
   # GET /admin/cars
   # GET /admin/cars.xml
   def index

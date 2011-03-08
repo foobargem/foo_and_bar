@@ -2116,6 +2116,14 @@ table.racing_models {
       padding: 8px 0; }
   table.racing_models th.photo, table.racing_models td.photo {
     width: 160px; }
+  table.racing_models th.birth, table.racing_models td.birth {
+    width: 100px; }
+  table.racing_models th.height, table.racing_models td.height {
+    width: 100px; }
+  table.racing_models th.weight, table.racing_models td.weight {
+    width: 100px; }
+  table.racing_models th.photos, table.racing_models td.photos {
+    width: 100px; }
   table.racing_models th.actions, table.racing_models td.actions {
     width: 100px; }
 

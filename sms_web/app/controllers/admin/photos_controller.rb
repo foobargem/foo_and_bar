@@ -6,12 +6,15 @@ class Admin::PhotosController < ApplicationController
   # GET /admin/photos
   # GET /admin/photos.xml
   def index
-    #@photos = Photo.scoped
-    #if params[:car_id]
-    #elsif params[:racing_model_id]
-    #else
-    #end
-    @photos = Photo.all
+    scoped = Photo.scoped
+    scoped = if params[:car_id]
+              scoped.where("car_id = ?", params[:car_id])
+             elsif params[:racing_model_id]
+              scoped.where("racing_model_id = ?", params[:racing_model_id])
+             else
+              scoped
+             end
+    @photos = scoped
   end
 
   # GET /admin/photos/1

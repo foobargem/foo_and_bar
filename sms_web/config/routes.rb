@@ -29,6 +29,7 @@ SmsWeb::Application.routes.draw do
   resources :companies
   resources :cars
   resources :racing_models
+  resources :videos
 
   # Sample resource route with options:
   #   resources :products do

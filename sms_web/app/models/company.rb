@@ -24,5 +24,8 @@ class Company < ActiveRecord::Base
     photo_id = flickr.upload_photo self.image_raw.path, :title => self.name
   end
 
+  def logo_url
+    self.image_raw.url
+  end
 
 end

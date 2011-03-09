@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
              when "component"
               scoped.component_part
              when "goods"
-              scoped.good_part
+              scoped.goods_part
              else
               scoped.car_part
              end

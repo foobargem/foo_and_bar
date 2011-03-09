@@ -6,7 +6,7 @@ class Admin::CarsController < ApplicationController
   # GET /admin/cars
   # GET /admin/cars.xml
   def index
-    @cars = Car.scoped.paginate(:page => params[:page], :per_page => 20)
+    @cars = Car.scoped.order("name ASC").paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /admin/cars/1

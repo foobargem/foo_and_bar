@@ -1,0 +1,171 @@
+ko:
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%m월 %d일"
+      long: "%Y. %m. %d"
+      simple: "%m. %d"
+
+    day_names: [일요일, 월요일, 화요일, 수요일, 목요일, 금요일, 토요일]
+    abbr_day_names: [일, 월, 화, 수, 목, 금, 토]
+
+    month_names: [~, 1월, 2월, 3월, 4월, 5월, 6월, 7월, 8월, 9월, 10월, 11월, 12월]
+    abbr_month_names: [~, 1월, 2월, 3월, 4월, 5월, 6월, 7월, 8월, 9월, 10월, 11월, 12월]
+
+    order: [ :year, :month, :day ]
+
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      short: "%y/%m/%d %H:%M"
+      long: "%Y/%m/%d %H:%M"
+    am: "오전"
+    pm: "오후"
+
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words:
+      half_a_minute: "30초"
+      less_than_x_seconds:
+        one:   "일초"
+        other: "%{count}초"
+      x_seconds:
+        one:   "일초"
+        other: "%{count}초"
+      less_than_x_minutes:
+        one:   "일분"
+        other: "%{count}분"
+      x_minutes:
+        one:   "일분"
+        other: "%{count}분"
+      about_x_hours:
+        one:   "약 한시간"
+        other: "약 %{count}시간"
+      x_days:
+        one:   "하루"
+        other: "%{count}일"
+      about_x_months:
+        one:   "약 한달"
+        other: "약 %{count}달"
+      x_months:
+        one:   "한달"
+        other: "%{count}달"
+      about_x_years:
+        one:   "약 일년"
+        other: "약 %{count}년"
+      over_x_years:
+        one:   "일년 이상"
+        other: "%{count}년 이상"
+    prompts:
+      year:   "년"
+      month:  "월"
+      day:    "일"
+      hour:   "시"
+      minute: "분"
+      second: "초"
+
+  number:
+    # Used in number_with_delimiter()
+    # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
+    format:
+      # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
+      separator: "."
+      # Delimets thousands (e.g. 1,000,000 is a million) (always in groups of three)
+      delimiter: ","
+      # Number of decimals, behind the separator (the number 1 with a precision of 2 gives: 1.00)
+      precision: 3
+
+    # Used in number_to_currency()
+    currency:
+      format:
+        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
+        format: "%u%n"
+        unit: "₩"
+        # These three are to override number.format and are optional
+        separator: "."
+        delimiter: ","
+        precision: 0
+
+    # Used in number_to_percentage()
+    percentage:
+      format:
+        # These three are to override number.format and are optional
+        # separator: 
+        delimiter: ""
+        # precision: 
+
+    # Used in number_to_precision()
+    precision:
+      format:
+        # These three are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        # precision:
+
+    # Used in number_to_human_size()
+    human:
+      format:
+        # These three are to override number.format and are optional
+        # separator: 
+        delimiter: ""
+        precision: 1
+      storage_units: [Bytes, KB, MB, GB, TB]
+
+  # Used in array.to_sentence.
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: ", "
+      last_word_connector: ", "
+      
+  #
+  activerecord:
+    model:
+      user: "유저"
+    attributes:
+      user:
+        phone_number: "전화번호"
+        name: "이름"
+    errors:
+      messages: &errors_messages
+        inclusion: "목록에 포함되어 있습니다"
+        exclusion: "목록에 포함되어 있지 않습니다"
+        invalid: "잘못된 값입니다"
+        password_changed: "비밀번호가 변경되었습니다"
+        confirmation: "비밀번호가 일치하지 않습니다"
+        accepted: "확인이 필요합니다"
+        empty: "필수 항목입니다"
+        blank: "필수 항목입니다"
+        too_long: "최대 %{count}자 이하입니다"
+        too_short: "최소 %{count}자 이상입니다"
+        wrong_length: "%{count}자이어야 합니다"
+        taken: "중복입니다. 다른 값을 입력해주세요"
+        not_a_number: "숫자를 입력해주세요"
+        greater_than: "%{count}보다 큰 값을 넣어주세요"
+        greater_than_or_equal_to: "%{count} 이상인 값을 넣어주세요"
+        equal_to: "%{count}이어야 합니다"
+        less_than: "%{count}보다 작은 값을 넣어주세요"
+        less_than_or_equal_to: "%{count} 이하인 값을 넣어주세요"
+        odd: "홀수을 요구합니다"
+        even: "짝수을 요구합니다"
+        bad_url: "URL을 다시 확인해 주세요"
+        file_size: "파일사이즈가 너무 큽니다"
+        file_content_type: "지원하지 않는 형식입니다"
+        file_presence: "파일을 선택해주세요"
+        already_taken_phone_number: "이미 등록된 휴대폰 번호입니다."
+        
+      header:
+        one: "한 개의 오류가 발생해 %{model}를 저장 할 수 없습니다"
+        other: "%{count}개의 오류가 발생해 %{model}를 저장 할 수 없습니다"
+        body: "다음 항목에 문제가 발견되었습니다:"
+
+      messages:
+        taken: "%{value} 은(는) 이미 존재합니다."
+        record_invalid: "데이터 검증에 실패하였습니다. %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute}%{message}"
+    
+
+

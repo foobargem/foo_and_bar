@@ -1,0 +1,44 @@
+ko:
+  errors:
+    messages:
+      not_found: "해당 유저가 없습니다."
+      already_confirmed: "이미 확인되셨습니다."
+      not_locked: "was not locked"
+      not_saved: "저장되어 있지 않습니다."
+  devise:
+    failure:
+      unauthenticated: 'You need to sign in or sign up before continuing.'
+      unconfirmed: 'You have to confirm your account before continuing.'
+      locked: 'Your account is locked.'
+      invalid: '로그인 실패, 이메일이나 비밀번호가 잘못되었습니다!'
+      invalid_token: 'Invalid authentication token.'
+      timeout: 'Your session expired, please sign in again to continue.'
+      inactive: 'Your account was not activated yet.'
+    sessions:
+      signed_in: '성공적으로 로그인하였습니다.'
+      signed_out: '성공적으로 로그아웃하였습니다.'
+      invalid: '이메일이나 비밀번호가 잘못되었습니다.'
+      admin_login: '팡스데이 관리자 전용 사이트입니다.'
+      admin_login_invalid: '로그인 실패. 관리자 이메일과 비밀번호를 입력하세요!'
+      merchant_login: '팡스데이 머천트 로그인 페이지입니다.'
+      merchant_login_invalid: '로그인 실패. 머천트 이메일과 비밀번호를 입력하세요!'             
+    passwords:
+      send_instructions: '비밀번호 초기화를 위한 메일을 발송하였습니다. 메일을 확인하여 첨부된 링크를 클릭해 비밀번호를 변경해주세요.'
+      updated: '비밀번호가 입력하신 내용으로 초기화되었습니다.'
+    confirmations:
+      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
+      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+    registrations:
+      signed_up: 'You have signed up successfully. If enabled, a confirmation was sent your e-mail.'
+      updated: '성공적으로 변경되었습니다.'
+      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+      invalid: '패스워드가 잘못입력되었습니다!'
+    unlocks:
+      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
+      unlocked: 'Your account was successfully unlocked. You are now signed in.'
+    mailer:
+      confirmation_instructions: 'Confirmation instructions'
+      reset_password_instructions: 
+        subject: '[팡스데이] - 비밀번호 초기화 안내'
+        user_subject: '[팡스데이] - 비밀번호 초기화 안내'
+      unlock_instructions: 'Unlock Instructions'

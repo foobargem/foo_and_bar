@@ -49,10 +49,12 @@ class Company < ActiveRecord::Base
 
   def upload_image_to_flickr
     photo_id = flickr.upload_photo self.image_raw.path, :title => self.name
-  end
+    if photo_id
+      self.update_attribute(:flickr_photo_id, photo_id)
 
-  def logo_url
-    self.image_raw.url
+      photo = flickr.photos.getInfo(:photo_id => self.flickr_photo_id)
+      self.update_attribute(:logo_url, FlickRaw.url_short_m(photo))
+    end
   end
 
 end

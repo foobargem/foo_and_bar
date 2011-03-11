@@ -1,0 +1,19 @@
+<% company = company %>
+<%= content_tag_for :tr, company do %>
+  <td class="logo">
+    <%= image_tag company.image_raw.url(:thumb, false) %>
+  </td>
+  <td class="name"><%= company.name %></td>
+  <td class="booth_code"><%= company.booth_code %></td>
+  <td class="category"><%= display_category_name(company.category) %></td>
+  <td class="product"><%= company.product %></td>
+  <td class="site_url">
+    <%= link_to company.site_url, company.site_url, :target => "_blank" %>
+  </td>
+  <td class="flickr_url"><%= company.logo_url %></td>
+  <td class="actions">
+    <%= link_to 'Upload to Flickr', upload_to_flickr_admin_company_path(company), :remote => true %>
+    <%= link_to 'Edit', edit_admin_company_path(company) %>
+    <%= link_to 'Destroy', admin_company_path(company), :confirm => 'Are you sure?', :method => :delete %>
+  </td>
+<% end %>

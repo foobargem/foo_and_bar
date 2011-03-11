@@ -12,6 +12,11 @@ class FlickrAuthController < ApplicationController
     auth = flickr.auth.getToken :frob => frob
     session[:flickr_auth_token] = auth
 
+    if admin_signed_in?
+      redirect_to admin_root_path
+      return
+    end
+
     redirect_to root_path
   end
 

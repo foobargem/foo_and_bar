@@ -2,7 +2,7 @@ class Admin::CompaniesController < ApplicationController
 
   layout "admin"
   before_filter :authenticate_admin!
-  #before_filter :flickr_authorized!
+  before_filter :flickr_authorized!
 
   # GET /admin/companies
   # GET /admin/companies.xml
@@ -76,6 +76,7 @@ class Admin::CompaniesController < ApplicationController
     @company.upload_image_to_flickr
 
     render :update do |page|
+      page.replace dom_id(@company), :partial => "admin/companies/tr_company", :locals => { :company => @company }
     end
   end
 

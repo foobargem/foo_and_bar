@@ -30,6 +30,12 @@ SmsWeb::Application.routes.draw do
   resources :cars
   resources :racing_models
   resources :videos
+  resources :photos do
+    collection do
+      get "models_by_company"
+      get "by_company_booth_code"
+    end
+  end
 
   # Sample resource route with options:
   #   resources :products do

@@ -68,4 +68,16 @@ class Admin::RacingModelsController < ApplicationController
 
     redirect_to [:admin, :racing_models]
   end
+
+
+  def upload_to_flickr
+    @racing_model = RacingModel.find(params[:id])
+    @racing_model.upload_image_to_flickr
+
+    render :update do |page|
+      page.replace dom_id(@racing_model), :partial => "admin/racing_models/tr_racing_model", :locals => { :racing_model => @racing_model }
+    end
+  end
+
+
 end

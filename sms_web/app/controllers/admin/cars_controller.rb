@@ -68,4 +68,16 @@ class Admin::CarsController < ApplicationController
 
     redirect_to [:admin, :cars]
   end
+
+
+  def upload_to_flickr
+    @car = Car.find(params[:id])
+    @car.upload_image_to_flickr
+
+    render :update do |page|
+      page.replace dom_id(@car), :partial => "admin/cars/tr_car", :locals => { :car => @car }
+    end
+  end
+
+
 end

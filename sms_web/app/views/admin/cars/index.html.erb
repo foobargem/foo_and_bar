@@ -17,28 +17,14 @@
       <th class="name">차명</th>
       <th class="voice_stream_url">음성 URL</th>
       <th class="video_stream_url">영상 URL</th>
+      <th class="flickr_url">Flickr URL</th>
       <th class="photos">연관 사진</th>
       <th class="actions"></th>
     </tr>
   </thead>
   <tbody>
     <% @cars.each do |car| %>
-      <tr>
-        <td class="photo">
-          <%= image_tag car.image_raw.url(:thumb, false) %>
-        </td>
-        <td class="company_name"><%= display_company_name(car.company) %></td>
-        <td class="name"><%= car.name %></td>
-        <td class="voice_stream_url"><%= car.voice_stream_url %></td>
-        <td class="video_stream_url"><%= car.video_stream_url %></td>
-        <td class="photos">
-          <%= link_to number_with_delimiter(car.photos.size), admin_photos_path(:car_id => car.id) %>
-        </td>
-        <td class="actions">
-          <%= link_to 'Edit', edit_admin_car_path(car) %>
-          <%= link_to 'Destroy', [:admin, car], :confirm => 'Are you sure?', :method => :delete %>
-        </td>
-      </tr>
+      <%= render 'admin/cars/tr_car', :car => car %>
     <% end %>
   </tbody>
 </table>

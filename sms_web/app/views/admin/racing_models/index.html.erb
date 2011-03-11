@@ -18,25 +18,14 @@
       <th class="birth">생일</th>
       <th class="height">키</td>
       <th class="weight">체중</td>
+      <th class="flickr_url">Flickr URL</td>
       <th class="photos">연관된 사진</th>
       <th class="actions"></th>
     </tr>
   </thead>
   <tbody>
     <% @racing_models.each do |racing_model| %>
-      <tr>
-        <td class="photo"><%= image_tag racing_model.image_raw.url(:thumb, false) %></td>
-        <td class="company"><%= display_company_name(racing_model.company) %></td>
-        <td class="name"><%= racing_model.name %></td>
-        <td class="birth"><%= racing_model.birth %></td>
-        <td class="height"><%= racing_model.height %></td>
-        <td class="weight"><%= racing_model.weight %></td>
-        <td class="photos"><%= link_to racing_model.photos.size, admin_photos_path(:racing_model_id => racing_model.id) %></td>
-        <td class="actions">
-          <%= link_to 'Edit', edit_admin_racing_model_path(racing_model) %>
-          <%= link_to 'Destroy', [:admin, racing_model], :confirm => 'Are you sure?', :method => :delete %>
-        </td>
-      </tr>
+      <%= render 'admin/racing_models/tr_racing_model', :racing_model => racing_model %>
     <% end %>
   </tbody>
 </table>

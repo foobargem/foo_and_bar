@@ -75,9 +75,24 @@ SmsWeb::Application.routes.draw do
         get "upload_to_flickr"
       end
     end
-    resources :cars
-    resources :racing_models
-    resources :photos
+    resources :cars do
+      member do
+        get "upload_to_flickr"
+      end
+    end
+
+    resources :racing_models do
+      member do
+        get "upload_to_flickr"
+      end
+    end
+
+    resources :photos do
+      member do
+        get "upload_to_flickr"
+      end
+    end
+
     resources :videos
   end
   match "/admin" => "admin/companies#index", :as => :admin_root

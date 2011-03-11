@@ -76,4 +76,16 @@ class Admin::PhotosController < ApplicationController
 
     redirect_to [:admin, :photos]
   end
+
+
+  def upload_to_flickr
+    @photo = Photo.find(params[:id])
+    @photo.upload_image_to_flickr
+
+    render :update do |page|
+      page.replace dom_id(@photo), :partial => "admin/photos/tr_photo", :locals => { :photo => @photo }
+    end
+  end
+
+
 end

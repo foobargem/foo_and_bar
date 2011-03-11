@@ -62,4 +62,19 @@ class Car < ActiveRecord::Base
   end
   before_save :set_represent
 
+
+  def upload_image_to_flickr
+    photo_id = flickr.upload_photo self.image_raw.path, :title => self.name
+    if photo_id
+      self.update_attribute(:flickr_photo_id, photo_id)
+
+      photo = flickr.photos.getInfo(:photo_id => self.flickr_photo_id)
+      self.update_attributes(
+        :photo_large_url => FlickRaw.url_short_m(photo),
+        :photo_thumb_url => FlickRaw.url_short_s(photo)
+      )
+    end
+  end
+
+
 end

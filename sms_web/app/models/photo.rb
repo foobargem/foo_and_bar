@@ -1,3 +1,4 @@
+# encoding: utf-8
 # == Schema Information
 #
 # Table name: photos
@@ -36,5 +37,20 @@ class Photo < ActiveRecord::Base
     },
     :url  => "/_file/photos/:id_partition/raw/:style/:basename.:extension",
     :path => ":rails_root/public/_file/photos/:id_partition/raw/:style/:basename.:extension"
+
+
+  def upload_image_to_flickr
+    photo_id = flickr.upload_photo self.image_raw.path, :title => "사진-#{self.id}"
+    if photo_id
+      self.update_attribute(:flickr_photo_id, photo_id)
+
+      photo = flickr.photos.getInfo(:photo_id => self.flickr_photo_id)
+      self.update_attributes(
+        :large_url => FlickRaw.url_short_m(photo),
+        :thumb_url => FlickRaw.url_short_s(photo)
+      )
+    end
+  end
+
 
 end

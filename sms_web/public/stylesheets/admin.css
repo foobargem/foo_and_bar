@@ -2088,6 +2088,8 @@ table.companies {
     table.companies th.cb, table.companies td.cb {
       width: 30px;
       padding: 8px 0; }
+  table.companies th.booth_code, table.companies td.booth_code {
+    width: 80px; }
   table.companies th.category, table.companies td.category {
     width: 120px; }
   table.companies th.product, table.companies td.product {

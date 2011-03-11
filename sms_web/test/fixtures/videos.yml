@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: videos
+#
+#  id         :integer(4)      not null, primary key
+#  title      :string(255)
+#  stream_url :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 # This model initially had no columns defined.  If you add columns to the

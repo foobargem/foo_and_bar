@@ -38,5 +38,6 @@ gem "will_paginate", :git => "git://github.com/mislav/will_paginate.git", :branc
 # end
 group :development, :test do
   gem "haml"
+  gem "annotate"
 end
 

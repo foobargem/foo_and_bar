@@ -7,6 +7,10 @@ class CompaniesController < ApplicationController
               scoped.component_part
              when "goods"
               scoped.goods_part
+             when "has_models"
+              car_ids = Photo.cars.select("car_id").map(&:car_id)
+              company_ids = Car.where("id IN (?)", car_ids).select("company_id").map(&:company_id)
+              scoped.where("id IN (?)", company_ids)
              else
               scoped.car_part
              end
@@ -18,10 +22,21 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find(params[:id])
+    raw_id = params[:id]
+    @company = if raw_id.to_i > 0
+                Company.find(params[:id])
+               else
+                Company.find_by_booth_code(params[:id])
+               end
 
-    respond_to do |format|
-      format.json { render :json => @company.to_json }
+    unless @company.nil?
+      respond_to do |format|
+        format.json { render :json => @company.to_json }
+      end
+    else
+      respond_to do |format|
+        format.json { render :json => {}, :status => 404 }
+      end
     end
   end
 

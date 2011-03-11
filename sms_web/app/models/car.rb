@@ -9,6 +9,8 @@ class Car < ActiveRecord::Base
   belongs_to :company
   has_many :photos
 
+  has_many :car_photos, :class_name => "Photo"
+
 
   # image_raw
   has_attached_file :image_raw,

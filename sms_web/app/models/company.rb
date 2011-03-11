@@ -3,7 +3,10 @@ class Company < ActiveRecord::Base
   validates_presence_of :name
 
   has_many :cars
-  #has_many :models
+  has_many :racing_models
+
+  has_many :car_photos, :class_name => "Photo", :through => :cars
+  has_many :racing_model_photos, :class_name => "Photo", :through => :racing_models
 
 
   scope :car_part, where("category = ?", "car")

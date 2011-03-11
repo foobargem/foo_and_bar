@@ -5,7 +5,8 @@ class Photo < ActiveRecord::Base
 
   scope :cars, where("car_id is not null")
   scope :racing_models, where("racing_model_id is not null")
-  scope :witout_car_and_racing_model, where("car_id is null and racing_model_id is null")
+  scope :without_car_and_racing_model, where("car_id is null and racing_model_id is null")
+  scope :with_car_and_racing_model, where("car_id is not null and racing_model_id is not null")
 
 
   # image_raw
@@ -15,6 +16,5 @@ class Photo < ActiveRecord::Base
     },
     :url  => "/_file/photos/:id_partition/raw/:style/:basename.:extension",
     :path => ":rails_root/public/_file/photos/:id_partition/raw/:style/:basename.:extension"
-
 
 end

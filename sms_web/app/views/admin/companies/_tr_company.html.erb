@@ -12,7 +12,9 @@
   </td>
   <td class="flickr_url"><%= company.logo_url %></td>
   <td class="actions">
-    <%= link_to 'Upload to Flickr', upload_to_flickr_admin_company_path(company), :remote => true %>
+    <% if company.image_raw_file_name && company.logo_url.nil? %>
+      <%= link_to 'Upload to Flickr', upload_to_flickr_admin_company_path(company), :remote => true %>
+    <% end %>
     <%= link_to 'Edit', edit_admin_company_path(company) %>
     <%= link_to 'Destroy', admin_company_path(company), :confirm => 'Are you sure?', :method => :delete %>
   </td>

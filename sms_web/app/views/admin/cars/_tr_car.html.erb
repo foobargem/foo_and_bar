@@ -14,7 +14,9 @@
     <%= link_to number_with_delimiter(car.photos.size), admin_photos_path(:car_id => car.id) %>
   </td>
   <td class="actions">
-    <%= link_to 'Upload to Flickr', upload_to_flickr_admin_car_path(car), :remote => true %>
+    <% if car.image_raw_file_name && car.photo_large_url.nil? %>
+      <%= link_to 'Upload to Flickr', upload_to_flickr_admin_car_path(car), :remote => true %>
+    <% end %>
     <%= link_to 'Edit', edit_admin_car_path(car) %>
     <%= link_to 'Destroy', [:admin, car], :confirm => 'Are you sure?', :method => :delete %>
   </td>

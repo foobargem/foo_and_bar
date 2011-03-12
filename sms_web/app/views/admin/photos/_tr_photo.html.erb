@@ -8,7 +8,9 @@
     <p><%= photo.thumb_url %></p>
   </td>
   <td class="actions">
-    <%= link_to 'Upload to Flickr', upload_to_flickr_admin_photo_path(photo), :remote => true %>
+    <% if photo.image_raw_file_name && photo.large_url.nil? %>
+      <%= link_to 'Upload to Flickr', upload_to_flickr_admin_photo_path(photo), :remote => true %>
+    <% end %>
     <%= link_to 'Edit', edit_admin_photo_path(photo) %>
     <%= link_to 'Destroy', [:admin, photo], :confirm => 'Are you sure?', :method => :delete %>
   </td>

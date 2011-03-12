@@ -2,6 +2,7 @@ class Admin::CarsController < ApplicationController
 
   layout "admin"
   before_filter :authenticate_admin!
+  before_filter :flickr_authorized!
 
   # GET /admin/cars
   # GET /admin/cars.xml

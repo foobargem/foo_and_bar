@@ -3,7 +3,8 @@ class FlickrAuthController < ApplicationController
   def new
     FlickRaw.api_key = FLICKR_APP_KEY
     FlickRaw.shared_secret = FLICKR_APP_SECRET
-    auth_url = FlickRaw.auth_url :perms => "write"
+    frob = flickr.auth.getFrob
+    auth_url = FlickRaw.auth_url :frob => frob, :perms => "write"
     redirect_to auth_url
   end
 

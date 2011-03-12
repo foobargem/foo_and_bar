@@ -46,7 +46,7 @@ class Photo < ActiveRecord::Base
 
       photo = flickr.photos.getInfo(:photo_id => self.flickr_photo_id)
       self.update_attributes(
-        :large_url => FlickRaw.url_short_m(photo),
+        :large_url => FlickRaw.url_z(photo),
         :thumb_url => FlickRaw.url_short_s(photo)
       )
     end

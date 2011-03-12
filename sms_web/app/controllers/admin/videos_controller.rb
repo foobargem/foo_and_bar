@@ -2,6 +2,7 @@ class Admin::VideosController < ApplicationController
 
   layout "admin"
   before_filter :authenticate_admin!
+  before_filter :flickr_authorized!
 
   # GET /admin/videos
   # GET /admin/videos.xml

@@ -7,7 +7,7 @@ class Admin::RacingModelsController < ApplicationController
   # GET /admin/racing_models
   # GET /admin/racing_models.xml
   def index
-    @racing_models = RacingModel.scoped.order("name ASC").paginate(:page => params[:page], :per_page => 20)
+    @racing_models = RacingModel.scoped.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /admin/racing_models/1

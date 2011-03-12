@@ -7,7 +7,7 @@ class Admin::CompaniesController < ApplicationController
   # GET /admin/companies
   # GET /admin/companies.xml
   def index
-    @companies = Company.scoped.order("name ASC").paginate(:page => params[:page], :per_page => 20)
+    @companies = Company.scoped.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /admin/companies/1

@@ -24,6 +24,8 @@ class Photo < ActiveRecord::Base
   belongs_to :racing_model
   belongs_to :car
 
+  default_scope :order => "id DESC"
+
   scope :cars, where("car_id is not null")
   scope :racing_models, where("racing_model_id is not null")
   scope :without_car_and_racing_model, where("car_id is null and racing_model_id is null")

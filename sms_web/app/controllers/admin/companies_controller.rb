@@ -2,7 +2,7 @@ class Admin::CompaniesController < ApplicationController
 
   layout "admin"
   before_filter :authenticate_admin!
-  before_filter :flickr_authorized!
+  #before_filter :flickr_authorized!
 
   # GET /admin/companies
   # GET /admin/companies.xml

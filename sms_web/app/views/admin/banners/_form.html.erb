@@ -1,0 +1,32 @@
+
+<%= form_for [:admin, @banner], :html => { :class => "table_form" } do |f| %>
+
+  <% if @banner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@banner.errors.count, "error") %> prohibited this admin_banner from being saved:</h2>
+
+      <ul>
+      <% @banner.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, "제목" %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content, "내용" %>
+    <%= f.text_area :content, :size => "40x4" %>
+  </div>
+  <div class="field">
+    <%= f.label :landing_url, "클릭시 이동할 URL" %>
+    <%= f.text_field :landing_url %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

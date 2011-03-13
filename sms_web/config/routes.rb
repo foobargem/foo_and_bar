@@ -94,6 +94,7 @@ SmsWeb::Application.routes.draw do
     end
 
     resources :videos
+    resources :banners
   end
   match "/admin" => "admin/companies#index", :as => :admin_root
 

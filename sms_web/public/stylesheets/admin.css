@@ -2246,3 +2246,35 @@ table.videos {
     width: 300px; }
   table.videos th.actions, table.videos td.actions {
     width: 100px; }
+
+table.banners {
+  width: 100%; }
+  table.banners thead tr th {
+    background: #eeeeee;
+    border: 1px solid #dddddd;
+    padding: 8px 5px;
+    font-weight: bold; }
+    table.banners thead tr th a {
+      color: #222222; }
+  table.banners tbody tr td {
+    border: 1px solid #dddddd;
+    padding: 8px 5px; }
+  table.banners th, table.banners td {
+    text-align: center;
+    vertical-align: top; }
+    table.banners th.number, table.banners td.number {
+      text-align: right; }
+    table.banners th.actions, table.banners td.actions {
+      text-align: center;
+      padding: 4px 0 0 5px; }
+      table.banners th.actions a, table.banners td.actions a {
+        display: inline;
+        float: left;
+        margin: 0 5px; }
+    table.banners th.cb, table.banners td.cb {
+      width: 30px;
+      padding: 8px 0; }
+  table.banners th.landing_url, table.banners td.landing_url {
+    width: 300px; }
+  table.banners th.actions, table.banners td.actions {
+    width: 100px; }

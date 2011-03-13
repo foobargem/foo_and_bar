@@ -1,0 +1,28 @@
+<h1>Banners</h1>
+
+<div class="action-container">
+  <%= link_to 'New Banner', new_admin_banner_path %>
+</div>
+
+<table class="banners">
+  <thead>
+    <tr>
+      <th class="title">Title</th>
+      <th class="landing_url">Landing URL</th>
+      <th class="actions">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @banners.each do |banner| %>
+      <tr>
+        <td><%= banner.title %></td>
+        <td><%= banner.landing_url %></td>
+        <td>
+          <%= link_to 'Edit', edit_admin_banner_path(banner) %>
+          <%= link_to 'Destroy', [:admin, banner], :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

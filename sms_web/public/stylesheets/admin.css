@@ -2278,3 +2278,37 @@ table.banners {
     width: 300px; }
   table.banners th.actions, table.banners td.actions {
     width: 100px; }
+
+table.events {
+  width: 100%; }
+  table.events thead tr th {
+    background: #eeeeee;
+    border: 1px solid #dddddd;
+    padding: 8px 5px;
+    font-weight: bold; }
+    table.events thead tr th a {
+      color: #222222; }
+  table.events tbody tr td {
+    border: 1px solid #dddddd;
+    padding: 8px 5px; }
+  table.events th, table.events td {
+    text-align: center;
+    vertical-align: top; }
+    table.events th.number, table.events td.number {
+      text-align: right; }
+    table.events th.actions, table.events td.actions {
+      text-align: center;
+      padding: 4px 0 0 5px; }
+      table.events th.actions a, table.events td.actions a {
+        display: inline;
+        float: left;
+        margin: 0 5px; }
+    table.events th.cb, table.events td.cb {
+      width: 30px;
+      padding: 8px 0; }
+  table.events th.applicants_count, table.events td.applicants_count {
+    width: 200px; }
+  table.events th.applicants, table.events td.applicants {
+    width: 160px; }
+  table.events th.actions, table.events td.actions {
+    width: 100px; }

@@ -1,0 +1,31 @@
+<h1>이벤트</h1>
+
+
+<%= link_to 'New Event', new_admin_event_path %>
+
+<table class="events">
+  <thead>
+    <tr>
+      <th class="name">이벤트</th>
+      <th class="applicants_count">응모자수</th>
+      <th class="applicants">응모자 목록</th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+        <tr>
+          <td class="name"><%= event.name %></td>
+          <td class="applicants_count"><%= number_with_delimiter(event.applicants_count) %></td>
+          <td class="applicants">
+            <%= link_to "응모자 목록", [:admin, event, :applicants] %>
+          </td>
+          <td class="actions">
+            <%= link_to 'Edit', edit_admin_event_path(event) %>
+            <%= link_to 'Destroy', [:admin, event], :confirm => 'Are you sure?', :method => :delete %>
+          </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+

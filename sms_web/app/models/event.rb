@@ -13,6 +13,6 @@
 
 class Event < ActiveRecord::Base
 
-  has_many :applicants
+  has_many :applicants, :dependent => :nullify
 
 end

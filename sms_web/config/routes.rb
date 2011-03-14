@@ -100,6 +100,9 @@ SmsWeb::Application.routes.draw do
 
     resources :videos
     resources :banners
+    resources :events do
+      resources :applicants
+    end
   end
   match "/admin" => "admin/companies#index", :as => :admin_root
 

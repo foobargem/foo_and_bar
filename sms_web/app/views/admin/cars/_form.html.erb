@@ -67,9 +67,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :voice_stream_url, "음성 스트리밍 URL" %>
-    <%= f.text_field :voice_stream_url %>
-    <span class="hint">예) http://www.youtube.com/embed/sxLmS9XQmE0</span>
+    <%= f.label :desc, "설명" %>
+    <%= f.text_area :desc, :size => "40x8" %>
   </div>
   <div class="field">
     <%= f.label :video_stream_url, "영상 스트리밍 URL" %>

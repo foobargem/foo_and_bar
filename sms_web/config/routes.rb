@@ -36,6 +36,11 @@ SmsWeb::Application.routes.draw do
       get "by_company_booth_code"
     end
   end
+  resources :banners do
+    collection do
+      get "base_ad"
+    end
+  end
 
   # Sample resource route with options:
   #   resources :products do

@@ -15,7 +15,7 @@ class PhotosController < ApplicationController
 
     @photos = scoped.
       select("id, car_id, racing_model_id, thumb_url").
-      paginate(:page => params[:page], :per_page => 4)
+      paginate(:page => params[:page], :per_page => 20)
 
     last_photo = scoped.last
 

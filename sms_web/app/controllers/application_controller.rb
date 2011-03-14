@@ -17,4 +17,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
+  def set_locale
+    I18n.locale = :ko
+  end
+  before_filter :set_locale
+
 end

@@ -13,10 +13,20 @@ class PhotosController < ApplicationController
               scoped.without_car_and_racing_model
              end
 
-    @photos = scoped.select("id, car_id, racing_model_id, thumb_url").all
+    @photos = scoped.
+      select("id, car_id, racing_model_id, thumb_url").
+      paginate(:page => params[:page], :per_page => 4)
+
+    last_photo = scoped.last
+
+    has_next = (@photos.last.id == last_photo.id) ? "n" : "y"
 
     respond_to do |format|
-      format.json { render :json => @photos.to_json }
+      format.json { render :json => {
+          :photos => @photos,
+          :has_next => has_next
+        }.to_json
+      }
     end
   end
 

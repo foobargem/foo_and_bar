@@ -1,0 +1,34 @@
+
+<%= form_for [:admin, @event, @applicant], :html => { :class => "table_form" } do |f| %>
+
+  <% if @applicant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@applicant.errors.count, "error") %> prohibited this admin_applicant from being saved:</h2>
+
+      <ul>
+      <% @applicant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :event_id, :value => @event.id %>
+
+  <div class="field">
+    <%= f.label :name, "이름" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number, "휴대전화" %>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :address, "주소" %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

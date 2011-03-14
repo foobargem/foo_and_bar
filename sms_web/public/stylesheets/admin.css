@@ -2312,3 +2312,39 @@ table.events {
     width: 160px; }
   table.events th.actions, table.events td.actions {
     width: 100px; }
+
+table.applicants {
+  width: 100%; }
+  table.applicants thead tr th {
+    background: #eeeeee;
+    border: 1px solid #dddddd;
+    padding: 8px 5px;
+    font-weight: bold; }
+    table.applicants thead tr th a {
+      color: #222222; }
+  table.applicants tbody tr td {
+    border: 1px solid #dddddd;
+    padding: 8px 5px; }
+  table.applicants th, table.applicants td {
+    text-align: center;
+    vertical-align: top; }
+    table.applicants th.number, table.applicants td.number {
+      text-align: right; }
+    table.applicants th.actions, table.applicants td.actions {
+      text-align: center;
+      padding: 4px 0 0 5px; }
+      table.applicants th.actions a, table.applicants td.actions a {
+        display: inline;
+        float: left;
+        margin: 0 5px; }
+    table.applicants th.cb, table.applicants td.cb {
+      width: 30px;
+      padding: 8px 0; }
+  table.applicants th.name, table.applicants td.name {
+    width: 140px; }
+  table.applicants th.phone_number, table.applicants td.phone_number {
+    width: 160px; }
+  table.applicants th.created_at, table.applicants td.created_at {
+    width: 140px; }
+  table.applicants th.actions, table.applicants td.actions {
+    width: 100px; }

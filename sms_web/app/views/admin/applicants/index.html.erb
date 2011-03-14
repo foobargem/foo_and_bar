@@ -1,0 +1,34 @@
+<h1>응모자 목록</h1>
+
+<div class="action_container">
+  <%= link_to "이벤트로 돌아가기", [:admin, :events] %>
+  |
+  <%= link_to 'New Applicant', new_admin_event_applicant_path(:event_id => @event.id) %>
+</div>
+
+<table class="applicants">
+  <thead>
+    <tr>
+      <th class="name">이름</th>
+      <th class="phone_number">휴대전화</th>
+      <th class="address">주소</th>
+      <th class="created_at">응모일시</th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @applicants.each do |applicant| %>
+      <tr>
+        <td class="name"><%= applicant.name %></td>
+        <td class="phone_number"><%= applicant.phone_number %></td>
+        <td class="address"><%= applicant.address %></td>
+        <td class="created_at"><%= applicant.created_at %></td>
+        <td class="actions">
+          <%= link_to 'Edit', edit_admin_event_applicant_path(@event, applicant) %>
+          <%= link_to 'Destroy', [:admin, @event, applicant], :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

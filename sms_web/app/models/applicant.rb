@@ -21,6 +21,9 @@ class Applicant < ActiveRecord::Base
   validates_uniqueness_of :phone_number,
                           :message => I18n.t("activerecord.errors.messages.already_taken_phone_number")
 
+
+  default_scope :order => "id DESC"
+
   protected
 
     def sanitize_phone_number

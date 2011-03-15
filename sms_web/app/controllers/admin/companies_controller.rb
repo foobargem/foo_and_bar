@@ -80,4 +80,20 @@ class Admin::CompaniesController < ApplicationController
     end
   end
 
+  def batch_upload_to_flickr
+    @companies = Company.
+                    where("image_raw_file_name is not null").
+                    where("photo_thumb_url is null or photo_large_url is null")
+    @companies.each do |company|
+      begin
+        company.upload_image_to_flickr
+      rescue Exception => e
+        next
+      end
+    end
+
+    render :update do |page|
+      page.reload
+    end
+  end
 end

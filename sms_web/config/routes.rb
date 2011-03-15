@@ -79,16 +79,25 @@ SmsWeb::Application.routes.draw do
       member do
         get "upload_to_flickr"
       end
+      collection do
+        put "batch_upload_to_flickr"
+      end
     end
     resources :cars do
       member do
         get "upload_to_flickr"
+      end
+      collection do
+        put "batch_upload_to_flickr"
       end
     end
 
     resources :racing_models do
       member do
         get "upload_to_flickr"
+      end
+      collection do
+        put "batch_upload_to_flickr"
       end
     end
 

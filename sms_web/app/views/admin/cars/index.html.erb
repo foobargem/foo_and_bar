@@ -7,6 +7,8 @@
 
 <div class="action_container">
   <%= link_to '새로 등록하기', new_admin_car_path %>
+  |
+  <%= link_to "플리커에 사진 일괄 업로드", batch_upload_to_flickr_admin_cars_path, :method => "put", :remote => true, :id => "batch_upload_link" %>
 </div>
 
 <table class="cars">
@@ -30,3 +32,10 @@
 </table>
 
 <%= will_paginate(@cars) %>
+
+
+<script type="text/javascript">
+$("batch_upload_link").observe("click", function(event){
+  $(event.target).replace("Now processing..");
+});
+</script>

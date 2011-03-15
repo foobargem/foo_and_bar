@@ -2,7 +2,8 @@ class Admin::PhotosController < ApplicationController
 
   layout "admin"
   before_filter :authenticate_admin!
-  #before_filter :flickr_authorized!
+  before_filter :flickr_authorized!,
+                :only => [:upload_to_flickr, :batch_upload_to_flickr]
 
   # GET /admin/photos
   # GET /admin/photos.xml
@@ -88,5 +89,22 @@ class Admin::PhotosController < ApplicationController
     end
   end
 
+
+  def batch_upload_to_flickr
+    @photos = Photo.
+                where("image_raw_file_name is not null").
+                where("thumb_url is null or large_url is null")
+    @photos.each do |photo|
+      begin
+        photo.upload_image_to_flickr
+      rescue Exception => e
+        next
+      end
+    end
+
+    render :update do |page|
+      page.reload
+    end
+  end
 
 end

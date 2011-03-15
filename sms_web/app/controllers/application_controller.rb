@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   def flickr_logged_in?
     !flickr_auth_token.nil?
   end
+  helper_method :flickr_logged_in?
 
   def flickr_authorized!
     unless flickr_logged_in?

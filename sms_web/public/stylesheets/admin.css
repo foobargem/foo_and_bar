@@ -2341,10 +2341,12 @@ table.applicants {
       width: 30px;
       padding: 8px 0; }
   table.applicants th.name, table.applicants td.name {
-    width: 140px; }
+    width: 100px; }
   table.applicants th.phone_number, table.applicants td.phone_number {
-    width: 160px; }
+    width: 130px; }
   table.applicants th.created_at, table.applicants td.created_at {
-    width: 140px; }
+    width: 120px; }
+  table.applicants th.user_agent, table.applicants td.user_agent {
+    width: 240px; }
   table.applicants th.actions, table.applicants td.actions {
     width: 100px; }

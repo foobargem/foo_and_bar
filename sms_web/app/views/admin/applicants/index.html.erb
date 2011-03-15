@@ -13,6 +13,7 @@
       <th class="phone_number">휴대전화</th>
       <th class="address">주소</th>
       <th class="created_at">응모일시</th>
+      <th class="user_agent">접속환경</th>
       <th class="actions"></th>
     </tr>
   </thead>
@@ -23,6 +24,7 @@
         <td class="phone_number"><%= applicant.phone_number %></td>
         <td class="address"><%= applicant.address %></td>
         <td class="created_at"><%= applicant.created_at %></td>
+        <td class="user_agent"><%= applicant.user_agent %></td>
         <td class="actions">
           <%= link_to 'Edit', edit_admin_event_applicant_path(@event, applicant) %>
           <%= link_to 'Destroy', [:admin, @event, applicant], :confirm => 'Are you sure?', :method => :delete %>

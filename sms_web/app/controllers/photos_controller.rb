@@ -45,7 +45,7 @@ class PhotosController < ApplicationController
     #has_next = (last_photo.nil? || @photos.last.id == last_photo.id) ? "n" : "y"
 
     respond_to do |format|
-      format.json { render :json => :photos => @photos.to_json }
+      format.json { render :json => @photos.to_json }
     end
   end
 

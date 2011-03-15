@@ -38,18 +38,14 @@ class PhotosController < ApplicationController
     scoped = Photo.with_car_and_racing_model.where("car_id in (?)", car_ids)
 
     @photos = scoped.
-                select("id, racing_model_id, thumb_url").
-                paginate(:page => params[:page], :per_page => 20)
+                select("id, racing_model_id, thumb_url")
+                #paginate(:page => params[:page], :per_page => 20)
 
-    last_photo = scoped.last
-    has_next = (last_photo.nil? || @photos.last.id == last_photo.id) ? "n" : "y"
+    #last_photo = scoped.last
+    #has_next = (last_photo.nil? || @photos.last.id == last_photo.id) ? "n" : "y"
 
     respond_to do |format|
-      format.json { render :json => {
-          :photos => @photos,
-          :has_next => has_next
-        }
-      }
+      format.json { render :json => :photos => @photos.to_json }
     end
   end
 

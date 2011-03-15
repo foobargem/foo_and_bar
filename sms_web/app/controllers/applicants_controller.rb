@@ -3,13 +3,11 @@ class ApplicantsController < ApplicationController
 
   before_filter :find_event
 
-  #def new
-  #end
-
   def create
     #redirect_to root_path and return unless request.xhr?
 
     @applicant = Applicant.new(params[:applicant])
+    @applicant.user_agent = request.env["HTTP_USER_AGENT"]
     result = if @applicant.save
               { :status => "Success",
                 :message => "응모완료 되었습니다." }

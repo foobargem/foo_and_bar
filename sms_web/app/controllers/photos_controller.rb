@@ -19,7 +19,7 @@ class PhotosController < ApplicationController
 
     last_photo = scoped.last
 
-    has_next = (@photos.last.id == last_photo.id) ? "n" : "y"
+    has_next = (last_photo.nil? || @photos.last.id == last_photo.id) ? "n" : "y"
 
     respond_to do |format|
       format.json { render :json => {

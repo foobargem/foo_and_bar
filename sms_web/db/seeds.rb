@@ -8,9 +8,9 @@
 
 if Admin.count < 1
   Admin.create!(
-    :email => "admin@m.top-rider.co.kr",
+    :email => "admin@foo.bar",
     :login => "admin",
-    :password => "xkqfkdlej",
-    :password_confirmation => "xkqfkdlej"
+    :password => "fooandbar",
+    :password_confirmation => "fooandbar"
   )
 end

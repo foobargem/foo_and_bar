@@ -3,7 +3,10 @@ body {
     color: #ddd;
 }
 div#jqt > * {
+    /*
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333), to(#5e5e65));
+    */
+    background: #000
 }
 #jqt h1, #jqt h2 {
     font: bold 18px "Helvetica Neue", Helvetica;

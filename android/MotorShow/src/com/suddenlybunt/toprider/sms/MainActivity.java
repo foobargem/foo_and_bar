@@ -11,6 +11,7 @@ public class MainActivity extends DroidGap {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.main);
         super.loadUrl("file:///android_asset/www/before/index.html");
-        
+//      WebSettings settings = mAppView.getSettings(); 
+//      settings.setSupportZoom(false); 
     }
 }

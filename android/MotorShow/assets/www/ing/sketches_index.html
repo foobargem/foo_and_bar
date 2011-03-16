@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+        
+        <title>2011서울모토쇼</title>
+        <style type="text/css" media="screen">@import "../../jqtouch/jqtouch.css";</style>
+        <style type="text/css" media="screen">@import "../../themes/jqt/theme.css";</style>
+        <style type="text/css" media="screen">@import "../../extensions/jqt.photo.css";</style>
+        <style type="text/css" media="screen">@import "../../stylesheets/ing_application.css";</style>
+
+        <script src="../../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="../../phonegap.0.9.4.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+
+        <script type="text/javascript" charset="utf-8">
+            //change dynamic css
+            var jQT = new $.jQTouch({
+                slideSelector: '#jqt li a, .slide',
+				        icon: '../../images/jqtouch.png',
+                addGlossToIcon: false,
+                startupScreen: '../../images/jqt_startup.png',
+                statusBar: 'black',
+                preloadImages: [
+                    '../../themes/jqt/img/back_button.png',
+                    '../../themes/jqt/img/back_button_clicked.png',
+                    '../../themes/jqt/img/button_clicked.png',
+                    '../../themes/jqt/img/loading.gif' ]
+            });
+
+
+			$(document).ready(function(){
+        new Banner("div.banner-container");
+			});
+
+        </script>
+
+
+</head>
+<body>
+
+<div id="jqt">
+
+    <div id="sketches_index">
+      <div class="toolbar">
+        <h1>전시회 스케치</h1>
+        <a href="index.html" rel="external" class="back btn">이전</a>
+				<a href="index.html" rel="external" class="homeButton"></a>
+      </div>
+      <div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper" style="background:url(../../images/com_bg1.png) no-repeat">
+        
+        <div class="top-blank-box"></div>
+        <div class="buttons-container">
+          <div class="button-wrapper first-wrapper">
+            <a href="sketches_pictures_index.html" rel="external"><img src="../../images/sub_btn4.png" /></a>
+          </div>
+          <div class="button-wrapper">
+            <a href="sketches_movies_index.html" rel="external"><img src="../../images/sub_btn5.png" /></a>
+          </div>
+          <div class="button-wrapper">
+            <a href="sketches_models_index.html" rel="external"><img src="../../images/sub_btn6.png" /></a>
+          </div>
+        </div>
+
+      </div></div>
+      <div class="toolbar banner-container">
+        Banner
+      </div>
+    
+    </div><!-- sketches_index -->
+
+</div>
+
+</body>
+</html>

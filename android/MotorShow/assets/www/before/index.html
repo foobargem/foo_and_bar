@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+        
+  <title>2011서울모토쇼</title>
+  <style type="text/css" media="screen">@import "../jqtouch/jqtouch.css";</style>
+  <style type="text/css" media="screen">@import "../themes/jqt/theme.css";</style>
+  <style type="text/css" media="screen">@import "../stylesheets/before_application.css";</style>
+
+  <script src="../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+  <script src="../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
+  <script src="../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
+
+  <script type="text/javascript" charset="utf-8">
+
+    //change dynamic css
+    var jQT = new $.jQTouch({
+        slideSelector: '#jqt li a, .slide',
+        icon: '../images/jqtouch.png',
+        addGlossToIcon: false,
+        startupScreen: '../images/jqt_startup.png',
+        statusBar: 'black',
+        preloadImages: [
+            '../themes/jqt/img/back_button.png',
+            '../themes/jqt/img/back_button_clicked.png',
+            '../themes/jqt/img/button_clicked.png',
+            '../themes/jqt/img/grayButton.png',
+            '../themes/jqt/img/whiteButton.png',
+            '../themes/jqt/img/loading.gif' ]
+    });
+
+
+    function resetDDayCounter() {
+      var today = new Date();
+      var raw_value = 32 - today.getDate();
+
+      var first_suffix = Math.floor(raw_value / 10);
+      var last_suffix = (raw_value % 10);
+
+      $("#main img#first-count-img")[0].src = "../images/main_dday_" + first_suffix + ".png";
+      $("#main img#last-count-img")[0].src = "../images/main_dday_" + last_suffix + ".png";
+    }
+
+    $(document).ready(function(){
+      resetDDayCounter();
+
+      $("#twitter_btn").bind("click", function(e){
+        window.plugins.childBrowser.showWebPage("http://twitter.com/SeoulMotorShow");
+      });
+    });
+
+  </script>
+
+</head>
+<body>
+
+<div id="jqt">
+
+    <div id="main">
+      <div class="counter_container">
+        <img src="../images/main_dday_d.png" class="dday-d" />
+        <img src="../images/main_dday_0.png" id="first-count-img" />
+        <img src="../images/main_dday_0.png" id="last-count-img" />
+      </div>
+
+      <div class="buttons_container">
+        <a href="guide.html" rel="external"><img src="../images/main_btn1.png" /></a>
+        <a href="event.html" rel="external"><img src="../images/main_btn2.png" /></a>
+        <img src="../images/main_btn3.png" class="last" id="twitter_btn" />
+      </div>
+    </div>
+
+</div>
+
+</body>
+</html>

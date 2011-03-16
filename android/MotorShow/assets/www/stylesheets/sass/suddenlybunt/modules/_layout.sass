@@ -1,0 +1,33 @@
+@import hacks.sass
+
+
+// Min-width Container
+//   - ie6 compatible!
+// 
+// Usage:
+//    <div class="fixedwidth"><div class="minwidth">
+//      <div class="minwidth_wrapper"><div class="minwidth_holder">
+//      </div></div>
+//    </div></div>
+//
+
+=min_width_container($min_width: 960px, $fixed_width: true)
+  .fixedwidth
+    @if $fixed_width
+      :width $min_width
+      :margin 0 auto
+  .minwidth
+    :width 100%
+    :min-width $min_width
+    :overflow auto
+    :overflow visible
+  .IE .minwidth div.minwidth_wrapper
+    :border-left ($min_width - 100px) "solid" #fff
+    :position relative
+    :float left
+    :z-index 1
+  .IE .minwidth div.minwidth_holder
+    :margin-left "-" + ($min_width - 100px)
+    :position relative
+    :float left
+    :z-index 2

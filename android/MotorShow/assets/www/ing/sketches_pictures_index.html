@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+        
+  <title>2011서울모토쇼</title>
+  <style type="text/css" media="screen">@import "../../jqtouch/jqtouch.css";</style>
+  <style type="text/css" media="screen">@import "../../themes/jqt/theme.css";</style>
+  <style type="text/css" media="screen">@import "../../extensions/scrolling.css";</style>
+  <style type="text/css" media="screen">@import "../../stylesheets/ing_application.css";</style>
+
+  <script src="../../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+  <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
+  <script src="../../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+
+  <script type="text/javascript" charset="utf-8">
+    //change dynamic css
+    var jQT = new $.jQTouch({
+        flipSelector: '#jqt li a, .flip',
+        icon: '../../images/jqtouch.png',
+        cacheGetRequests: true,
+        addGlossToIcon: false,
+        startupScreen: '../../images/jqt_startup.png',
+        statusBar: 'black',
+        preloadImages: [
+            '../../themes/jqt/img/back_button.png',
+            '../../themes/jqt/img/back_button_clicked.png',
+            '../../themes/jqt/img/button_clicked.png',
+            '../../themes/jqt/img/loading.gif' ]
+    });
+
+
+
+    var _page = 1;
+    var last_page = false;
+
+
+    function fetch_and_update_photos_list() {
+      var _url = SMS.API.Photo.indexURL();
+
+      if (last_page) return false;
+      //showIndicatorByView();
+
+      jQuery.ajax({
+        url: _url,
+        type: 'GET',
+        data: {
+          page: _page
+        },
+        success: function(msg){
+          buildList(msg);
+          updateListRowStyles();
+          addEventListenerToRow();
+        }
+      });
+    }
+
+
+
+    function buildList (msg) {
+      var li_eles = '';
+      var li_className = '';
+      var has_next = msg.has_next;
+      jQuery.each(msg.photos, function(idx, obj){
+        var photo = obj['photo'];
+
+        li_className = '';
+        if ((idx + 1) % 4 == 0) {
+          li_className = 'line-break';
+        }
+
+        li_eles += '<li class="' + li_className + '"><a href="#exhibition_photo_show" class="detail-link" data-id="' + photo.id + '"><img src="' + photo.thumb_url + '" /></a></li>';
+      });
+
+      if (has_next == "n") {
+        last_page = true;
+      } else {
+        li_eles += '<li id="more" class="more"><a href="#">More</a></li>';
+      }
+
+      if (li_eles.trim() == "") {
+        $("#exhibition_gallery div.thumbnail-container li#more").text("데이터가 없습니다");
+      } else {
+        $("#exhibition_gallery div.thumbnail-container li#more").replaceWith(li_eles);
+      }
+      
+      //hideIndicatorByView();
+    }
+
+
+    function updateListRowStyles () {
+      $("li:even").css("background", 'url("../../images/sub_list1.png") no-repeat');
+      $("li:even").css("background-size", "100%");
+
+      $("li:odd").css("background", 'url("../../images/sub_list2.png") no-repeat');
+      $("li:odd").css("background-size", "100%");
+
+      $("li#more").css("background", "#000");
+    }
+
+    function addEventListenerToRow () {
+      $("a.detail-link").bind("click", function(event){
+        event.preventDefault();
+        var photo_id = $(event.currentTarget).attr("data-id");
+        //window.plugins.suddenlybuntCmd.debug(photo_id);
+        fetchPhoto(photo_id);
+      });
+
+      $("li#more").bind("click", function(event){
+        event.preventDefault();
+        _page += 1;
+        fetch_and_update_photos_list();
+      });
+    }
+
+
+    function fetchPhoto(photo_id) {
+      var _url = SMS.API.Photo.showURL(photo_id);
+      
+      showIndicatorByView2();
+      
+      jQuery.ajax({
+        url: _url,
+        type: 'GET',
+        data: {
+        },
+        success: function(msg){
+          updatePhotoInfo(msg);
+        }
+      });
+
+    }
+
+
+//
+    function updatePhotoInfo(data) {
+
+      var photo = data.photo;
+
+      //window.plugins.suddenlybuntCmd.debug(photo.thumb_url);
+
+      $("#exhibition_photo_show div.photo-container img")[0].src = photo.thumb_url;
+      
+      hideIndicatorByView2();
+      
+    }
+
+
+    function showIndicatorByView() {
+      $("#exhibition_gallery div.loading-container").show();
+    }
+
+    function hideIndicatorByView() {
+      setTimeout(function(){
+        $("#exhibition_gallery div.loading-container").hide();
+      }, 600);
+    }
+
+    function showIndicatorByView2() {
+      $("#exhibition_photo_show div.loading-container").show();
+    }
+
+    function hideIndicatorByView2() {
+      setTimeout(function(){
+        $("#exhibition_photo_show div.loading-container").hide();
+      }, 600);
+    }
+
+
+    $(document).ready(function(){
+
+      SuddenlybuntCmd.install();
+
+      fetch_and_update_photos_list();
+
+    });
+
+</script>
+
+</head>
+<body>
+		
+<div id="jqt">
+			
+  <div id="exhibition_gallery">
+    <div class="toolbar">
+      <h1>전시회 사진</h1>
+      <a href="sketches_index.html" rel="external" class="back btn">이전</a>
+			<a href="index.html" rel="external" class="homeButton"></a>
+    </div>
+    <!-- <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div> -->
+    <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
+
+      <div class="thumbnail-container">
+        <ul>
+          <!-- photo gallery -->
+          <li id="more" class="more"><a href="#">More</a></li>
+        </ul>
+      </div>
+
+    </div></div>
+  </div>
+  <!-- // thumbs_container -->
+		  
+  <div id="exhibition_photo_show">
+    <div class="toolbar">
+      <h1>전시회 사진</h1>
+      <a href="#exhibition_gallery" class="back btn">이전</a>
+			<a href="index.html" rel="external" class="homeButton"></a>
+    </div>
+    <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
+    <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat;background-size:100%">
+
+      <div class="photo-container">
+        <img src="about:blank" width="320" />
+      </div>
+
+    </div></div>
+  </div>
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+@import text.sass
+
+
+//
+
+=sprite_image($image, $col, $row: 1, $width: 32px, $height: 32px, $margin: 0px)
+  +sprite_background($image, $width, $height)
+  +sprite_position($col, $row, $width, $height, $margin)
+
+=sprite_background($image, $width: "default", $height: "default")
+  :display block
+  :overflow hidden
+  :background
+    :color transparent
+    :image url( unquote($image) )
+    :repeat no-repeat
+  @if $width != "default"
+    :width $width
+  @if $height != "default"
+    :height $height
+
+=sprite_position($col, $row, $width, $height, $margin)
+  $x = (($col - 1) * -$width) - (($col - 1) * $margin)
+  $y = (($row - 1) * -$height) - (($row - 1) * $margin)
+  :background-position $x $y
+
+=sprite_offset($offset_x, $offset_y)
+  :background-position $offset_x $offset_y
+
+
+
+//
+
+=image_replacement($image, $width: 32px, $height: 32px, $offset_x: 0px, $offset_y: 0px)
+  +sprite_background($image, $width, $height)
+  +sprite_offset($offset_x, $offset_y)
+  +hide_text
+  
+=button_image_replacement($image, $width: 32px, $height: 32px, $offset_x: 0px, $offset_y: 0px)
+  +image_replacement($image, $width, $height, $offset_x, $offset_y)
+  :border 0 none
+  :cursor pointer

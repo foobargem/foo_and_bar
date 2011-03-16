@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        
+        <title>2011서울모토쇼</title>
+        <style type="text/css" media="screen">@import "../../jqtouch/jqtouch.css";</style>
+        <style type="text/css" media="screen">@import "../../themes/jqt/theme.css";</style>
+        <style type="text/css" media="screen">@import "../../stylesheets/ing_application.css";</style>
+
+        <script src="../../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
+
+	      <script type="text/javascript" charset="utf-8" src="../../phonegap.0.9.4.js"></script>
+	      <script type="text/javascript" charset="utf-8" src="../../jqtouch/ChildBrowser.js"></script>
+	
+        <script type="text/javascript" charset="utf-8">
+            //change dynamic css
+            var jQT = new $.jQTouch({
+                slideSelector: '#jqt li a, .slide',
+				        icon: '../../images/jqtouch.png',
+                addGlossToIcon: false,
+                startupScreen: '../../images/jqt_startup.png',
+                statusBar: 'black',
+                preloadImages: [
+                    '../../themes/jqt/img/back_button.png',
+                    '../../themes/jqt/img/back_button_clicked.png',
+                    '../../themes/jqt/img/button_clicked.png',
+                    '../../themes/jqt/img/grayButton.png',
+                    '../../themes/jqt/img/whiteButton.png',
+                    '../../themes/jqt/img/loading.gif' ]
+            });
+
+
+			$(document).ready(function(){
+
+				$('a[target="_blank"]').click(function() {
+					if (confirm('This link opens in a new window.')) {
+						return true;
+					} else {
+						return false;
+					}
+				});
+				
+				ChildBrowser.install();
+				
+				$('a.toprider').click(function() {
+				  window.plugins.childBrowser.showWebPage("http://m.top-rider.com");
+        });
+				
+				$('a.twitter').click(function() {
+				  window.plugins.childBrowser.showWebPage("http://twitter.com/SeoulMotorShow");
+        });
+
+			});
+
+        </script>
+    </head>
+    <body>
+		<div id="jqt">
+
+			<div id="main">
+				<div class="buttons_container">
+					<div>
+						<a href="guide.html" rel="external"><img src="../../images/main_btn4.png" /></a>
+						<a href="booths_index.html" rel="external"><img src="../../images/main_btn10.png" /></a>
+						<a href="companies_index.html" rel="external"><img src="../../images/main_btn5.png" class="last" /></a>
+					</div>
+					<div>
+						<a href="showcars_index.html" rel="external"><img src="../../images/main_btn6.png" /></a>
+						<a href="sketches_index.html" rel="external"><img src="../../images/main_btn7.png" /></a>
+						<a href="#" class="toprider"><img src="../../images/main_btn8.png" /></a>
+						<a href="#" class="twitter"><img src="../../images/main_btn9.png" /></a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+    </body>
+</html>

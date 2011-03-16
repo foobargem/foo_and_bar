@@ -1,0 +1,45 @@
+
+//
+
+=default_font_family
+  :font
+    :family "돋움", Dotum, arial, helvetica, sans-serif
+
+=heading_font_family
+  :font
+    :family NanumGothic, Dotum, arial, sans-serif
+
+
+
+//
+
+=nowrap
+  :white-space nowrap
+
+=hide_text
+  :text-indent -9999em
+  :overflow hidden
+  :text-align left
+  .IE &
+    :display block
+    :font-size 0
+    :line-height 0
+
+=no_text_selection
+  :-moz-user-select none
+  :-khtml-user-select none
+  :user-select none
+
+
+
+//
+
+=ellipsis($no_wrap: true)
+  @if $no_wrap
+    +nowrap
+  :overflow hidden
+  :text-overflow ellipsis
+  :-o-text-overflow ellipsis
+  :-ms-text-overflow ellipsis
+  :-moz-binding stylesheet_url("xml/ellipsis.xml#ellipsis")
+

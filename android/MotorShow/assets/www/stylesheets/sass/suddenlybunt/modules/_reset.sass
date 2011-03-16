@@ -1,0 +1,92 @@
+// Based on Eric Meyer's reset http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
+
+// http://meyerweb.com/eric/tools/css/reset/
+// v1.0 | 20080212
+
+=global_reset
+  html, body, div, span, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, cite, code,
+  del, dfn, em, img, ins, kbd, q, samp,
+  strike, strong, var,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td
+    +reset_box_model
+    +reset_font
+  
+  *:focus
+    +reset_focus
+  
+  body
+    +reset_body
+    
+  ol, ul
+    +reset_list_style
+  
+  table
+    +reset_table
+  
+  caption, th, td
+    +reset_table_cell
+  
+  q, blockquote
+    +reset_quotation
+  
+  a img
+    +reset_image_anchor_border
+  
+  em
+    :font-weight bold
+    :font-style normal
+
+
+
+// Mixins partials
+
+=reset_box_model
+  :margin 0
+  :padding 0
+  :border 0
+  :outline 0
+
+=reset_font
+  :font
+    :weight inherit
+    :style inherit
+    :size 100%
+    :family inherit
+  :vertical-align center
+
+=reset_body
+  :color #000
+
+=reset_focus
+  :outline 0
+
+=reset_list_style
+  :list-style none
+
+=reset_table
+  :border-collapse collapse
+  :border-spacing 0
+  :vertical-align middle
+
+=reset_table_cell
+  :text-align left
+  :font-weight normal
+  :vertical-align middle
+
+=reset_quotation
+  :quotes none
+  &:before, &:after
+    :content ''
+    :content none
+
+=reset_image_anchor_border
+  :border none
+
+=reset_html5
+  section, article, aside, header, footer, nav, dialog, figure
+    :display block
+

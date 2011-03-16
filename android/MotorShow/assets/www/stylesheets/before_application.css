@@ -1,0 +1,85 @@
+div#main {
+  background: url("../images/main_bg.png") no-repeat; }
+  div#main .counter_container {
+    margin-top: 149px;
+    text-align: center; }
+    div#main .counter_container img {
+      width: 56px;
+      height: 80px; }
+      div#main .counter_container img.dday-d {
+        margin-right: 42px; }
+  div#main .buttons_container {
+    margin-top: 99px;
+    text-align: center; }
+    div#main .buttons_container img {
+      margin-right: 14px; }
+      div#main .buttons_container img.last {
+        margin-right: 0; }
+
+div#guide .content-wrapper {
+  min-height: 720px;
+  background: url("../images/itd_contents.png") no-repeat;
+  background-size: 100%; }
+
+form#event_main .content-wrapper {
+  min-height: 416px;
+  background: url("../images/event/bg1.png") no-repeat;
+  background-size: 100%; }
+  form#event_main .content-wrapper .content-container {
+    min-height: 294px; }
+  form#event_main .content-wrapper .radios-container {
+    text-align: center; }
+    form#event_main .content-wrapper .radios-container input.first {
+      margin-right: 56px; }
+    form#event_main .content-wrapper .radios-container input.second {
+      margin-right: 56px; }
+    form#event_main .content-wrapper .radios-container input.last {
+      margin-right: 34px; }
+  form#event_main .content-wrapper .buttons-container {
+    padding-top: 60px;
+    text-align: center; }
+    form#event_main .content-wrapper .buttons-container input#quiz_request_btn {
+      background: url("../images/event/btn1.png") no-repeat;
+      background-size: 100%;
+      width: 61px;
+      height: 33px;
+      border: 0;
+      padding: 0; }
+
+form#event_correct_answer .content-wrapper {
+  min-height: 416px;
+  background: url("../images/event/bg2.png") no-repeat;
+  background-size: 100%; }
+  form#event_correct_answer .content-wrapper .content-container {
+    min-height: 210px; }
+  form#event_correct_answer .content-wrapper .inputs-container {
+    min-height: 100px;
+    padding-top: 20px;
+    padding-left: 120px; }
+    form#event_correct_answer .content-wrapper .inputs-container input {
+      border: 0;
+      margin: 0;
+      height: 20px;
+      width: 150px; }
+    form#event_correct_answer .content-wrapper .inputs-container .input {
+      padding: 1px; }
+  form#event_correct_answer .content-wrapper .buttons-container {
+    padding-top: 30px;
+    text-align: center; }
+    form#event_correct_answer .content-wrapper .buttons-container img#register_btn {
+      border: 0;
+      padding: 0; }
+
+div#event_wrong_answer .content-wrapper {
+  min-height: 416px;
+  background: url("../images/event/bg3.png") no-repeat;
+  background-size: 100%; }
+  div#event_wrong_answer .content-wrapper .content-container {
+    min-height: 214px; }
+  div#event_wrong_answer .content-wrapper .buttons-container {
+    text-align: center; }
+
+div#event_hint .content-container {
+  background: url("../images/main_bg2.png") no-repeat;
+  min-height: 416px;
+  background-size: 100%; }

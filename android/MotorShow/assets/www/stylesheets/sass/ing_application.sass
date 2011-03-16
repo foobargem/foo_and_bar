@@ -1,0 +1,354 @@
+@import mixin
+
+
+.loading-container
+  :position absolute
+  :top 44px
+  :width 100%
+  :min-height 436px
+  :background url(../images/com_bg2.png) repeat-y
+  :background-size 100%
+  :z-index 100
+  :text-align center
+  :padding-top 100px
+  img
+    :border 0
+
+
+.banner-container
+  :border 0
+  :padding 0
+  :background url(../images/toprider_default_banner.gif)
+
+div#main
+  :background url(../images/main_bg2.png) no-repeat
+  :background-size 100%
+  .buttons_container
+    :margin-top 247px
+    :text-align center
+    img
+      :margin-right 4px
+      &.last
+        :margin-right 0
+
+
+div#guide
+  .content-container
+    :min-height 720px
+    :background url(../images/itd_contents.png) no-repeat
+    :background-size 100%
+
+
+div#companies_main
+  .content-wrapper
+    :min-height 368px
+    :background url(../images/com_bg1.png) no-repeat
+    :background-size 100%
+    .content-container
+      :min-height 42px
+    .buttons-container
+      .button-wrapper
+        :text-align center
+        :margin-bottom 16px
+
+
+div#companies_index
+  .content-wrapper
+    :background url(../images/com_bg2.png) repeat-y
+    :background-size 100%
+    :min-height 372px
+    .content-container
+      ul
+        :margin 0
+        li
+          :height 30px
+
+div#companies_show
+  .content-wrapper
+    +clearfix
+    :background url(../images/com_bg2.png) repeat-y
+    :background-size 100%
+    .top-blank-box
+      :min-height 21px
+    .photo-container
+      +clearfix
+      .prev-btn-container
+        +float_left
+        :width 16px
+        :margin-right 2px
+        img
+          :margin-top 52px
+      .logo-image-container
+        +float_left
+        :width 282px
+        :height 145px
+        :text-align center
+        :background url(../images/view_load1.png) no-repeat
+        :background-size 100%
+        :padding-top 4px
+        :margin-left 18px
+        :margin-right 18px
+        img#company_logo
+          :border 0
+      .next-btn-container
+        +float_left
+        :width 16px
+        :margin-left 2px
+        img
+          :margin-top 52px
+    .content-container
+      :min-height 206px
+      .field-wrapper
+        +clearfix
+        :margin-bottom 3px
+        label
+          +float_left
+          :width 54px
+          :padding-left 20px
+        div
+          +float_left
+          :width 220px
+          :padding 0 8px
+          :font-size 12px
+          :color #c2c2c2
+      .site-link-wrapper
+        :text-align center
+        :margin 15px 0
+        img
+          :border 0
+
+
+
+/* showcars */
+
+div#photo_container
+  :background url("../images/com_bg2.png") no-repeat
+  .buttons_container
+    :margin-left 20px
+  .buttons_container
+    img
+      :padding 0px
+
+
+
+/* sketches */
+
+div#sketches_index
+  .content-wrapper
+    :background url("../images/com_bg1.png") no-repeat
+    :background-size 100%
+    :min-height 370px
+    .top-blank-box
+      :min-height 42px
+    .buttons-container
+      .button-wrapper
+        :text-align center
+        :margin-bottom 16px
+
+
+
+
+div#sketches_movie_index, div#sketches_models_booth_index
+  .content-wrapper
+    :background url(../images/com_bg2.png) repeat-y
+    :background-size 100%
+    :min-height 370px
+    .content-container
+      ul
+        :margin 0
+        li
+          :height 30px
+
+
+
+
+
+div#sketches_model_index
+  .content-wrapper
+    :min-height 372px
+    :background url(../../../images/com_bg1.png) repeat-y
+    :background-size 100%
+    .blank-box-top
+      :min-height 42px
+    .buttons-container
+      :text-align center
+      .button-wrapper
+        :margin-bottom 16px
+    .content-container
+
+
+
+div#jqt div#exhibition_gallery,
+div#jqt div#model_gallery,
+div#jqt div#car_gallery
+  .vertical-scroll
+    .content-wrapper
+      :min-height 400px
+      :background url(../../../images/com_bg2.png) repeat-y
+      :background-size 100%
+      .thumbnail-container
+        :padding-top 20px
+        ul
+          +clearfix
+          :width 290px
+          :background none
+          :margin 0 0 0 15px
+          :border 0 solid red
+          li
+            +float_left
+            :background none
+            :display inline
+            :height 65px
+            :width 65px
+            :padding 0
+            :margin 0 10px 10px 0
+            :border 0 solid green
+            &.line-break
+              :margin-right 0
+          li.more
+            +clearfix
+            :display block
+            :height 40px
+            :width 290px
+            :text-align center
+            :padding 0
+            :line-height 40px
+            :margin 0
+            :margin-right 0
+            :background black
+            img
+              :border 0
+              :width 16px
+              :height 16px
+          img
+            :border 0
+            :width 65px
+            :height 65px
+
+
+div#exhibition_photo_show
+  .content-wrapper
+    :min-height 400px
+    :background url(../../../images/com_bg2.png) repeat
+    :background-size 100%
+    .photo-container
+      :width 320px
+
+
+div#model_show
+  .content-wrapper
+    +clearfix
+    :background url(../images/com_bg2.png) repeat-y
+    :background-size 100%
+    .top-blank-box
+      :min-height 21px
+    .photo-container
+      +clearfix
+      .prev-btn-container
+        +float_left
+        :width 16px
+        :margin-right 2px
+        img
+          :margin-top 112px
+      .logo-image-container
+        +float_left
+        :width 282px
+        :min-height 261px
+        :text-align center
+        :background url(../images/view_load2.png) no-repeat
+        :background-size 100%
+        :padding-top 4px
+        :margin-left 18px
+        :margin-right 18px
+        img
+          :border 0
+      .next-btn-container
+        +float_left
+        :width 16px
+        :margin-left 2px
+        img
+          :margin-top 112px
+    .content-container
+      :padding-top 16px
+      :min-height 206px
+      .field-wrapper
+        +clearfix
+        :margin-bottom 3px
+        label
+          +float_left
+          :width 80px
+          :padding-left 20px
+        div
+          +float_left
+          :width 200px
+          :padding 0 8px
+          :font-size 12px
+          :color #c2c2c2
+      .site-link-wrapper
+        :text-align center
+        :margin 15px 0
+        img
+          :border 0
+
+
+div#car_show
+  .content-wrapper
+    +clearfix
+    :background url(../images/com_bg2.png) repeat-y
+    :background-size 100%
+    .top-blank-box
+      :min-height 21px
+    .photo-container
+      +clearfix
+      .prev-btn-container
+        +float_left
+        :width 16px
+        :margin-right 2px
+        img
+          :margin-top 52px
+      .logo-image-container
+        +float_left
+        :width 282px
+        :height 125px
+        :text-align center
+        :vertical-align middle
+        :background url(../images/view_load1.png) no-repeat
+        :background-size 100%
+        :padding-top 4px
+        :margin-left 18px
+        :margin-right 18px
+        img
+          :border 0
+      .next-btn-container
+        +float_left
+        :width 16px
+        :margin-left 2px
+        img
+          :margin-top 52px
+    .buttons-container
+      :padding 15px 0 10px 0
+      :text-align center
+    .content-container
+      :min-height 206px
+      .field-wrapper
+        +clearfix
+        :margin-bottom 3px
+        label
+          +float_left
+          :width 80px
+          :padding-left 20px
+        div
+          +float_left
+          :width 200px
+          :padding 0 8px
+          :font-size 12px
+          :color #c2c2c2
+      .site-link-wrapper
+        :text-align center
+        :margin 15px 0
+        img
+          :border 0
+
+
+      
+

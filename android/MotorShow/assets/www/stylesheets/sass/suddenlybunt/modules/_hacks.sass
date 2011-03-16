@@ -1,0 +1,37 @@
+
+//
+
+=hack_browser($browser, $name, $value)
+  .#{$browser} &
+    :#{$name} #{$value}
+
+
+//
+
+=hack_IE($name, $value)
+  +hack_browser("IE", $name, $value)
+
+=hack_IE6($name, $value)
+  +hack_browser("IE6", $name, $value)
+
+=hack_IE7($name, $value)
+  +hack_browser("IE7", $name, $value)
+
+=hack_IE8($name, $value)
+  +hack_browser("IE8", $name, $value)
+
+=hack_IE8($name, $value)
+  +hack_browser("IE9", $name, $value)
+
+=hack_FF($name, $value)
+  +hack_browser("FF", $name, $value)
+
+=hack_Safari($name, $value)
+  +hack_browser("Safari", $name, $value)
+
+=hack_Chrome($name, $value)
+  +hack_browser("Chrome", $name, $value)
+
+=hack_Opera($name, $value)
+  +hack_browser("Opera", $name, $value)
+

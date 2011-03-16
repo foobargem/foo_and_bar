@@ -1,0 +1,456 @@
+.loading-container {
+  position: absolute;
+  top: 44px;
+  width: 100%;
+  min-height: 436px;
+  background: url(../images/com_bg2.png) repeat-y;
+  background-size: 100%;
+  z-index: 100;
+  text-align: center;
+  padding-top: 100px; }
+  .loading-container img {
+    border: 0; }
+
+.banner-container {
+  border: 0;
+  padding: 0;
+  background: url(../images/toprider_default_banner.gif); }
+
+div#main {
+  background: url(../images/main_bg2.png) no-repeat;
+  background-size: 100%; }
+  div#main .buttons_container {
+    margin-top: 247px;
+    text-align: center; }
+    div#main .buttons_container img {
+      margin-right: 4px; }
+      div#main .buttons_container img.last {
+        margin-right: 0; }
+
+div#guide .content-container {
+  min-height: 720px;
+  background: url(../images/itd_contents.png) no-repeat;
+  background-size: 100%; }
+
+div#companies_main .content-wrapper {
+  min-height: 368px;
+  background: url(../images/com_bg1.png) no-repeat;
+  background-size: 100%; }
+  div#companies_main .content-wrapper .content-container {
+    min-height: 42px; }
+  div#companies_main .content-wrapper .buttons-container .button-wrapper {
+    text-align: center;
+    margin-bottom: 16px; }
+
+div#companies_index .content-wrapper {
+  background: url(../images/com_bg2.png) repeat-y;
+  background-size: 100%;
+  min-height: 372px; }
+  div#companies_index .content-wrapper .content-container ul {
+    margin: 0; }
+    div#companies_index .content-wrapper .content-container ul li {
+      height: 30px; }
+
+div#companies_show .content-wrapper {
+  background: url(../images/com_bg2.png) repeat-y;
+  background-size: 100%; }
+  div#companies_show .content-wrapper:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
+  * + html div#companies_show .content-wrapper {
+    display: inline-block; }
+    .IE * + html div#companies_show .content-wrapper {
+      height: 1%; }
+  div#companies_show .content-wrapper .top-blank-box {
+    min-height: 21px; }
+  div#companies_show .content-wrapper .photo-container:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
+  * + html div#companies_show .content-wrapper .photo-container {
+    display: inline-block; }
+    .IE * + html div#companies_show .content-wrapper .photo-container {
+      height: 1%; }
+  div#companies_show .content-wrapper .photo-container .prev-btn-container {
+    display: inline;
+    float: left;
+    width: 16px;
+    margin-right: 2px; }
+    div#companies_show .content-wrapper .photo-container .prev-btn-container img {
+      margin-top: 52px; }
+  div#companies_show .content-wrapper .photo-container .logo-image-container {
+    display: inline;
+    float: left;
+    width: 282px;
+    height: 145px;
+    text-align: center;
+    background: url(../images/view_load1.png) no-repeat;
+    background-size: 100%;
+    padding-top: 4px;
+    margin-left: 18px;
+    margin-right: 18px; }
+    div#companies_show .content-wrapper .photo-container .logo-image-container img#company_logo {
+      border: 0; }
+  div#companies_show .content-wrapper .photo-container .next-btn-container {
+    display: inline;
+    float: left;
+    width: 16px;
+    margin-left: 2px; }
+    div#companies_show .content-wrapper .photo-container .next-btn-container img {
+      margin-top: 52px; }
+  div#companies_show .content-wrapper .content-container {
+    min-height: 206px; }
+    div#companies_show .content-wrapper .content-container .field-wrapper {
+      margin-bottom: 3px; }
+      div#companies_show .content-wrapper .content-container .field-wrapper:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        overflow: hidden;
+        visibility: hidden; }
+      * + html div#companies_show .content-wrapper .content-container .field-wrapper {
+        display: inline-block; }
+        .IE * + html div#companies_show .content-wrapper .content-container .field-wrapper {
+          height: 1%; }
+      div#companies_show .content-wrapper .content-container .field-wrapper label {
+        display: inline;
+        float: left;
+        width: 54px;
+        padding-left: 20px; }
+      div#companies_show .content-wrapper .content-container .field-wrapper div {
+        display: inline;
+        float: left;
+        width: 220px;
+        padding: 0 8px;
+        font-size: 12px;
+        color: #c2c2c2; }
+    div#companies_show .content-wrapper .content-container .site-link-wrapper {
+      text-align: center;
+      margin: 15px 0; }
+      div#companies_show .content-wrapper .content-container .site-link-wrapper img {
+        border: 0; }
+
+/* showcars */
+div#photo_container {
+  background: url("../images/com_bg2.png") no-repeat; }
+  div#photo_container .buttons_container {
+    margin-left: 20px; }
+  div#photo_container .buttons_container img {
+    padding: 0px; }
+
+/* sketches */
+div#sketches_index .content-wrapper {
+  background: url("../images/com_bg1.png") no-repeat;
+  background-size: 100%;
+  min-height: 370px; }
+  div#sketches_index .content-wrapper .top-blank-box {
+    min-height: 42px; }
+  div#sketches_index .content-wrapper .buttons-container .button-wrapper {
+    text-align: center;
+    margin-bottom: 16px; }
+
+div#sketches_movie_index .content-wrapper, div#sketches_models_booth_index .content-wrapper {
+  background: url(../images/com_bg2.png) repeat-y;
+  background-size: 100%;
+  min-height: 370px; }
+  div#sketches_movie_index .content-wrapper .content-container ul, div#sketches_models_booth_index .content-wrapper .content-container ul {
+    margin: 0; }
+    div#sketches_movie_index .content-wrapper .content-container ul li, div#sketches_models_booth_index .content-wrapper .content-container ul li {
+      height: 30px; }
+
+div#sketches_model_index .content-wrapper {
+  min-height: 372px;
+  background: url(../../../images/com_bg1.png) repeat-y;
+  background-size: 100%; }
+  div#sketches_model_index .content-wrapper .blank-box-top {
+    min-height: 42px; }
+  div#sketches_model_index .content-wrapper .buttons-container {
+    text-align: center; }
+    div#sketches_model_index .content-wrapper .buttons-container .button-wrapper {
+      margin-bottom: 16px; }
+
+div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper,
+div#jqt div#model_gallery .vertical-scroll .content-wrapper,
+div#jqt div#car_gallery .vertical-scroll .content-wrapper {
+  min-height: 400px;
+  background: url(../../../images/com_bg2.png) repeat-y;
+  background-size: 100%; }
+  div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container,
+  div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container,
+  div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container {
+    padding-top: 20px; }
+    div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul,
+    div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul,
+    div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul {
+      width: 290px;
+      background: none;
+      margin: 0 0 0 15px;
+      border: 0 solid red; }
+      div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul:after,
+      div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul:after,
+      div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        overflow: hidden;
+        visibility: hidden; }
+      * + html div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul, * + html
+      div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul, * + html
+      div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul {
+        display: inline-block; }
+        .IE * + html div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul, .IE * + html
+        div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul, .IE * + html
+        div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul {
+          height: 1%; }
+      div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li,
+      div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li,
+      div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li {
+        display: inline;
+        float: left;
+        background: none;
+        display: inline;
+        height: 65px;
+        width: 65px;
+        padding: 0;
+        margin: 0 10px 10px 0;
+        border: 0 solid green; }
+        div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.line-break,
+        div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.line-break,
+        div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.line-break {
+          margin-right: 0; }
+      div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more,
+      div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more,
+      div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more {
+        display: block;
+        height: 40px;
+        width: 290px;
+        text-align: center;
+        padding: 0;
+        line-height: 40px;
+        margin: 0;
+        margin-right: 0;
+        background: black; }
+        div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more:after,
+        div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more:after,
+        div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more:after {
+          content: ".";
+          display: block;
+          height: 0;
+          clear: both;
+          overflow: hidden;
+          visibility: hidden; }
+        * + html div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more, * + html
+        div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more, * + html
+        div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more {
+          display: inline-block; }
+          .IE * + html div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more, .IE * + html
+          div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more, .IE * + html
+          div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more {
+            height: 1%; }
+        div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more img,
+        div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more img,
+        div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more img {
+          border: 0;
+          width: 16px;
+          height: 16px; }
+      div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul img,
+      div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul img,
+      div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul img {
+        border: 0;
+        width: 65px;
+        height: 65px; }
+
+div#exhibition_photo_show .content-wrapper {
+  min-height: 400px;
+  background: url(../../../images/com_bg2.png) repeat;
+  background-size: 100%; }
+  div#exhibition_photo_show .content-wrapper .photo-container {
+    width: 320px; }
+
+div#model_show .content-wrapper {
+  background: url(../images/com_bg2.png) repeat-y;
+  background-size: 100%; }
+  div#model_show .content-wrapper:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
+  * + html div#model_show .content-wrapper {
+    display: inline-block; }
+    .IE * + html div#model_show .content-wrapper {
+      height: 1%; }
+  div#model_show .content-wrapper .top-blank-box {
+    min-height: 21px; }
+  div#model_show .content-wrapper .photo-container:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
+  * + html div#model_show .content-wrapper .photo-container {
+    display: inline-block; }
+    .IE * + html div#model_show .content-wrapper .photo-container {
+      height: 1%; }
+  div#model_show .content-wrapper .photo-container .prev-btn-container {
+    display: inline;
+    float: left;
+    width: 16px;
+    margin-right: 2px; }
+    div#model_show .content-wrapper .photo-container .prev-btn-container img {
+      margin-top: 112px; }
+  div#model_show .content-wrapper .photo-container .logo-image-container {
+    display: inline;
+    float: left;
+    width: 282px;
+    min-height: 261px;
+    text-align: center;
+    background: url(../images/view_load2.png) no-repeat;
+    background-size: 100%;
+    padding-top: 4px;
+    margin-left: 18px;
+    margin-right: 18px; }
+    div#model_show .content-wrapper .photo-container .logo-image-container img {
+      border: 0; }
+  div#model_show .content-wrapper .photo-container .next-btn-container {
+    display: inline;
+    float: left;
+    width: 16px;
+    margin-left: 2px; }
+    div#model_show .content-wrapper .photo-container .next-btn-container img {
+      margin-top: 112px; }
+  div#model_show .content-wrapper .content-container {
+    padding-top: 16px;
+    min-height: 206px; }
+    div#model_show .content-wrapper .content-container .field-wrapper {
+      margin-bottom: 3px; }
+      div#model_show .content-wrapper .content-container .field-wrapper:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        overflow: hidden;
+        visibility: hidden; }
+      * + html div#model_show .content-wrapper .content-container .field-wrapper {
+        display: inline-block; }
+        .IE * + html div#model_show .content-wrapper .content-container .field-wrapper {
+          height: 1%; }
+      div#model_show .content-wrapper .content-container .field-wrapper label {
+        display: inline;
+        float: left;
+        width: 80px;
+        padding-left: 20px; }
+      div#model_show .content-wrapper .content-container .field-wrapper div {
+        display: inline;
+        float: left;
+        width: 200px;
+        padding: 0 8px;
+        font-size: 12px;
+        color: #c2c2c2; }
+    div#model_show .content-wrapper .content-container .site-link-wrapper {
+      text-align: center;
+      margin: 15px 0; }
+      div#model_show .content-wrapper .content-container .site-link-wrapper img {
+        border: 0; }
+
+div#car_show .content-wrapper {
+  background: url(../images/com_bg2.png) repeat-y;
+  background-size: 100%; }
+  div#car_show .content-wrapper:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
+  * + html div#car_show .content-wrapper {
+    display: inline-block; }
+    .IE * + html div#car_show .content-wrapper {
+      height: 1%; }
+  div#car_show .content-wrapper .top-blank-box {
+    min-height: 21px; }
+  div#car_show .content-wrapper .photo-container:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
+  * + html div#car_show .content-wrapper .photo-container {
+    display: inline-block; }
+    .IE * + html div#car_show .content-wrapper .photo-container {
+      height: 1%; }
+  div#car_show .content-wrapper .photo-container .prev-btn-container {
+    display: inline;
+    float: left;
+    width: 16px;
+    margin-right: 2px; }
+    div#car_show .content-wrapper .photo-container .prev-btn-container img {
+      margin-top: 52px; }
+  div#car_show .content-wrapper .photo-container .logo-image-container {
+    display: inline;
+    float: left;
+    width: 282px;
+    height: 125px;
+    text-align: center;
+    vertical-align: middle;
+    background: url(../images/view_load1.png) no-repeat;
+    background-size: 100%;
+    padding-top: 4px;
+    margin-left: 18px;
+    margin-right: 18px; }
+    div#car_show .content-wrapper .photo-container .logo-image-container img {
+      border: 0; }
+  div#car_show .content-wrapper .photo-container .next-btn-container {
+    display: inline;
+    float: left;
+    width: 16px;
+    margin-left: 2px; }
+    div#car_show .content-wrapper .photo-container .next-btn-container img {
+      margin-top: 52px; }
+  div#car_show .content-wrapper .buttons-container {
+    padding: 15px 0 10px 0;
+    text-align: center; }
+  div#car_show .content-wrapper .content-container {
+    min-height: 206px; }
+    div#car_show .content-wrapper .content-container .field-wrapper {
+      margin-bottom: 3px; }
+      div#car_show .content-wrapper .content-container .field-wrapper:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        overflow: hidden;
+        visibility: hidden; }
+      * + html div#car_show .content-wrapper .content-container .field-wrapper {
+        display: inline-block; }
+        .IE * + html div#car_show .content-wrapper .content-container .field-wrapper {
+          height: 1%; }
+      div#car_show .content-wrapper .content-container .field-wrapper label {
+        display: inline;
+        float: left;
+        width: 80px;
+        padding-left: 20px; }
+      div#car_show .content-wrapper .content-container .field-wrapper div {
+        display: inline;
+        float: left;
+        width: 200px;
+        padding: 0 8px;
+        font-size: 12px;
+        color: #c2c2c2; }
+    div#car_show .content-wrapper .content-container .site-link-wrapper {
+      text-align: center;
+      margin: 15px 0; }
+      div#car_show .content-wrapper .content-container .site-link-wrapper img {
+        border: 0; }

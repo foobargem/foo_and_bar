@@ -1,0 +1,424 @@
+50a51
+> 		document = window.document,
+92c93,122
+<             defaultTransform: "translate3d(0,0,0)",
+---
+>             transform: "translate3d({0}px,0,0)",
+>             
+>             /**
+>              *    Attribute name to use in lieu of src to enable lazy loading
+> 			 *    Set to false or "" to disable it
+>              *
+>              *    @var String
+>              */
+>             lazyLoad: "lazyload",
+>             
+>             /**
+>              *    Should Images be preloaded? default false
+>              *
+>              *    @var Boolean
+>              */
+>             preLoad: false,
+>             
+>             /**
+>              *    default speed for slideshow
+>              *
+>              *    @var Number
+>              */
+>             defaultOffset: 0,
+>             
+>             /**
+>              *    
+>              *
+>              *    @var String
+>              */
+> 			blankImage: "data:image/gif;base64,AAAA",
+434,437c464,467
+< 					top:toolbar,
+< 					"font-size":"30px",
+< 					"text-align":"center",
+< 					"vertical-align":"top"
+---
+> 					top: toolbar,
+> 					"font-size": "30px",
+> 					"text-align": "center",
+> 					"vertical-align": "top"
+440,446c470,476
+< 					width:width,
+< 					height:height,
+< 					"line-height":height,
+< 					"border-spacing":"0 10px 0 0",
+< 					overflow:"hidden",
+< 					"text-align":"center",
+< 					position:"relative",
+---
+> 					width: width,
+> 					height: height,
+> 					"line-height": height,
+> 					"border-spacing": "0 10px 0 0",
+> 					overflow: "hidden",
+> 					"text-align": "center",
+> 					position: "relative",
+449c479
+< 					top:caption,
+---
+> 					top: caption,
+454,455c484,485
+< 					height:height,
+< 					width:width,
+---
+> 					height: height,
+> 					width: width,
+458,461c488,491
+< 					top:toolbar,
+< 					"font-size":"30px",
+< 					"text-align":"center",
+< 					"vertical-align":"top",
+---
+> 					top: toolbar,
+> 					"font-size": "30px",
+> 					"text-align": "center",
+> 					"vertical-align": "top",
+464,469c494,499
+< 					width:width,
+< 					height:height,
+< 					"line-height":height,
+< 					"border-spacing":"0 10px 0 0",
+< 					overflow:"hidden",
+< 					"text-align":"center",
+---
+> 					width: width,
+> 					height: height,
+> 					"line-height": height,
+> 					"border-spacing": "0 10px 0 0",
+> 					overflow: "hidden",
+> 					"text-align": "center",
+472c502
+< 					top:caption,
+---
+> 					top: caption,
+477,478c507,508
+< 					height:height,
+< 					width:width,
+---
+> 					height: height,
+> 					width: width,
+481c511
+< 					top:toolbar,
+---
+> 					top: toolbar,
+484c514
+< 					height:height,
+---
+> 					height: height,
+487,489c517,519
+< 					height:height,
+< 					width:width,
+< 					"line-height":height,
+---
+> 					height: height,
+> 					width: width,
+> 					"line-height": height,
+492c522
+< 					top:caption,
+---
+> 					top: caption,
+551c581
+<                  *        images = [{src:"/somewhere1.jpg",caption:"Not Yet Implemented"},
+---
+>                  *        images = [{src:"/somewhere1.jpg",caption:"Not Yet Implemented",width:200,height:200},
+589,600c619
+<                             img = slide.find("img").attr("will-src", image.src);//.load(function(){console.log("loaded: "+image.src)})
+<                         
+<                         list.append(slide);
+<                         
+<                         if (image.current || i == options.defaultIndex) {
+<                             img.attr("src", image.src).removeAttr("will-src");
+< 							slide.addClass(options.imageCurrentClass);
+<                         }
+<                         
+<                         if (image.caption) {
+<                             slide.find(".jqt-photo-caption").html(image.title);
+<                         }
+---
+>                             img = slide.find("img");
+603,604c622
+<                             var t = img,
+<                                 w = image.width,
+---
+>                             var w = image.width,
+614c632
+<                                 t.css({
+---
+>                                 img.css({
+628c646
+<                         } else {
+---
+>                         } else if (options.preLoad) {
+632c650
+<                                      left:10000,
+---
+>                                      left:-10000,
+640,673c658
+<                                 .load(function() {
+<                                     var innerWidth = window.innerWidth,
+<                                         innerHeight = window.innerHeight,
+<                                         t = $(this),
+<                                         w = t.width(),
+<                                         h = t.height(),
+<                                         scale = min(min(w, innerWidth)/w, min(h, innerHeight)/h),
+<                                         width = w * scale,
+<                                         height = h * scale,
+<                                         left = -floor(((width - innerWidth) / scale) / 2),
+<                                         top = -floor(((height - innerHeight) / scale) / 2), 
+<                                         data;
+<                                     
+<                                     if (width > innerWidth || height > innerHeight) {
+<                                         data = gallery.find(format("img[src='{0}']", this.src))
+<                                             .css({
+<                                                  webkitTransitionDuration: "0",
+<                                                  webkitTransform: format("scale({0}) translate3d({1}px, {2}px, 0)", scale, left, top)
+<                                             })
+<                                             .addClass(options.presizedClass)
+<                                             .data("jqt-photo-info");
+<                                         
+<                                         if (data) {
+<                                             data = data[orientation];
+<                                             data.current.scale = data.original.scale = scale;
+<                                             data.current.left = data.original.left = left;
+<                                             data.current.top = data.original.top = top;
+<                                             data.current.width = data.original.width = width * scale;
+<                                             data.current.height = data.original.height = height * scale;
+<                                         }
+<                                     }
+<                                     
+<                                     t.remove();
+<                                 })
+---
+>                                 .load(options.preLoad === true ? loader : options.preLoad)
+675c660,673
+<                                 .attr("src",this.src);
+---
+>                                 .attr("src", this.src);
+>                         } else {
+> 							img.load(function () {
+> 								if ($(this).attr("src") != options.blamkImage) {
+> 									loader.call(this, {}, options, img, gallery);
+> 								}
+> 							});
+> 						}
+> 						
+> 						img.attr("src",options.blankImage).data(options.lazyLoad, image.src);
+> 						
+> 						if (image.current || i == options.defaultIndex) {
+>                             img.attr("src", image.src);
+> 							slide.addClass(options.imageCurrentClass);
+676a675,680
+>                         
+>                         if (image.caption) {
+>                             slide.find(".jqt-photo-caption").html(image.caption);
+>                         }
+>                         
+>                         list.append(slide);
+709,710c713
+<      *    @param Object options - optional
+<      *    @return Object
+---
+>      *    
+712,718c715,744
+<     $.jqtPhotoDefaults = function(options) {
+<         if (options) {
+<             defaults = $.extend(defaults, options);
+<         }
+<         
+<         return $.extend({}, defaults);
+<     };
+---
+>     $.jqtPhoto = {
+>     
+> 		/**
+> 		 *    Change and/or retrieve the default options
+> 		 *
+> 		 *    @param Object options - optional
+> 		 *    @return Object
+> 		 */
+> 		defaults: function(options) {
+> 			if (options) {
+> 				defaults = $.extend(defaults, options);
+> 			}
+> 			
+> 			return $.extend({}, defaults);
+> 		},
+> 	
+> 		/**
+> 		 *    Change and/or retrieve the default CSS
+> 		 *
+> 		 *    @param Object options - optional
+> 		 *    @return Object
+> 		 */
+> 		defaultCSS: function (options) {
+> 			if (options !== undefined) {
+> 				cssRules = $.extend(true, cssRules, options);
+> 			}
+> 			
+> 			return $.extend({}, cssRules);
+> 		}
+> 	};
+745c771
+<             webkitTransform: options.defaultTransform
+---
+>             webkitTransform: format(options.transform, options.defaultOffset)
+818c844
+<                 original = t.data("jqt-photo-info") || {}, 
+---
+>                 data = t.data("jqt-photo-info") || {}, 
+828c854,856
+<             original[orientation] = {current: c, original: $.extend({}, c)};
+---
+> 			data.gallery = data.gallery || target;
+> 			
+>             data[orientation] = {current: c, original: $.extend({}, c)};
+830c858
+<             t.data("jqt-photo-info", original);
+---
+>             t.data("jqt-photo-info", data);
+1000c1028
+<         table.css("webkitTransform", format("translate3d({0}px, 0, 0)", position.current));
+---
+>         table.css("webkitTransform", format(original.options.transform, position.current));
+1253c1281
+<             options.slideTo.call(this, {}, n, 0);
+---
+>             options.slideTo.call(this, {}, n, 0, options, slides);
+1343a1372
+> 			options.goTo(e, index, duration, options, slides);
+1348a1378,1379
+> 		
+> 		slides.find(options.imageSelector).attr("src", options.blankImage);
+1357,1362c1388
+< 		next = slides.eq(index + 1).find(options.imageSelector);
+< 		prev = slides.eq(index - 1).find(options.imageSelector);
+< 		
+< 		if (next.length && next.attr("will-src")) {
+< 			next.attr("src", next.attr("will-src")).removeAttr("will-src");
+< 		}
+---
+> 		current.find(options.imageSelector).attr("src", current.find(options.imageSelector).data(options.lazyLoad));
+1364,1366c1390,1391
+< 		if (prev.length && prev.attr("will-src")) {
+< 			prev.attr("src", prev.attr("will-src")).removeAttr("will-src");
+< 		}
+---
+> 		next = slides.eq(index + 1).find(options.imageSelector);
+> 		next.attr("src", next.data(options.lazyLoad));
+1368,1373c1393,1395
+< 		if (current.length && current.find(options.imageSelector).attr("will-src")) {
+< 			current.find(options.imageSelector)
+< 				.attr("src", current.find(options.imageSelector).attr("will-src"))
+< 				.removeAttr("will-src");
+< 		}
+<         
+---
+> 		prev = slides.eq(index - 1).find(options.imageSelector);
+> 		prev.attr("src", prev.data(options.lazyLoad));
+> 	
+1390a1413
+> 		
+1431a1455,1456
+> 		
+> 		slides.find(options.imageSelector).attr("src", options.blankImage);
+1441,1445c1466
+< 		prev = slides.eq(index - 1).find(options.imageSelector);
+< 		
+< 		if (next.length && next.attr("will-src")) {
+< 			next.attr("src", next.attr("will-src")).removeAttr("will-src");
+< 		}
+---
+> 		next.attr("src", next.data(options.lazyLoad));
+1447,1455c1468,1469
+< 		if (prev.length && prev.attr("will-src")) {
+< 			prev.attr("src", prev.attr("will-src")).removeAttr("will-src");
+< 		}
+< 		
+< 		if (current.length && current.find(options.imageSelector).attr("will-src")) {
+< 			current.find(options.imageSelector)
+< 				.attr("src", current.find(options.imageSelector).attr("will-src"))
+< 				.removeAttr("will-src");
+< 		}
+---
+> 		prev = slides.eq(index - 1).find(options.imageSelector);
+> 		prev.attr("src", prev.data(options.lazyLoad));
+1457c1471,1473
+<         if (position > 0) {
+---
+>         current.find(options.imageSelector).attr("src", current.find(options.imageSelector).data(options.lazyLoad));
+> 		
+> 		if (position > 0) {
+1470a1487
+> 		
+1694c1711,1712
+<                 d = t.data("jqt-photo-info")[orientation];
+---
+> 				data = t.data("jqt-photo-info"),
+>                 d = data[orientation];
+1778a1797,1852
+> 	
+> 	/**
+> 	 *    image onload event handler
+> 	 *
+> 	 *    @return null
+> 	 */
+> 	function loader (event, options, self, gallery) {
+> 		var innerWidth = window.innerWidth,
+> 			innerHeight = window.innerHeight,
+> 			$this = self || $(this),
+> 			w = $this.width(),
+> 			h = $this.height(),
+> 			data, image, top, left,
+> 			scale = min(min(w, innerWidth)/w, min(h, innerHeight)/h),
+> 			width = w * scale,
+> 			height = h * scale;
+> 		
+> 		if (width > innerWidth || height > innerHeight) {
+> 			
+> 			left = -floor(((width - innerWidth) / scale) / 2);
+> 			
+> 			top = -floor(((height - innerHeight) / scale) / 2);
+> 			
+> 			data = $this.data("jqt-photo-info") || 
+> 					$this.data("jqt-photo-info", {gallery:$this.parents(defaults.gallerySelector)})
+> 						.data("jqt-photo-info");
+> 			
+> 			gallery = gallery || data.gallery;
+> 			
+> 			options = options || gallery.data("jqt-photo-options");
+> 			
+> 			if (self) {
+> 				image = self;
+> 			} else {
+> 				image = gallery || data.gallery.find(format("img[src='{0}']", $this.attr("src")));
+> 			}
+> 			
+> 			image.css({
+> 					 webkitTransitionDuration: "0",
+> 					 webkitTransform: format("scale({0}) translate3d({1}px, {2}px, 0)", scale, left, top)
+> 				})
+> 				.addClass(options.presizedClass);
+> 			
+> 			data = data[orientation];
+> 			data.current.scale = data.original.scale = scale;
+> 			data.current.left = data.original.left = left;
+> 			data.current.top = data.original.top = top;
+> 			data.current.width = data.original.width = width * scale;
+> 			data.current.height = data.original.height = height * scale;
+> 		}
+> 		
+> 		if (!self) {
+> 			$this.remove();
+> 		}
+> 		return null;
+> 	}
+1779a1854
+> 	//load the css on dom ready
+1804a1880
+> 		//make sure the css is correct on orientationchange

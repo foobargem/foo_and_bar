@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::CarsController < ApplicationController
 
   layout "admin"
@@ -95,6 +96,41 @@ class Admin::CarsController < ApplicationController
     render :update do |page|
       page.reload
     end
+  end
+
+  def export_to_excel
+    @cars = Car.scoped
+    columns = [
+      { :company_id => "제조사" },
+      { :name => "차명" },
+      { :price => "가격" },
+      { :vehicle_type => "차종" },
+      { :engine_type => "엔진형식" },
+      { :ventilation => "배기량" },
+      { :fuel => "연료" },
+      { :fuel_mileage => "연비" },
+      { :peak_output => "최대출력" },
+      { :seat_capacity => "승차인원" },
+      { :drive_type => "구동방식" },
+      { :transmission => "변속기" },
+      { :video_stream_url => "영상URL" },
+      { :desc => "설명" }
+    ]
+
+    associations = {
+      :company_id => [:company, :name]
+    }
+
+    egt = Tools::ExcelGenerator.new("cars")
+    egt.export_to_xls("cars", @cars, columns, associations)
+
+    suffix = Time.zone.now.strftime("%Y%m%d_%H%M")
+    download_filename = "CarsList-#{suffix}.xls"
+
+    send_file(egt.output_file_path, {
+      :filename => download_filename,
+      :type => "application/vnd.ms-excel;charset=utf-8"
+    })
   end
 
 end

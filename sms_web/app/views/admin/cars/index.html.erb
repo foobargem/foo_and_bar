@@ -9,6 +9,8 @@
   <%= link_to '새로 등록하기', new_admin_car_path %>
   |
   <%= link_to "플리커에 사진 일괄 업로드", batch_upload_to_flickr_admin_cars_path, :method => "put", :remote => true, :id => "batch_upload_link" %>
+  |
+  <%= link_to "엑셀파일로 다운로드", export_to_excel_admin_cars_path %>
 </div>
 
 <table class="cars">

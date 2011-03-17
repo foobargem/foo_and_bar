@@ -89,6 +89,7 @@ SmsWeb::Application.routes.draw do
       end
       collection do
         put "batch_upload_to_flickr"
+        get "export_to_excel"
       end
     end
 

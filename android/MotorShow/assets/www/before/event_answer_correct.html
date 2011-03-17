@@ -55,6 +55,8 @@
 					return false;
 				}
 
+        hideRegisterBtn();
+
 				jQuery.ajax({
 					url: SMS.API.EventApplicant.newURL(),
 					type: "POST",
@@ -64,10 +66,14 @@
 						'applicant[address]': applicant_address,
             'applicant[event_id]': applicant_event_id
 					},
+          error: function(){
+            showRegisterBtn();
+          },
 					success: function(msg) {
 						var title = msg.status;
 						var message = msg.message;
 						navigator.notification.alert(message, null, title);
+            showRegisterBtn();
 
 						if (title == "Success") {
 							$("#event_correct_answer")[0].reset();
@@ -77,9 +83,26 @@
 			}
 
 
+      function showRegisterBtn() {
+        $("#register_btn").show();
+        $("#processing_img").hide();
+      }
+
+      function hideRegisterBtn() {
+        $("#register_btn").hide();
+        $("#processing_img").show();
+      }
+
+
+
 			$(document).ready(function(){
 
 				$("#register_btn").bind("click", applyEvent);
+
+        $("div.banner-container").
+          css("position", "absolute").
+          css("width", "100%").
+          css("top", ($(document).height() - 46) + "px");
 
         new Banner("div.banner-container");
 
@@ -98,7 +121,7 @@
         <a href="event.html" rel="external" class="back btn">이전</a>
         <a href="index.html" rel="external" class="homeButton"></a>
       </div>
-        <div class="content-wrapper">
+      <div class="content-wrapper">
         <div class="content-container">
         </div>
         <div class="inputs-container">
@@ -115,6 +138,7 @@
         </div>
         <div class="buttons-container">
           <img id="register_btn" src="../images/event/btn1.png" width="61" />
+          <img id="processing_img" src="../images/loader_arrow.gif" width="16" height="16" style="display:none" />
         </div>
       </div>
       <div class="toolbar banner-container">

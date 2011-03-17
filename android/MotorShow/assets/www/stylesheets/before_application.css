@@ -52,7 +52,7 @@ form#event_correct_answer .content-wrapper {
   background: url("../images/event/bg2.png") no-repeat;
   background-size: 100%; }
   form#event_correct_answer .content-wrapper .content-container {
-    min-height: 210px; }
+    height: 210px; }
   form#event_correct_answer .content-wrapper .inputs-container {
     min-height: 100px;
     padding-top: 20px;

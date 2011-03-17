@@ -1,5 +1,6 @@
 div#main {
-  background: url("../images/main_bg.png") no-repeat; }
+  background: url("../images/main_bg.png") no-repeat;
+  background-size: 100%; }
   div#main .counter_container {
     margin-top: 149px;
     text-align: center; }
@@ -52,7 +53,7 @@ form#event_correct_answer .content-wrapper {
   background: url("../images/event/bg2.png") no-repeat;
   background-size: 100%; }
   form#event_correct_answer .content-wrapper .content-container {
-    min-height: 210px; }
+    height: 210px; }
   form#event_correct_answer .content-wrapper .inputs-container {
     min-height: 100px;
     padding-top: 20px;
@@ -82,5 +83,5 @@ div#event_wrong_answer .content-wrapper {
 
 div#event_hint .content-container {
   background: url("../images/main_bg2.png") no-repeat;
-  min-height: 416px;
-  background-size: 100%; }
+  background-size: 100%;
+  min-height: 416px; }

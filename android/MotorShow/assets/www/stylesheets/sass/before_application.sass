@@ -1,4 +1,4 @@
-
+@import "mixin"
 
 div#main
   :background url("../images/main_bg.png") no-repeat
@@ -37,12 +37,14 @@ form#event_main
       :min-height 294px
     .radios-container
       :text-align center
+      label
+        img
+          :vertical-align middle
       label.first
-        :margin-right 4px
+        :margin-right 15px
       label.second
-        :margin-right 4px
+        :margin-right 15px
       label.last
-        :margin-right 4px
     .buttons-container
       :min-height 80px
       :padding-top 60px

@@ -30,12 +30,12 @@ form#event_main .content-wrapper {
     min-height: 294px; }
   form#event_main .content-wrapper .radios-container {
     text-align: center; }
+    form#event_main .content-wrapper .radios-container label img {
+      vertical-align: middle; }
     form#event_main .content-wrapper .radios-container label.first {
-      margin-right: 4px; }
+      margin-right: 15px; }
     form#event_main .content-wrapper .radios-container label.second {
-      margin-right: 4px; }
-    form#event_main .content-wrapper .radios-container label.last {
-      margin-right: 4px; }
+      margin-right: 15px; }
   form#event_main .content-wrapper .buttons-container {
     min-height: 80px;
     padding-top: 60px;

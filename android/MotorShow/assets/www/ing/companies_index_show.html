@@ -22,6 +22,7 @@
     <script src="../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
     <script src="../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
     <script src="../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
+
 	
         <script type="text/javascript" charset="utf-8">
             //change dynamic css
@@ -196,13 +197,13 @@
 
 			$(document).ready(function(){
 
-        $(document).bind("deviceready", function(){
-          ChildBrowser.install();
+        //$(document).bind("deviceready", function(){
+          //ChildBrowser.install();
           SuddenlybuntCmd.install();
 
           fetch_and_update_companies_list();
           updateCompaniesIndexTitle();
-        }, false);
+        //}, false);
 
         new Banner("div.banner-container");
 
@@ -219,7 +220,8 @@
 					<a href="companies_index.html" rel="external" class="back btn">이전</a>
 					<a href="index.html" rel="external" class="homeButton"></a>
 				</div>
-				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper" style="background: url(../images/com_bg2.png) repeat-y;background-size:100%">
+
+				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper">
 					<div class="content-container">
 						<ul><!-- company list --></ul>
 					</div>
@@ -232,12 +234,13 @@
 
 			<div id="companies_show">
 				<div class="toolbar">
-					<h1>{car_name}</h1>
+					<h1></h1>
 					<a href="#companies_index" rel="external" class="back btn">이전</a>
 					<a href="index.html" rel="external" class="homeButton"></a>
 				</div>
         <div class="loading-container"><img src="../images/loading/loading_indicator.gif" /></div>
-				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper" style="background:url('../images/com_bg2.png') repeat-y;background-size:100%">
+
+				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper">
 					<div class="top-blank-box"></div>
 					<div class="photo-container">
 						<!-- <div class="prev-btn-container">

@@ -7,7 +7,7 @@ class Admin::ApplicantsController < ApplicationController
   # GET /admin/applicants
   # GET /admin/applicants.xml
   def index
-    @applicants = @event.applicants
+    @applicants = @event.applicants.scoped.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /admin/applicants/1

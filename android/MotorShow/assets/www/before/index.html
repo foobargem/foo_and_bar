@@ -27,8 +27,6 @@
             '../themes/jqt/img/back_button.png',
             '../themes/jqt/img/back_button_clicked.png',
             '../themes/jqt/img/button_clicked.png',
-            '../themes/jqt/img/grayButton.png',
-            '../themes/jqt/img/whiteButton.png',
             '../themes/jqt/img/loading.gif' ]
     });
 
@@ -46,11 +44,29 @@
 
     $(document).ready(function(){
       resetDDayCounter();
+      BackButton.override();
 
       $("#twitter_btn").bind("click", function(e){
         window.plugins.childBrowser.showWebPage("http://twitter.com/SeoulMotorShow");
       });
+
+
+      // back button
+      $(document).bind("backKeyDown", function(){
+        navigator.notification.confirm("종료하시겠습니까?",
+          function(btn) {
+            if (btn == 1) {
+              BackButton.exitApp();
+            } else {
+              return false;
+            }
+          },
+          "Quit", '예,아니오');
+      });
+
+
     });
+
 
   </script>
 

@@ -79,7 +79,12 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
 
     respond_to do |format|
-      format.json { render :json => @photo.to_json }
+      format.json { render :json => {
+          :photo => {
+            :thumb_url => @photo.large_url
+          }
+        }
+      }
     end
   end
 

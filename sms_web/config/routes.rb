@@ -20,6 +20,9 @@ SmsWeb::Application.routes.draw do
   match "flickr_auth/new" => "flickr_auth#new", :as => :flickr_auth
   match "flickr_auth/callback" => "flickr_auth#callback", :as => :flickr_callback
 
+  match "tracking/impr" => "banner_logs#impression", :as => :impression_tracking
+  match "tracking/click" => "banner_logs#click", :as => :click_tracking
+
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :events do

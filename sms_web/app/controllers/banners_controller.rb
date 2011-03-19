@@ -7,7 +7,7 @@ class BannersController < ApplicationController
       format.json { render :json => {
           :title => @banner.title,
           :content => @banner.content,
-          :landing_url => @banner.landing_url,
+          :landing_url => @banner.click_tracking_url,
           :embed_code => @banner.embed_code
         }
       }

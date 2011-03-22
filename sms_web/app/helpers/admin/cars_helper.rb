@@ -1,7 +1,7 @@
 # encoding: utf-8
 module Admin::CarsHelper
 
-  def company_collection(category)
+  def company_collection(category = nil)
     scoped = Company.scoped
     
     scoped = case category
@@ -11,6 +11,8 @@ module Admin::CarsHelper
               scoped.component_part
              when "goods"
               scoped.goods_part
+             else
+              scoped
              end
     
     scoped.select("id, name").all.map do |company|

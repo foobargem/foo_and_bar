@@ -8,7 +8,8 @@ class Admin::CarsController < ApplicationController
   # GET /admin/cars
   # GET /admin/cars.xml
   def index
-    @cars = Car.scoped.paginate(:page => params[:page], :per_page => 20)
+    @search = Car.search(params[:search])
+    @cars = @search.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /admin/cars/1

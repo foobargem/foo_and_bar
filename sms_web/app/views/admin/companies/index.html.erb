@@ -11,6 +11,29 @@
   <%= link_to "플리커에 사진 일괄 업로드", batch_upload_to_flickr_admin_companies_path, :method => "put", :remote => true, :id => "batch_upload_link" %>
 </div>
 
+<div class="search_container">
+  <%= form_for @search, :url => [:admin, :companies],
+        :html => { :method => :get, :class => "search_form" } do |f| %>
+    <ul>
+      <li>
+        <%= f.label :name_like, "업체명" %>
+        <%= f.text_field :name_like %>
+      </li>
+      <li>
+        <%= f.label :booth_code_like, "부스번호" %>
+        <%= f.text_field :booth_code_like %>
+      </li>
+      <li>
+        <%= f.label :category_eq, "참가분야" %>
+        <%= f.select :category_eq, [["완성차", "car"], ["부품업체", "component"], ["용품업체", "goods"]], :include_blank => true %>
+      </li>
+      <li class="action">
+        <%= f.submit "찾기" %>
+      </li>
+    </ul>
+  <% end %>
+</div>
+
 <table class="companies">
   <thead>
     <tr>

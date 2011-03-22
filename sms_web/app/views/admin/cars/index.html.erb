@@ -13,6 +13,26 @@
   <%= link_to "엑셀파일로 다운로드", export_to_excel_admin_cars_path %>
 </div>
 
+<div class="search_container">
+  <%= form_for @search, :url => [:admin, :cars],
+        :html => { :method => :get, :class => "search_form" } do |f| %>
+    <ul>
+      <li>
+        <%= f.label :name_like, "차이름" %>
+        <%= f.text_field :name_like %>
+      </li>
+      <li>
+        <%= f.label :company_id_eq, "제조사" %>
+        <%= f.select :company_id_eq, grouped_options_for_select(grouped_company_collection, @search.company_id_eq), :include_blank => true %>
+      </li>
+      <li class="action">
+        <%= f.submit "찾기" %>
+      </li>
+    </ul>
+  <% end %>
+</div>
+
+
 <table class="cars">
   <thead>
     <tr>

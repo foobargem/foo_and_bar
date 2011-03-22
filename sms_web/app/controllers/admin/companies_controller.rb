@@ -4,10 +4,9 @@ class Admin::CompaniesController < ApplicationController
   before_filter :authenticate_admin!
   #before_filter :flickr_authorized!
 
-  # GET /admin/companies
-  # GET /admin/companies.xml
   def index
-    @companies = Company.scoped.paginate(:page => params[:page], :per_page => 20)
+    @search = Company.search(params[:search])
+    @companies = @search.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /admin/companies/1

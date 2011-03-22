@@ -8,7 +8,7 @@ class CompaniesController < ApplicationController
              when "goods"
               scoped.goods_part
              when "has_models"
-              car_ids = Photo.cars.select("car_id").map(&:car_id)
+              car_ids = Photo.select("car_id").map(&:car_id)
               company_ids = Car.where("id IN (?)", car_ids).select("company_id").map(&:company_id)
               scoped.where("id IN (?)", company_ids)
              else

@@ -1,4 +1,4 @@
-package com.suddenlybunt.toprider.sms;
+package com.oxygencomputing.toprider.sms;
 
 import android.os.Bundle;
 

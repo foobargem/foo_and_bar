@@ -571,6 +571,34 @@ table.h_box
       :padding 8px 0
 
 
+
+form.search_form
+  +clearfix
+  :border 1px solid #999
+  :background #eee
+  :border-bottom 2px solid #999
+  :padding 5px
+  :margin-bottom 10px
+  ul
+    +clearfix
+    li
+      +float_left
+      :padding 3px
+      :margin-bottom 10px
+      &.line-break
+        +clearfix
+      label
+        +float_left
+        :text-align right
+        :width 80px
+        :margin-right 10px
+      input, select
+        +float_left
+        :height 20px
+        :border 1px solid #999
+
+
+
 form.table_form
   +clearfix
   :font-size 14px

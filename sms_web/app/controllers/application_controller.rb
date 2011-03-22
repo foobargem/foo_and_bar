@@ -24,4 +24,20 @@ class ApplicationController < ActionController::Base
   end
   before_filter :set_locale
 
+
+  def store_params
+    unless request.query_string.blank?
+      query = request.query_string.split(/\?/)[-1]
+      parts = query.split(/&|=/).map{|v| URI.decode(v) }
+      session[:params] = Hash[*parts]
+      logger.debug session[:params]
+    else
+      session[:params] = nil
+    end
+  end
+
+  def stored_params
+    session[:params] || {}
+  end
+
 end

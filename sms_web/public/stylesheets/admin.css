@@ -1978,6 +1978,62 @@ table.h_box {
   table.h_box .actions {
     width: 100px; }
 
+form.search_form {
+  border: 1px solid #999999;
+  background: #eeeeee;
+  border-bottom: 2px solid #999999;
+  padding: 5px;
+  margin-bottom: 10px; }
+  form.search_form:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
+  * + html form.search_form {
+    display: inline-block; }
+    .IE * + html form.search_form {
+      height: 1%; }
+  form.search_form ul:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
+  * + html form.search_form ul {
+    display: inline-block; }
+    .IE * + html form.search_form ul {
+      height: 1%; }
+  form.search_form ul li {
+    display: inline;
+    float: left;
+    padding: 3px;
+    margin-bottom: 10px; }
+    form.search_form ul li.line-break:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      overflow: hidden;
+      visibility: hidden; }
+    * + html form.search_form ul li.line-break {
+      display: inline-block; }
+      .IE * + html form.search_form ul li.line-break {
+        height: 1%; }
+    form.search_form ul li label {
+      display: inline;
+      float: left;
+      text-align: right;
+      width: 80px;
+      margin-right: 10px; }
+    form.search_form ul li input, form.search_form ul li select {
+      display: inline;
+      float: left;
+      height: 20px;
+      border: 1px solid #999999; }
+
 form.table_form {
   font-size: 14px;
   border: 1px solid #999999;

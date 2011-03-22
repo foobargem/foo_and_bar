@@ -1,18 +1,13 @@
 <% car = car %>
 <%= content_tag_for :tr, car do %>
-  <td class="photo">
-    <%= image_tag car.image_raw.url(:thumb, false) %>
-  </td>
+  <td class="photo"><%= image_tag car.image_raw.url(:thumb, false) %></td>
+  <td class="flickr_url"><%= display_car_flickr_image(car) %></td>
   <td class="company_name"><%= display_company_name(car.company) %></td>
   <td class="name"><%= car.name %></td>
-  <td class="voice_stream_url"><%= car.voice_stream_url %></td>
-  <td class="video_stream_url"><%= car.video_stream_url %></td>
-  <td class="flickr_url">
-    <p><%= car.photo_large_url %></p>
-    <p><%= car.photo_thumb_url %></p>
   <td class="photos">
     <%= link_to number_with_delimiter(car.photos.size), admin_photos_path(:car_id => car.id) %>
   </td>
+  <td class="published"><%= display_published_status(car.published) %></td>
   <td class="actions">
     <% if car.image_raw_file_name && car.photo_large_url.nil? %>
       <%= link_to 'Upload to Flickr', upload_to_flickr_admin_car_path(car), :remote => true %>

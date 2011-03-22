@@ -6,7 +6,7 @@
   <td class="name"><%= company.name %></td>
   <td class="category"><%= display_category_name(company.category) %></td>
   <td class="priority"><%= company.priority %></td>
-  <td class="drafted_at"><%= display_draft_status(company.published) %></td>
+  <td class="drafted_at"><%= display_published_status(company.published) %></td>
   <td class="actions">
     <% if company.image_raw_file_name && company.logo_url.nil? %>
       <%= link_to 'Upload to Flickr', upload_to_flickr_admin_company_path(company), :remote => true %>

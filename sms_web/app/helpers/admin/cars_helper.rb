@@ -20,4 +20,13 @@ module Admin::CarsHelper
     end
   end
 
+  def display_car_flickr_image(c)
+    unless c.photo_thumb_url.nil?
+      image_tag c.photo_thumb_url, :size => "80x80"
+    else
+      "-"
+    end
+  end
+
+
 end

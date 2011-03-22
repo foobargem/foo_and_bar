@@ -38,7 +38,7 @@ module Admin::CompaniesHelper
     end
   end
 
-  def display_draft_status(published)
+  def display_published_status(published)
     if published
       "<span class=\"published\">Published</span>".html_safe
     else

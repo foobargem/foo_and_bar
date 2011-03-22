@@ -2186,14 +2186,16 @@ table.cars {
     table.cars th.cb, table.cars td.cb {
       width: 30px;
       padding: 8px 0; }
-  table.cars th.company_name, table.cars td.company_name {
-    width: 100px; }
-  table.cars th.voice_stream_url, table.cars td.voice_stream_url {
-    width: 160px; }
-  table.cars th.video_stream_url, table.cars td.video_stream_url {
-    width: 160px; }
   table.cars th.photo, table.cars td.photo {
     width: 160px; }
+  table.cars th.flickr_url, table.cars td.flickr_url {
+    width: 100px; }
+  table.cars th.company_name, table.cars td.company_name {
+    width: 140px; }
+  table.cars th.photos, table.cars td.photos {
+    width: 80px; }
+  table.cars th.published, table.cars td.published {
+    width: 100px; }
   table.cars th.actions, table.cars td.actions {
     width: 100px; }
 

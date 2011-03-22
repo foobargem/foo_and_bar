@@ -14,7 +14,7 @@ class CompaniesController < ApplicationController
              else
               scoped.car_part
              end
-    @companies = scoped.select("id, name")
+    @companies = scoped.select("id, name, booth_code")
 
     respond_to do |format|
       format.json { render :json => @companies.to_json }

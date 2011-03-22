@@ -36,7 +36,10 @@ class RacingModel < ActiveRecord::Base
   belongs_to :company
   has_many :racing_model_photos, :class_name => "Photo"
 
-  default_scope :order => "name ASC"
+  default_scope :order => "id DESC"
+
+  scope :published, where("published = ?", true)
+  scope :unpublished, where("published = ?", false)
 
 
   # image_raw

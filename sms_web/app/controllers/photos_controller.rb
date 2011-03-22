@@ -92,10 +92,11 @@ class PhotosController < ApplicationController
   protected
 
     def models
-      scoped = RacingModel.scoped.where("photo_thumb_url is not null")
+      scoped = RacingModel.published.where("photo_thumb_url is not null")
 
       @racing_models = scoped.
                         select("id, photo_thumb_url").
+                        order("id DESC").
                         paginate(:page => params[:page], :per_page => 20)
 
       last_model = scoped.last

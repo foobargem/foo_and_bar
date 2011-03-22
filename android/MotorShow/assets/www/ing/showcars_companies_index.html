@@ -242,9 +242,10 @@
       //window.plugins.suddenlybuntCmd.debug(car.photo_large_url);
       if (car.photo_large_url && car.photo_large_url.trim() != "") {
         $("#car_profile_image")[0].src = car.photo_large_url;
+        $("#car_large_image")[0].src = car.photo_large_url;
       } else {
-        $("#car_profile_image")[0].src = "about:blank";
-      }
+        $("#car_profile_image")[0].src = "../images/loading_image.jpg";
+     }
 
       updateButtonsByCar(car);
       hideIndicatorByView2();
@@ -358,7 +359,7 @@
       <div class="photo-container">
         <div class="logo-image-container">
 	        <div class="loading-container"><img src="../images/loading/loading_indicator.gif" /></div>
-          <img id="car_profile_image" src="about:blank" width="270" height="116" />
+          <a href="#car_large_show" class='flip' ><img id="car_profile_image" src="../images/loading_image.jpg" width="270" height="116" /></a>
         </div>
       </div>
 
@@ -464,6 +465,28 @@
       </div>
 
     </div></div>
+  </div>
+
+  <div id="car_large_show">
+    <div class="toolbar">
+      <h1>전체 보기</h1>      
+      <a href="#car_show" class="back btn">이전</a>
+			<a href="index.html" rel="external" class="homeButton"></a>
+    </div>
+    <!-- <div class="loading-container"><img src="../images/loading/loading_indicator.gif" /></div> -->
+
+    <div class="horizontal-scroll">
+			<table class="with-scrollbar">
+        <tr>
+          <td>
+            <div>
+		          <img id="car_large_image" src="../images/loading_image.jpg"/>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
   </div>
 
 

@@ -28,6 +28,7 @@
 #  updated_at             :datetime
 #  flickr_photo_id        :string(255)
 #  flickr_photoset_id     :string(255)
+#  desc                   :text
 #
 
 require 'test_helper'

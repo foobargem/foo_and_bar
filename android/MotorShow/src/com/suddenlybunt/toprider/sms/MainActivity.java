@@ -10,7 +10,16 @@ public class MainActivity extends DroidGap {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.main);
+        
+        
+        String wwwDir;
+        
+        // ToDo:
+        wwwDir = "ing";
+        //wwwDir = "before";
+        
         super.setIntegerProperty("splashscreen", R.drawable.splash);
-        super.loadUrl("file:///android_asset/www/ing/index.html");
+
+        super.loadUrl("file:///android_asset/www/"+ wwwDir +"/index.html");
     }
 }

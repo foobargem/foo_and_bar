@@ -9,19 +9,21 @@
     <style type="text/css" media="screen">@import "../stylesheets/ing_application.css";</style>
 
 		<script type="text/javascript">
-      var booth_code = document.location.hash;
-			if (booth_code != undefined) {
-				booth_code = booth_code.replace('#', '');
+			var category = document.location.hash;
+			if (category != undefined) {
+				category = category.replace('#', '');
 			}
 		</script>
     <script src="../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
     <script src="../jqtouch/jquery.dataAttr.js" type="text/javascript" charset="utf-8"></script>
     <script src="../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
     <script src="../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
-		<script src="../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
 
+	
         <script type="text/javascript" charset="utf-8">
             //change dynamic css
             var jQT = new $.jQTouch({
@@ -34,28 +36,30 @@
                     '../themes/jqt/img/back_button.png',
                     '../themes/jqt/img/back_button_clicked.png',
                     '../themes/jqt/img/button_clicked.png',
+                    '../themes/jqt/img/loading.gif',
                     '../images/loading/loading_indicator.gif' ]
             });
 
 
-
-      function fetchCompany() {
-        var _url = SMS.API.Company.showURL(booth_code);
+			function fetch_and_update_companies_list() {
+				var _url = SMS.API.Company.indexURL(category);
 
 				jQuery.ajax({
 					url: _url,
 					type: 'GET',
 					data: {
+						category: category
 					},
-          error: onFetchError,
-					success: function(msg, statusCode){
-            updateCompanyInfo(msg);
+          error: onFetchListError,
+					success: function(msg){
+						buildList(msg);
+						updateListRowStyles();
+            addEventListenerToRow();
 					}
 				});
+			}
 
-      }
-
-      function onFetchError() {
+      function onFetchListError() {
         navigator.notification.alert("데이터가 없습니다", function(){
           window.history.back();
           return false;
@@ -63,11 +67,58 @@
       }
 
 
+			function buildList (msg) {
+				var li_eles = '';
+				jQuery.each(msg, function(idx, obj){
+					var company = obj['company'];
+					li_eles += '<li class="arrow"><a href="#companies_show" class="detail-link" data-id="' + company.id + '">'+ company.name + '</a></li>';
+				});
+
+				$("#companies_index div.content-container ul").html(li_eles);
+			}
+
+
+			function updateListRowStyles () {
+				$("li:even").css("background", 'url("../images/sub_list1.png") no-repeat');
+				$("li:even").css("background-size", "100%");
+
+				$("li:odd").css("background", 'url("../images/sub_list2.png") no-repeat');
+				$("li:odd").css("background-size", "100%");
+			}
+
+      function addEventListenerToRow () {
+				$("a.detail-link").bind("click", function(event){
+          event.preventDefault();
+          var company_id = $(event.currentTarget).attr("data-id");
+					$("#companies_show h1").text($(event.currentTarget).text());
+					$("#company_logo")[0].src = "../images/loading_image.jpg";
+          showIndicatorByView();
+          fetchCompanyShow(company_id);
+				});
+      }
+
+
+      function fetchCompanyShow(company_id) {
+        var _url = SMS.API.Company.showURL(company_id);
+
+				jQuery.ajax({
+					url: _url,
+					type: 'GET',
+					data: {
+					},
+					success: function(msg){
+            updateCompanyInfo(msg);
+					}
+				});
+
+      }
+
+
       function updateCompanyInfo(data) {
 
         var company = data.company;
 
-        $("#companies_show h1").text(company.name);
+        //$("#companies_show h1").text(company.name);
 
         if (company.contact && company.contact.trim() != "") {
           $("#company_contact").show();
@@ -100,7 +151,7 @@
         if (company.logo_url && company.logo_url.trim() != "") {
           $("#company_logo")[0].src = company.logo_url;
         } else {
-          $("#company_logo")[0].src = "http://www.cartech.co.kr/admin/news/img/prius.jpg";
+          $("#company_logo")[0].src = "../images/loading_image.jpg";
         }
 
         if (company.site_url && company.site_url.trim() != "") {
@@ -113,44 +164,68 @@
           $("#company_site_link_btn").hide();
         }
 
-        hideIndicator();
+        updateButtonsByCar(company);
+        hideIndicatorByView();
 
       }
 
-      function hideIndicator() {
+
+	    function updateButtonsByCar(company) {
+		  	$("#car_others_btn").bind("click", function(event){
+				  window.location.href = "showcars_companies_index.html#" + company.booth_code;
+				});
+				$("#car_others_btn").show();
+		  }
+		
+      function showIndicatorByView() {
+        $("#companies_show div.loading-container").show();
+      }
+
+      function hideIndicatorByView() {
         setTimeout(function(){
           $("#companies_show div.loading-container").hide();
         }, 600);
       }
 
+
 			$(document).ready(function(){
-        $(document).bind("deviceready", function(){
-          fetchCompany();
-        }, false);
+
+        //$(document).bind("deviceready", function(){
+          SuddenlybuntCmd.install();
+
+          fetch_and_update_companies_list();
+        //}, false);
+
         new Banner("div.banner-container");
+
 			});
 
-    </script>
-
-</head>
-<body>
-
-<div id="jqt">
+        </script>
+    </head>
+    <body>
+		<div id="jqt">
 
 			<div id="companies_show">
 				<div class="toolbar">
-					<h1>Loading..</h1>
-					<a href="booths_index.html" rel="external" class="back btn">이전</a>
+					<h1></h1>
+					<a href="#companies_index" rel="external" class="back btn">이전</a>
 					<a href="index.html" rel="external" class="homeButton"></a>
 				</div>
         <div class="loading-container"><img src="../images/loading/loading_indicator.gif" /></div>
-				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper" style="background:url('../images/com_bg2.png') repeat-y;background-size:100%">
+
+				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper">
 					<div class="top-blank-box"></div>
 					<div class="photo-container">
+
 						<div class="logo-image-container">
 							<img id="company_logo" src="../images/loading_image.jpg" width="270" height="116" />
 						</div>
+
 					</div>
+					<div class="buttons-container">
+		        <img id="car_others_btn" src="../images/view_btn5.png" />
+		      </div>
+		
 					<div class="content-container">
 
 						<div id="company_contact" class="field-wrapper">
@@ -193,6 +268,5 @@
 			</div>
 
 		</div>
-
-</body>
+    </body>
 </html>

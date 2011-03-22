@@ -2,7 +2,7 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 var SMS = {
-  //baseURL: "http://localhost:3000"
+  // baseURL: "http://localhost:3000"
   baseURL: "http://2011sms.top-rider.com"
 };
 

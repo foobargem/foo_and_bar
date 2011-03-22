@@ -245,7 +245,7 @@
       if (model.photo_large_url && model.photo_large_url.trim() != "") {
         $("#model_profile_image")[0].src = model.photo_large_url;
       } else {
-        $("#model_profile_image")[0].src = "about:blank";
+        $("#model_profile_image")[0].src = "../images/loading_image.jpg";
       }
       
       hideIndicatorByView3();
@@ -348,7 +348,7 @@
             <img src="../images/icon_prev1.png" />
           </div> -->
           <div class="logo-image-container">
-            <img id="model_profile_image" src="about:blank" width="274" height="254" />
+            <img id="model_profile_image" src="../images/loading_image.jpg" width="274" height="254" />
           </div>
           <!-- <div class="next-btn-container">
             <img src="../images/icon_next1.png" />

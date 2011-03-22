@@ -151,7 +151,7 @@
         if (company.logo_url && company.logo_url.trim() != "") {
           $("#company_logo")[0].src = company.logo_url;
         } else {
-          $("#company_logo")[0].src = "about:blank";
+          $("#company_logo")[0].src = "../images/loading_image.jpg";
         }
 
         if (company.site_url && company.site_url.trim() != "") {
@@ -247,7 +247,7 @@
 							<img src="../images/icon_prev1.png" />
 						</div> -->
 						<div class="logo-image-container">
-							<img id="company_logo" src="about:blank" width="270" height="116" />
+							<img id="company_logo" src="../images/loading_image.jpg" width="270" height="116" />
 						</div>
 						<!-- <div class="next-btn-container">
 							<img src="../images/icon_next1.png" />

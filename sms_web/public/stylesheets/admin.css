@@ -2228,15 +2228,13 @@ table.racing_models {
       padding: 8px 0; }
   table.racing_models th.photo, table.racing_models td.photo {
     width: 160px; }
+  table.racing_models th.flickr_url, table.racing_models td.flickr_url {
+    width: 100px; }
   table.racing_models th.company, table.racing_models td.company {
-    width: 100px; }
-  table.racing_models th.birth, table.racing_models td.birth {
-    width: 100px; }
-  table.racing_models th.height, table.racing_models td.height {
-    width: 100px; }
-  table.racing_models th.weight, table.racing_models td.weight {
-    width: 100px; }
+    width: 140px; }
   table.racing_models th.photos, table.racing_models td.photos {
+    width: 100px; }
+  table.racing_models th.published, table.racing_models td.published {
     width: 100px; }
   table.racing_models th.actions, table.racing_models td.actions {
     width: 100px; }

@@ -645,19 +645,21 @@ ul.guide
 table.companies
   +default_table_style
   th, td
-    &.name
-    &.booth_code
-      :width 80px
-    &.category
-      :width 120px
-    &.product
-      :width 200px
     &.logo
       :width 140px
-    &.site_url
-      :width 180px
-    &.actions
+    &.flickr_url
       :width 100px
+    &.booth_code
+      :width 80px
+    &.name
+    &.category
+      :width 120px
+    &.priority
+      :width 80px
+    &.drafted_at
+      :width 100px
+    &.actions
+      :width 120px
 
 
 table.cars
@@ -754,4 +756,14 @@ table.applicants
       :width 240px
     &.actions
       :width 100px
+
+table
+  td
+    span.published, span.unpublished
+      :font-size 0.85em
+      :padding 5px
+    span.published
+      :background #ccff66
+    span.unpublished
+      :background #ff9966
 

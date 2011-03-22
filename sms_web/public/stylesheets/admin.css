@@ -2144,18 +2144,20 @@ table.companies {
     table.companies th.cb, table.companies td.cb {
       width: 30px;
       padding: 8px 0; }
+  table.companies th.logo, table.companies td.logo {
+    width: 140px; }
+  table.companies th.flickr_url, table.companies td.flickr_url {
+    width: 100px; }
   table.companies th.booth_code, table.companies td.booth_code {
     width: 80px; }
   table.companies th.category, table.companies td.category {
     width: 120px; }
-  table.companies th.product, table.companies td.product {
-    width: 200px; }
-  table.companies th.logo, table.companies td.logo {
-    width: 140px; }
-  table.companies th.site_url, table.companies td.site_url {
-    width: 180px; }
-  table.companies th.actions, table.companies td.actions {
+  table.companies th.priority, table.companies td.priority {
+    width: 80px; }
+  table.companies th.drafted_at, table.companies td.drafted_at {
     width: 100px; }
+  table.companies th.actions, table.companies td.actions {
+    width: 120px; }
 
 table.cars {
   width: 100%; }
@@ -2406,3 +2408,11 @@ table.applicants {
     width: 240px; }
   table.applicants th.actions, table.applicants td.actions {
     width: 100px; }
+
+table td span.published, table td span.unpublished {
+  font-size: 0.85em;
+  padding: 5px; }
+table td span.published {
+  background: #ccff66; }
+table td span.unpublished {
+  background: #ff9966; }

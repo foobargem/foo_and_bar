@@ -42,7 +42,7 @@ class Car < ActiveRecord::Base
   has_many :photos
   has_many :car_photos, :class_name => "Photo"
 
-  default_scope :order => "name ASC"
+  default_scope :order => "id DESC"
 
 
   # image_raw

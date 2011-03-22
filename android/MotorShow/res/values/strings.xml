@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="splash_name">Welcome to 2011 Seoul Motor Show</string>
-    <string name="app_name">SeoulMotorShow</string>
+    <string name="app_name">2011SeoulMotorShow</string>
 </resources>

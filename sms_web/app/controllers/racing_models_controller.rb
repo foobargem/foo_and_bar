@@ -1,7 +1,7 @@
 class RacingModelsController < ApplicationController
 
   def index
-    scoped = RacingModel.scoped
+    scoped = RacingModel.published
 
     if params[:company_id] && params[:company_id].to_i > 0
       scoped = scoped.where("company_id = ?", params[:company_id])

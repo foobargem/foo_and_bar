@@ -2144,18 +2144,20 @@ table.companies {
     table.companies th.cb, table.companies td.cb {
       width: 30px;
       padding: 8px 0; }
+  table.companies th.logo, table.companies td.logo {
+    width: 140px; }
+  table.companies th.flickr_url, table.companies td.flickr_url {
+    width: 100px; }
   table.companies th.booth_code, table.companies td.booth_code {
     width: 80px; }
   table.companies th.category, table.companies td.category {
     width: 120px; }
-  table.companies th.product, table.companies td.product {
-    width: 200px; }
-  table.companies th.logo, table.companies td.logo {
-    width: 140px; }
-  table.companies th.site_url, table.companies td.site_url {
-    width: 180px; }
-  table.companies th.actions, table.companies td.actions {
+  table.companies th.priority, table.companies td.priority {
+    width: 80px; }
+  table.companies th.drafted_at, table.companies td.drafted_at {
     width: 100px; }
+  table.companies th.actions, table.companies td.actions {
+    width: 120px; }
 
 table.cars {
   width: 100%; }
@@ -2184,14 +2186,16 @@ table.cars {
     table.cars th.cb, table.cars td.cb {
       width: 30px;
       padding: 8px 0; }
-  table.cars th.company_name, table.cars td.company_name {
-    width: 100px; }
-  table.cars th.voice_stream_url, table.cars td.voice_stream_url {
-    width: 160px; }
-  table.cars th.video_stream_url, table.cars td.video_stream_url {
-    width: 160px; }
   table.cars th.photo, table.cars td.photo {
     width: 160px; }
+  table.cars th.flickr_url, table.cars td.flickr_url {
+    width: 100px; }
+  table.cars th.company_name, table.cars td.company_name {
+    width: 140px; }
+  table.cars th.photos, table.cars td.photos {
+    width: 80px; }
+  table.cars th.published, table.cars td.published {
+    width: 100px; }
   table.cars th.actions, table.cars td.actions {
     width: 100px; }
 
@@ -2224,15 +2228,13 @@ table.racing_models {
       padding: 8px 0; }
   table.racing_models th.photo, table.racing_models td.photo {
     width: 160px; }
+  table.racing_models th.flickr_url, table.racing_models td.flickr_url {
+    width: 100px; }
   table.racing_models th.company, table.racing_models td.company {
-    width: 100px; }
-  table.racing_models th.birth, table.racing_models td.birth {
-    width: 100px; }
-  table.racing_models th.height, table.racing_models td.height {
-    width: 100px; }
-  table.racing_models th.weight, table.racing_models td.weight {
-    width: 100px; }
+    width: 140px; }
   table.racing_models th.photos, table.racing_models td.photos {
+    width: 100px; }
+  table.racing_models th.published, table.racing_models td.published {
     width: 100px; }
   table.racing_models th.actions, table.racing_models td.actions {
     width: 100px; }
@@ -2264,12 +2266,16 @@ table.photos {
     table.photos th.cb, table.photos td.cb {
       width: 30px;
       padding: 8px 0; }
+  table.photos th.flickr_url, table.photos td.flickr_url {
+    width: 100px; }
   table.photos th.car, table.photos td.car {
     width: 100px; }
   table.photos th.racing_model, table.photos td.racing_model {
     width: 100px; }
-  table.photos th.actions, table.photos td.actions {
+  table.photos th.published, table.photos td.published {
     width: 100px; }
+  table.photos th.actions, table.photos td.actions {
+    width: 120px; }
 
 table.videos {
   width: 100%; }
@@ -2406,3 +2412,11 @@ table.applicants {
     width: 240px; }
   table.applicants th.actions, table.applicants td.actions {
     width: 100px; }
+
+table td span.published, table td span.unpublished {
+  font-size: 0.85em;
+  padding: 5px; }
+table td span.published {
+  background: #ccff66; }
+table td span.unpublished {
+  background: #ff9966; }

@@ -1,16 +1,11 @@
 <% racing_model = racing_model %>
 <%= content_tag_for :tr, racing_model do %>
   <td class="photo"><%= image_tag racing_model.image_raw.url(:thumb, false) %></td>
+  <td class="flickr_url"><%= display_racing_model_flickr_image(racing_model) %></td>
   <td class="company"><%= display_company_name(racing_model.company) %></td>
   <td class="name"><%= racing_model.name %></td>
-  <td class="birth"><%= racing_model.birth %></td>
-  <td class="height"><%= racing_model.height %></td>
-  <td class="weight"><%= racing_model.weight %></td>
-  <td class="flickr_url">
-    <p><%= racing_model.photo_large_url %></p>
-    <p><%= racing_model.photo_thumb_url %></p>
-  </td>
   <td class="photos"><%= link_to racing_model.photos.size, admin_photos_path(:racing_model_id => racing_model.id) %></td>
+  <td class="published"><%= display_published_status(racing_model.published) %></td>
   <td class="actions">
     <% if racing_model.image_raw_file_name && racing_model.photo_large_url.nil? %>
       <%= link_to 'Upload to Flickr', upload_to_flickr_admin_racing_model_path(racing_model), :remote => true %>

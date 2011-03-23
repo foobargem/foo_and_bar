@@ -36,13 +36,15 @@ class Car < ActiveRecord::Base
   attr_accessor :represent_on
 
   validates_presence_of :company_id
-  validates_presence_of :name, :price
 
   belongs_to :company
   has_many :photos
   has_many :car_photos, :class_name => "Photo"
 
-  default_scope :order => "name ASC"
+  default_scope :order => "id DESC"
+
+  scope :published, where("published = ?", true)
+  scope :unpublished, where("published = ?", false)
 
 
   # image_raw

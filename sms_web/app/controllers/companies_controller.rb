@@ -8,13 +8,16 @@ class CompaniesController < ApplicationController
              when "goods"
               scoped.goods_part
              when "has_models"
-              car_ids = Photo.cars.select("car_id").map(&:car_id)
-              company_ids = Car.where("id IN (?)", car_ids).select("company_id").map(&:company_id)
+              company_ids = RacingModel.included_company.select("company_id").map(&:company_id).uniq
               scoped.where("id IN (?)", company_ids)
              else
               scoped.car_part
              end
+<<<<<<< HEAD
     @companies = scoped.select("id, name, booth_code")
+=======
+    @companies = scoped.published.select("id, name")
+>>>>>>> eunchul
 
     respond_to do |format|
       format.json { render :json => @companies.to_json }

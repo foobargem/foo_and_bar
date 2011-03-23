@@ -1,4 +1,8 @@
 
+<ul class="guide">
+  <li>용품업체는 필요한 항목만 입력해 주세요.</li>
+</ul>
+
 <%= form_for [:admin, @car], :html => { :multipart => true, :class => "table_form" } do |f| %>
 
   <% if @car.errors.any? %>
@@ -15,7 +19,7 @@
 
   <div class="field">
     <%= f.label :company_id, "제조사" %>
-    <%= f.select :company_id, company_collection("car"), :include_blank => false %>
+    <%= f.select :company_id, grouped_options_for_select(grouped_company_collection, @car.company_id), :include_blank => false %>
   </div>
   <div class="field">
     <%= f.label :name, "차명" %>
@@ -83,7 +87,7 @@
   -->
 
   <div class="field">
-    <%= f.label :image_raw, "차 사진" %>
+    <%= f.label :image_raw, "차/용품 사진" %>
     <%= f.file_field :image_raw %>
     <span class="hint"> </span>
   </div>
@@ -93,9 +97,17 @@
     <% end %>
   </div>
 
+  <div class="field">
+    <%= f.label :published, "앱에 노출?" %>
+    <%= f.check_box :published %> 예
+  </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <% if @car.new_record? %>
+      <%= f.submit "차/용품 등록" %>
+    <% else %>
+      <%= f.submit "차/용품 수정" %>
+    <% end %>
   </div>
 
 <% end %>

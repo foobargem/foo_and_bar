@@ -9,10 +9,7 @@
     <style type="text/css" media="screen">@import "../stylesheets/ing_application.css";</style>
 
 		<script type="text/javascript">
-			var category = document.location.hash;
-			if (category != undefined) {
-				category = category.replace('#', '');
-			}
+
 		</script>
     <script src="../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
     <script src="../jqtouch/jquery.dataAttr.js" type="text/javascript" charset="utf-8"></script>
@@ -41,14 +38,13 @@
             });
 
 
-			function fetch_and_update_companies_list() {
-				var _url = SMS.API.Company.indexURL(category);
+			function fetch_and_update_cars_list() {
+				var _url = SMS.API.Car.indexURL();
 
 				jQuery.ajax({
 					url: _url,
 					type: 'GET',
 					data: {
-						category: category
 					},
           error: onFetchListError,
 					success: function(msg){
@@ -69,12 +65,12 @@
 			function buildList (msg) {
 				var li_eles = '';
 				jQuery.each(msg, function(idx, obj){
-					var company = obj['company'];
-					li_eles += '<li class="arrow">' + '<a href=showcars_companies_index.html#' + company.booth_code + ' rel="external" >' + company.name  + company.booth_code + '</a></li>';
+					var car = obj['car'];
+					li_eles += '<li class="arrow">' + '<a href=showcars_show.html#' + car.id + ' rel="external" >' + car.name + '</a></li>';
 					// li_eles += '<li class="arrow"><a href="#companies_show" class="detail-link" data-id="' + company.id + '">'+ company.name + '</a></li>';
 				});
 
-				$("#companies_index div.content-container ul").html(li_eles);
+				$("#cars_index div.content-container ul").html(li_eles);
 			}
 
 
@@ -89,7 +85,7 @@
 			$(document).ready(function(){
           SuddenlybuntCmd.install();
 
-          fetch_and_update_companies_list();
+          fetch_and_update_cars_list();
 
         new Banner("div.banner-container");
 
@@ -100,7 +96,7 @@
     <body>
 		<div id="jqt">
 
-			<div id="companies_index">
+			<div id="cars_index">
 				<div class="toolbar">
 					<h1>자동차 목록</h1>
 					<a href="index.html" rel="external" class="back btn">이전</a>
@@ -109,7 +105,7 @@
 
 				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper">
 					<div class="content-container">
-						<ul><!-- company list --></ul>
+						<ul><!-- car list --></ul>
 					</div>
 				</div></div>
 				<div class="toolbar banner-container">

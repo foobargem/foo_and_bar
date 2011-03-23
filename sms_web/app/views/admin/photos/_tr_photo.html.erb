@@ -1,12 +1,10 @@
 <% photo = photo %>
 <%= content_tag_for :tr, photo do %>
   <td class="photo"><%= image_tag photo.image_raw.url(:thumb, false) %></td>
+  <td class="flickr_url"><%= display_photo_flickr_image(photo) %></td>
   <td class="car"><%= display_photo_car_info(photo) %></td>
   <td class="racing_model"><%= display_photo_racing_model_info(photo) %></td>
-  <td class="flickr_url">
-    <p><%= photo.large_url %></p>
-    <p><%= photo.thumb_url %></p>
-  </td>
+  <td class="published"><%= display_published_status(photo.published) %></td>
   <td class="actions">
     <% if photo.image_raw_file_name && photo.large_url.nil? %>
       <%= link_to 'Upload to Flickr', upload_to_flickr_admin_photo_path(photo), :remote => true %>

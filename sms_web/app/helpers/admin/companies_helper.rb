@@ -38,4 +38,21 @@ module Admin::CompaniesHelper
     end
   end
 
+  def display_published_status(published)
+    if published
+      "<span class=\"published\">Published</span>".html_safe
+    else
+      "<span class=\"unpublished\">Unpublished</span>".html_safe
+    end
+  end
+
+  def display_company_flickr_image(c)
+    unless c.logo_url.nil?
+      image_tag c.logo_url, :size => "80x80"
+    else
+      "-"
+    end
+  end
+
+
 end

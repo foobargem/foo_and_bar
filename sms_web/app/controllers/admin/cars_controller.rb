@@ -7,7 +7,9 @@ class Admin::CarsController < ApplicationController
 
   def index
     @search = Car.search(params[:search])
-    @cars = @search.paginate(:page => params[:page], :per_page => 20)
+    @cars = @search.
+              includes(:company, :photos).
+              paginate(:page => params[:page], :per_page => 20)
     store_params
   end
 

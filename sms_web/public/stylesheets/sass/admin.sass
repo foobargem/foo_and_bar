@@ -645,33 +645,37 @@ ul.guide
 table.companies
   +default_table_style
   th, td
-    &.name
-    &.booth_code
-      :width 80px
-    &.category
-      :width 120px
-    &.product
-      :width 200px
     &.logo
       :width 140px
-    &.site_url
-      :width 180px
-    &.actions
+    &.flickr_url
       :width 100px
+    &.booth_code
+      :width 80px
+    &.name
+    &.category
+      :width 120px
+    &.priority
+      :width 80px
+    &.drafted_at
+      :width 100px
+    &.actions
+      :width 120px
 
 
 table.cars
   +default_table_style
   th, td
-    &.company_name
-      :width 100px
-    &.name
-    &.voice_stream_url
-      :width 160px
-    &.video_stream_url
-      :width 160px
     &.photo
       :width 160px
+    &.flickr_url
+      :width 100px
+    &.company_name
+      :width 140px
+    &.name
+    &.photos
+      :width 80px
+    &.published
+      :width 100px
     &.actions
       :width 100px
 
@@ -681,16 +685,14 @@ table.racing_models
   th, td
     &.photo
       :width 160px
+    &.flickr_url
+      :width 100px
     &.company
-      :width 100px
+      :width 140px
     &.name
-    &.birth
-      :width 100px
-    &.height
-      :width 100px
-    &.weight
-      :width 100px
     &.photos
+      :width 100px
+    &.published
       :width 100px
     &.actions
       :width 100px
@@ -700,12 +702,16 @@ table.photos
   +default_table_style
   th, td
     &.photo
+    &.flickr_url
+      :width 100px
     &.car
       :width 100px
     &.racing_model
       :width 100px
-    &.actions
+    &.published
       :width 100px
+    &.actions
+      :width 120px
 
 
 table.videos
@@ -754,4 +760,14 @@ table.applicants
       :width 240px
     &.actions
       :width 100px
+
+table
+  td
+    span.published, span.unpublished
+      :font-size 0.85em
+      :padding 5px
+    span.published
+      :background #ccff66
+    span.unpublished
+      :background #ff9966
 

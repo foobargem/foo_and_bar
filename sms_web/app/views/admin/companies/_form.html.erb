@@ -57,6 +57,16 @@
     <% end %>
   </div>
 
+  <div class="field">
+    <%= f.label :published, "앱에 노출?" %>
+    <%= f.check_box :published %> 예
+  </div>
+  <div class="field">
+    <%= f.label :priority, "정렬순위" %>
+    <%= f.text_field :priority, :size => 5, :maxlength => 5 %>
+    <span class="hint">100이 기본값입니다. 작은 값일수록 상위로 정렬됩니다.</span>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

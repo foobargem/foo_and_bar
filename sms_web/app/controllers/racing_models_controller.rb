@@ -18,7 +18,12 @@ class RacingModelsController < ApplicationController
     @racing_model = RacingModel.find(params[:id])
 
     respond_to do |format|
-      format.json { render :json => @racing_model.to_json }
+      format.json { render :json => {
+          :racing_model => @racing_model.attributes.merge(
+            :career_desc => @racing_model.career_desc_to_html
+          )
+        }
+      }
     end
   end
 

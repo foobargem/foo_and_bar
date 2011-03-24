@@ -30,7 +30,12 @@ class CompaniesController < ApplicationController
 
     unless @company.nil?
       respond_to do |format|
-        format.json { render :json => @company.to_json }
+        format.json { render :json => {
+            :company => @company.attributes.merge(
+              :desc => @company.desc_to_html
+            )
+          }
+        }
       end
     else
       respond_to do |format|

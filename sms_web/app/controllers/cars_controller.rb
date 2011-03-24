@@ -18,7 +18,13 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
 
     respond_to do |format|
-      format.json { render :json => @car.to_json(:include => :company) }
+      format.json { render :json => {
+          :car => @car.attributes.merge(
+            :desc => @car.desc_to_html
+          ),
+          :company => @car.company
+        }
+      }
     end
   end
   

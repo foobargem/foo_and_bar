@@ -67,5 +67,10 @@ class RacingModel < ActiveRecord::Base
   end
 
 
+  def career_desc_to_html
+    unless self.career_desc.nil?
+      self.career_desc.gsub("\r\n", "<br />")
+    end
+  end
 
 end

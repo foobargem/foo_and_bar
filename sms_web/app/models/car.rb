@@ -79,5 +79,11 @@ class Car < ActiveRecord::Base
     end
   end
 
+  def desc_to_html
+    unless self.desc.nil?
+      self.desc.gsub("\r\n", "<br />")
+    end
+  end
+
 
 end

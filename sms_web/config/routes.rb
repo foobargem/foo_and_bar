@@ -122,7 +122,11 @@ SmsWeb::Application.routes.draw do
     resources :videos
     resources :banners
     resources :events do
-      resources :applicants
+      resources :applicants do
+        collection do
+          get "export_to_excel"
+        end
+      end
     end
   end
   match "/admin" => "admin/companies#index", :as => :admin_root

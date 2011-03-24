@@ -23,6 +23,7 @@
             <%= link_to "응모자 목록", [:admin, event, :applicants] %>
           </td>
           <td class="actions">
+            <%= link_to "응모자 목록 Excel 다운로드", export_to_excel_admin_event_applicants_path(event) %>
             <%= link_to 'Edit', edit_admin_event_path(event) %>
             <%= link_to 'Destroy', [:admin, event], :confirm => 'Are you sure?', :method => :delete %>
           </td>

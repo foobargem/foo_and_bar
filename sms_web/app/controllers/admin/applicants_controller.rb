@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::ApplicantsController < ApplicationController
 
   layout "admin"
@@ -60,6 +61,30 @@ class Admin::ApplicantsController < ApplicationController
     redirect_to [:admin, @event, :applicants]
   end
 
+  def export_to_excel
+    @applicants = @event.applicants.order("id ASC")
+    columns = [
+      { :name => "이름" },
+      { :phone_number => "연락처" },
+      { :address => "주소" },
+      { :created_at => "응모일" },
+      { :user_agent => "사용기기" }
+    ]
+
+    associations = {
+    }
+
+    egt = Tools::ExcelGenerator.new("applicants")
+    egt.export_to_xls("applicants", @applicants, columns, associations)
+
+    suffix = Time.zone.now.strftime("%Y%m%d_%H%M")
+    download_filename = "ApplicantsList-#{suffix}.xls"
+
+    send_file(egt.output_file_path, {
+      :filename => download_filename,
+      :type => "application/vnd.ms-excel;charset=utf-8"
+    })
+  end
 
   protected
   

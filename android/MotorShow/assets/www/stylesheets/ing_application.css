@@ -132,6 +132,10 @@ div#companies_show .content-wrapper {
         padding: 0 8px;
         font-size: 12px;
         color: #c2c2c2; }
+    div#companies_show .content-wrapper .content-container .field-wrapper.content-only div {
+      margin-left: 20px;
+      width: 254px;
+      padding: 10px; }
     div#companies_show .content-wrapper .content-container .site-link-wrapper {
       text-align: center;
       margin: 15px 0; }
@@ -358,6 +362,10 @@ div#model_show .content-wrapper {
         padding: 0 8px;
         font-size: 12px;
         color: #c2c2c2; }
+    div#model_show .content-wrapper .content-container .field-wrapper.content-only div {
+      margin-left: 20px;
+      width: 254px;
+      padding: 10px; }
     div#model_show .content-wrapper .content-container .site-link-wrapper {
       text-align: center;
       margin: 15px 0; }
@@ -449,6 +457,10 @@ div#car_show .content-wrapper {
         padding: 0 8px;
         font-size: 12px;
         color: #c2c2c2; }
+    div#car_show .content-wrapper .content-container .field-wrapper.content-only div {
+      margin-left: 20px;
+      width: 254px;
+      padding: 10px; }
     div#car_show .content-wrapper .content-container .site-link-wrapper {
       text-align: center;
       margin: 15px 0; }

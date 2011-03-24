@@ -21,7 +21,7 @@ class Applicant < ActiveRecord::Base
   validates_uniqueness_of :phone_number, :scope => :event_id
 
 
-  default_scope :order => "id DESC"
+  #default_scope :order => "id DESC"
 
   protected
 

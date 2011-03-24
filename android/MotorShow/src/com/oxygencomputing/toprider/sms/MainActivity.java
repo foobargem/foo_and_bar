@@ -14,7 +14,6 @@ public class MainActivity extends DroidGap {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.main);
         
-        
         super.setIntegerProperty("splashscreen", R.drawable.splash);
         super.loadUrl("file:///android_asset/www/"+ wwwDir() +"/index.html");
     }
@@ -34,4 +33,5 @@ public class MainActivity extends DroidGap {
     	
     	return wwwDir;
     }
+    
 }

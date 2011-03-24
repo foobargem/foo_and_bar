@@ -58,7 +58,7 @@
         },
         //error: onFetchError,
         success: function(msg){
-          updateGalleryTitle(msg.car);
+          updateGalleryTitle(msg);
           buildGallery(msg);
           updateListRowStyles();
           addEventListenerToRow();
@@ -67,8 +67,8 @@
     }
 
 
-    function updateGalleryTitle(car) {
-      $("#car_gallery h1").text(car.name);
+    function updateGalleryTitle(msg) {
+      $("#car_gallery h1").text(msg.name);
     }
 
     function buildGallery (msg) {
@@ -82,7 +82,7 @@
           li_className = 'line-break';
         }
 
-        li_eles += '<li class="' + li_className + '"><a href="#car_show" class="detail-link" data-id="' + photo.car_id + '"><img src="' + photo.thumb_url + '" /></a></li>';
+        li_eles += '<li class="' + li_className + '"><a href="#car_show" class="detail-link" data-id="' + photo.car_id + '" data-large-url="' + photo.large_url + '"><img src="' + photo.thumb_url + '" /></a></li>';
       });
 
       if (has_next == "n") {
@@ -116,8 +116,12 @@
       $("a.detail-link").bind("click", function(event){
         event.preventDefault();
         var car_id = $(event.currentTarget).attr("data-id");
-        //window.plugins.suddenlybuntCmd.debug(photo_id);
-        fetchCar(car_id);
+        
+        window.plugins.suddenlybuntCmd.debug(car_id);
+
+        var car_large_url = $(event.currentTarget).attr("data-large-url");
+
+        fetchCar(car_id, car_large_url);
       });
 
       $("li#more").bind("click", function(event){
@@ -128,9 +132,9 @@
     }
 
 
-    function fetchCar(car_id) {
+    function fetchCar(car_id, car_large_url) {
       var _url = SMS.API.Car.showURL(car_id);
-      
+
       showIndicatorByView2();
 
       jQuery.ajax({
@@ -139,7 +143,7 @@
         data: {
         },
         success: function(msg){
-          updateCarInfo(msg);
+          updateCarInfo(msg, car_large_url);
         }
       });
 
@@ -147,12 +151,13 @@
 
 
 //
-    function updateCarInfo(data) {
+    function updateCarInfo(data, car_large_url) {
 
       var car = data.car;
 
       // ToDo
       $("#car_show h1").text(car.name);
+      $("#car_gallery h1").text(car.name);
       $("#car_company_name div").text(car.name);
 
       if (car.name && car.name.trim() != "") {
@@ -241,8 +246,8 @@
 
       //window.plugins.suddenlybuntCmd.debug(car.photo_large_url);
       if (car.photo_large_url && car.photo_large_url.trim() != "") {
-        $("#car_profile_image")[0].src = car.photo_large_url;
-        $("#car_large_image")[0].src = car.photo_large_url;
+        $("#car_profile_image")[0].src = car_large_url;
+        $("#car_large_image")[0].src = car_large_url;
       } else {
         $("#car_profile_image")[0].src = "../images/loading_image.jpg";
      }

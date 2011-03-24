@@ -92,7 +92,7 @@
 
         if (company.desc && company.desc.trim() != "") {
           $("#company_desc").show();
-          $("#company_desc div").text(company.desc);
+          $("#company_desc div").html(company.desc);
         } else {
           $("#company_desc").hide();
         }
@@ -174,10 +174,7 @@
 							<div><!-- product --></div>
 						</div>
 
-						<div id="company_desc" class="field-wrapper">
-							<label>
-								<img src="../images/view_list4.png" />
-							</label>
+						<div id="company_desc" class="field-wrapper content-only">
 							<div><!-- desc --></div>
 						</div>
 

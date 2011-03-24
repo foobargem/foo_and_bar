@@ -234,7 +234,7 @@
 
       if (car.desc && car.desc.trim() != "") {
         $("#car_desc").show();
-        $("#car_desc div").text(car.desc);
+        $("#car_desc div").html(car.desc);
       } else {
         $("#car_desc").hide();
       }
@@ -455,7 +455,7 @@
           <div><!-- transmission --></div>
         </div>
 
-        <div id="car_desc" class="field-wrapper">
+        <div id="car_desc" class="field-wrapper content-only">
           <div><!-- desc --></div>
         </div>
 

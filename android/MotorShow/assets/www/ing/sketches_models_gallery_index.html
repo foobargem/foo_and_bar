@@ -216,7 +216,7 @@
 
       if (model.career_desc && model.career_desc.trim() != "") {
         $("#model_career_desc").show();
-        $("#model_career_desc div").text(model.career_desc);
+        $("#model_career_desc div").html(model.career_desc);
       } else {
         $("#model_career_desc").hide();
       }
@@ -376,10 +376,7 @@
           <div><!-- fan_site_url --></div>
         </div>
 
-        <div id="model_career_desc" class="field-wrapper">
-          <label>
-            <img src="../images/view_list27.png" />
-          </label>
+        <div id="model_career_desc" class="field-wrapper content-only">
           <div><!-- career_desc --></div>
         </div>
 

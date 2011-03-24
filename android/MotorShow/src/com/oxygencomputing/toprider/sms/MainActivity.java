@@ -25,11 +25,14 @@ public class MainActivity extends DroidGap {
     	openDay.set(2011, 3, 1); // 2011.04.01
     	
     	Calendar today = Calendar.getInstance(tz);
-    	
+    	    	
     	String wwwDir = "ing";
     	if (today.compareTo(openDay) < 0) {
     		wwwDir = "before";
     	}
+
+    	// for testing
+    	//wwwDir = "ing";
     	
     	return wwwDir;
     }

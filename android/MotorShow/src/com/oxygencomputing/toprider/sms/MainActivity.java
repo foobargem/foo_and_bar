@@ -1,5 +1,8 @@
 package com.oxygencomputing.toprider.sms;
 
+import java.util.Calendar;
+import java.util.TimeZone;
+
 import android.os.Bundle;
 
 import com.phonegap.DroidGap;
@@ -11,15 +14,24 @@ public class MainActivity extends DroidGap {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.main);
         
-        
-        String wwwDir;
-        
-        // ToDo:
-        wwwDir = "ing";
-        //wwwDir = "before";
-        
         super.setIntegerProperty("splashscreen", R.drawable.splash);
-
-        super.loadUrl("file:///android_asset/www/"+ wwwDir +"/index.html");
+        super.loadUrl("file:///android_asset/www/"+ wwwDir() +"/index.html");
     }
+    
+    
+    protected String wwwDir() {
+    	TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
+    	Calendar openDay = Calendar.getInstance(tz);
+    	openDay.set(2011, 4, 1); // 2011.04.01
+    	
+    	Calendar today = Calendar.getInstance(tz);
+    	
+    	String wwwDir = "ing";
+//    	if (today.compareTo(openDay) < 0) {
+//    		wwwDir = "before";
+//    	}
+    	
+    	return wwwDir;
+    }
+    
 }

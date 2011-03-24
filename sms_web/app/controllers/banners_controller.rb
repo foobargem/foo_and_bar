@@ -1,7 +1,7 @@
 class BannersController < ApplicationController
 
   def base_ad
-    @banner = Banner.last
+    @banner = Banner.all.shuffle.first
 
     respond_to do |format|
       format.json { render :json => {

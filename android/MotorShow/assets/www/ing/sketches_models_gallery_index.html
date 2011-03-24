@@ -157,33 +157,11 @@
         $("#model_blood_type").hide();
       }
 
-      var height_weight = "";
-      if (model.height && model.height.trim() != "") {
-        height_weight += model.height;
-      }
-      if (model.weight && model.weight.trim() != "") {
-        height_weight += model.weight;
-      }
-
-      if (height_weight.trim() != "") {
-        $("#model_height_weight").show();
-        $("#model_height_weight div").text(height_weight);
-      } else {
-        $("#model_height_weight").hide();
-      }
-
       if (model.dress_size && model.dress_size.trim() != "") {
         $("#model_dress_size").show();
         $("#model_dress_size div").text(model.dress_size);
       } else {
         $("#model_dress_size").hide();
-      }
-
-      if (model.bwh && model.bwh.trim() != "") {
-        $("#model_bwh").show();
-        $("#model_bwh div").text(model.bwh);
-      } else {
-        $("#model_bwh").hide();
       }
 
       if (model.shoe_size && model.shoe_size.trim() != "") {
@@ -327,25 +305,11 @@
           <div><!-- blood_type --></div>
         </div>
 
-        <div id="model_height_weight" class="field-wrapper">
-          <label>
-            <img src="../images/view_list20.png" />
-          </label>
-          <div><!-- height and weight --></div>
-        </div>
-
         <div id="model_dress_size" class="field-wrapper">
           <label>
             <img src="../images/view_list21.png" />
           </label>
           <div><!-- dress_size --></div>
-        </div>
-
-        <div id="model_bwh" class="field-wrapper">
-          <label>
-            <img src="../images/view_list22.png" />
-          </label>
-          <div><!-- bwh --></div>
         </div>
 
         <div id="model_shoe_size" class="field-wrapper">

@@ -27,7 +27,7 @@ class CarsController < ApplicationController
     
     scoped = @car.photos.published
     
-    @photos = scoped.select("id, car_id, thumb_url").paginate(:page => params[:page], :per_page => 20)
+    @photos = scoped.select("id, car_id, large_url, thumb_url").paginate(:page => params[:page], :per_page => 20)
 
     last_photo = scoped.last
 
@@ -36,7 +36,7 @@ class CarsController < ApplicationController
     respond_to do |format|
       format.json { 
         render :json => { 
-          :car => @car,
+          :name => @car.name,
           :company => @car.company,
           :photos => @photos, 
           :has_next => has_next 

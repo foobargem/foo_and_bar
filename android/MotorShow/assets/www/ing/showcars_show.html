@@ -11,9 +11,9 @@
 
 
   <script type="text/javascript">
-    var booth_code = document.location.hash;
-    if (booth_code != undefined) {
-      booth_code = booth_code.replace('#', '');
+    var car_id = document.location.hash;
+    if (car_id != undefined) {
+      car_id = car_id.replace('#', '');
     }
   </script>
   <script src="../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
@@ -44,7 +44,7 @@
     var last_page = false;
 
     function fetch_and_update_photos_list() {
-      var _url = SMS.API.Photo.indexURLByBooth(booth_code);
+      var _url = SMS.API.Car.photosURL(car_id);
 
       if (last_page) return false;
       
@@ -58,7 +58,7 @@
         },
         //error: onFetchError,
         success: function(msg){
-          updateGalleryTitle(msg.company);
+          updateGalleryTitle(msg.car);
           buildGallery(msg);
           updateListRowStyles();
           addEventListenerToRow();
@@ -67,8 +67,8 @@
     }
 
 
-    function updateGalleryTitle(company) {
-      $("#car_gallery h1").text(company.name);
+    function updateGalleryTitle(car) {
+      $("#car_gallery h1").text(car.name);
     }
 
     function buildGallery (msg) {
@@ -328,7 +328,7 @@
   <div id="car_gallery">
     <div class="toolbar">
       <h1>Loading..</h1>      
-      <a href="booths_index.html" rel="external" class="back btn">이전</a>
+      <a href="showcars_index.html" rel="external" class="back btn">이전</a>
 			<a href="index.html" rel="external" class="homeButton"></a>
     </div>
     <!-- <div class="loading-container"><img src="../images/loading/loading_indicator.gif" /></div> -->
@@ -456,9 +456,6 @@
         </div>
 
         <div id="car_desc" class="field-wrapper">
-          <label>
-            <img src="../images/view_list4.png" />
-          </label>
           <div><!-- desc --></div>
         </div>
 

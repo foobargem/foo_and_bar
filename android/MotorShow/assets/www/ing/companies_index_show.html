@@ -6,6 +6,7 @@
     <title>2011서울모토쇼</title>
     <style type="text/css" media="screen">@import "../jqtouch/jqtouch.css";</style>
     <style type="text/css" media="screen">@import "../themes/jqt/theme.css";</style>
+    <style type="text/css" media="screen">@import "../stylesheets/ing_application.css";</style>
 
 		<script type="text/javascript">
 			var category = document.location.hash;
@@ -22,7 +23,6 @@
     <script src="../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
     <script src="../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
 
-    <style type="text/css" media="screen">@import "../stylesheets/ing_application.css";</style>
 	
         <script type="text/javascript" charset="utf-8">
             //change dynamic css
@@ -151,7 +151,7 @@
         if (company.logo_url && company.logo_url.trim() != "") {
           $("#company_logo")[0].src = company.logo_url;
         } else {
-          $("#company_logo")[0].src = "about:blank";
+          $("#company_logo")[0].src = "../images/loading_image.jpg";
         }
 
         if (company.site_url && company.site_url.trim() != "") {
@@ -220,6 +220,7 @@
 					<a href="companies_index.html" rel="external" class="back btn">이전</a>
 					<a href="index.html" rel="external" class="homeButton"></a>
 				</div>
+
 				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper">
 					<div class="content-container">
 						<ul><!-- company list --></ul>
@@ -238,6 +239,7 @@
 					<a href="index.html" rel="external" class="homeButton"></a>
 				</div>
         <div class="loading-container"><img src="../images/loading/loading_indicator.gif" /></div>
+
 				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper">
 					<div class="top-blank-box"></div>
 					<div class="photo-container">
@@ -245,7 +247,7 @@
 							<img src="../images/icon_prev1.png" />
 						</div> -->
 						<div class="logo-image-container">
-							<img id="company_logo" src="about:blank" width="270" height="116" />
+							<img id="company_logo" src="../images/loading_image.jpg" width="270" height="116" />
 						</div>
 						<!-- <div class="next-btn-container">
 							<img src="../images/icon_next1.png" />

@@ -6,17 +6,16 @@
   <title>2011서울모토쇼</title>
   <style type="text/css" media="screen">@import "../jqtouch/jqtouch.css";</style>
   <style type="text/css" media="screen">@import "../themes/jqt/theme.css";</style>
+  <style type="text/css" media="screen">@import "../stylesheets/ing_application.css";</style>
+
 
   <script src="../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
   <script src="../jqtouch/jquery.dataAttr.js" type="text/javascript" charset="utf-8"></script>
   <script src="../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
   <script src="../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
   <script src="../phonegap.0.9.4.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
   <script src="../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
   <script src="../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
-
-  <style type="text/css" media="screen">@import "../stylesheets/ing_application.css";</style>
 
   <script type="text/javascript" charset="utf-8">
 
@@ -246,7 +245,7 @@
       if (model.photo_large_url && model.photo_large_url.trim() != "") {
         $("#model_profile_image")[0].src = model.photo_large_url;
       } else {
-        $("#model_profile_image")[0].src = "about:blank";
+        $("#model_profile_image")[0].src = "../images/loading_image.jpg";
       }
       
       hideIndicatorByView3();
@@ -322,6 +321,7 @@
 				<a href="index.html" rel="external" class="homeButton"></a>
       </div>
 	    <div class="loading-container"><img src="../images/loading/loading_indicator.gif" /></div>
+
       <div class="vertical-scroll"><div class="content-wrapper">
 
         <div class="thumbnail-container">
@@ -339,6 +339,7 @@
 				<a href="index.html" rel="external" class="homeButton"></a>
       </div>
 	    <div class="loading-container"><img src="../images/loading/loading_indicator.gif" /></div>
+
       <div class="vertical-scroll"><div class="content-wrapper">
 
         <div class="top-blank-box"></div>
@@ -347,7 +348,7 @@
             <img src="../images/icon_prev1.png" />
           </div> -->
           <div class="logo-image-container">
-            <img id="model_profile_image" src="about:blank" width="274" height="254" />
+            <img id="model_profile_image" src="../images/loading_image.jpg" width="274" height="254" />
           </div>
           <!-- <div class="next-btn-container">
             <img src="../images/icon_next1.png" />

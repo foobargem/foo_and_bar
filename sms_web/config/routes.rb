@@ -30,7 +30,12 @@ SmsWeb::Application.routes.draw do
   end
 
   resources :companies
-  resources :cars
+  resources :cars do 
+    collection do 
+      get "photos"
+    end
+  end
+  
   resources :racing_models
   resources :videos
   resources :photos do

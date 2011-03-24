@@ -122,10 +122,15 @@ Banner.prototype.display = function() {
   $(this.element).html(this.embed_code);
   this.forceSetStyle();
   this.addEventListener();
+  $(this.element).show();
 }
 
 Banner.prototype.forceSetStyle = function() {
-  $(this.element).css("padding", 0);
+  $(this.element).
+    css("padding", 0).
+    css("position", "absolute").
+    css("width", "100%").
+    css("top", ($(document).height() - 46) + "px");
 }
 
 Banner.prototype.addEventListener = function() {

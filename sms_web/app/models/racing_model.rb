@@ -73,4 +73,12 @@ class RacingModel < ActiveRecord::Base
     end
   end
 
+  def height_with_weight
+    hw = []
+    hw << self.height unless self.height.blank?
+    hw << self.weight unless self.weight.blank?
+
+    hw.join("/")
+  end
+
 end

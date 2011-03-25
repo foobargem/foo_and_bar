@@ -20,7 +20,8 @@ class RacingModelsController < ApplicationController
     respond_to do |format|
       format.json { render :json => {
           :racing_model => @racing_model.attributes.merge(
-            :career_desc => @racing_model.career_desc_to_html
+            :career_desc => @racing_model.career_desc_to_html,
+            :height_with_weight => @racing_model.height_with_weight
           )
         }
       }

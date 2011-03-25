@@ -30,12 +30,13 @@ class CarsController < ApplicationController
     end
     
     @cars = scoped.select("cars.id, cars.name, cars.company_id").order("cars.name ASC")
-
+    my_companyname = Company.where("booth_code = ?", params[:booth_code_id]).first.name
+    
     respond_to do |format|
       format.json { 
         render :json => {
           :cars => @cars,
-          :companyname => @cars.first.company.name
+          :companyname => my_companyname
           }.to_json
         }
     end

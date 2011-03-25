@@ -88,37 +88,4 @@ class PhotosController < ApplicationController
     end
   end
 
-
-  protected
-
-    def models
-      scoped = RacingModel.published.where("photo_thumb_url is not null")
-
-      @racing_models = scoped.
-                        select("id, photo_thumb_url").
-                        order("id DESC").
-                        paginate(:page => params[:page], :per_page => 20)
-
-      last_model = scoped.last
-
-      has_next = (last_model.nil? || @racing_models.last.id == last_model.id) ? "n" : "y"
-
-      photos = []
-      @racing_models.each do |racing_model|
-        photos << { "photo" => {
-            "racing_model_id" => racing_model.id,
-            "thumb_url" => racing_model.photo_thumb_url
-          }
-        }
-      end
-
-      respond_to do |format|
-        format.json { render :json => {
-            :photos => photos,
-            :has_next => has_next
-          }.to_json
-        }
-      end
-    end
-
 end

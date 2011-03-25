@@ -50,7 +50,7 @@ class CarsController < ApplicationController
           :car => @car.attributes.merge(
             :desc => @car.desc_to_html
           ),
-          :company => @car.company
+          :company => @car.company.attributes
         }
       }
     end

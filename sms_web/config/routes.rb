@@ -33,6 +33,7 @@ SmsWeb::Application.routes.draw do
   resources :cars do 
     collection do 
       get "photos"
+      get "booth"
     end
   end
   

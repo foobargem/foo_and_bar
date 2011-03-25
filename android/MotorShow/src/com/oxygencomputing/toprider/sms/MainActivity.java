@@ -22,7 +22,7 @@ public class MainActivity extends DroidGap {
     protected String wwwDir() {
     	TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
     	Calendar openDay = Calendar.getInstance(tz);
-    	openDay.set(2011, 4, 1); // 2011.04.01
+    	openDay.set(2011, 3, 1); // 2011.04.01
     	
     	Calendar today = Calendar.getInstance(tz);
     	

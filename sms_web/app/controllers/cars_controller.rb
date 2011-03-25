@@ -4,13 +4,16 @@ class CarsController < ApplicationController
     scoped = Car.scoped
 
     if params[:company_id] && params[:company_id].to_i > 0
-      scoped = scoped.where("company_id = ?", params[:company_id])
+      scoped = scoped.where("cars.company_id = ?", params[:company_id])
     end
 
-    @cars = scoped.includes(:photos).select("cars.id, cars.name")
+    @cars = scoped.
+              where("companies.category = 'car'").joins(:company).
+              includes(:photos).select("cars.id, cars.name")
 
     respond_to do |format|
-      format.json { render :json => @cars.to_json(:include => :photos) }
+      #format.json { render :json => @cars.to_json(:include => :photos) }
+      format.json { render :json => @cars.to_json }
     end
   end
 

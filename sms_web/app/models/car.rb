@@ -41,8 +41,6 @@ class Car < ActiveRecord::Base
   has_many :photos
   has_many :car_photos, :class_name => "Photo"
 
-  default_scope :order => "id DESC"
-
   scope :published, where("published = ?", true)
   scope :unpublished, where("published = ?", false)
 

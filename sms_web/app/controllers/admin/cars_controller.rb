@@ -9,6 +9,7 @@ class Admin::CarsController < ApplicationController
     @search = Car.search(params[:search])
     @cars = @search.
               includes(:company, :photos).
+              order("id desc").
               paginate(:page => params[:page], :per_page => 20)
     store_params
   end

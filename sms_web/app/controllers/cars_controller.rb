@@ -9,7 +9,8 @@ class CarsController < ApplicationController
 
     @cars = scoped.
               where("companies.category = 'car'").joins(:company).
-              includes(:photos).select("cars.id, cars.name")
+              includes(:photos).select("cars.id, cars.name").
+              order("cars.name ASC")
 
     respond_to do |format|
       #format.json { render :json => @cars.to_json(:include => :photos) }

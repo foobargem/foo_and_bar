@@ -31,7 +31,7 @@ class Company < ActiveRecord::Base
   has_many :car_photos, :class_name => "Photo", :through => :cars
   has_many :racing_model_photos, :class_name => "Photo", :through => :racing_models
 
-  default_scope order("priority ASC, name ASC")
+  #default_scope order("priority ASC, name ASC")
 
   scope :car_part, where("category = ?", "car")
   scope :component_part, where("category = ?", "component")

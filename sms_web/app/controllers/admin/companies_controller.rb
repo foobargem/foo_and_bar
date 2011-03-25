@@ -6,7 +6,7 @@ class Admin::CompaniesController < ApplicationController
 
   def index
     @search = Company.search(params[:search])
-    @companies = @search.paginate(:page => params[:page], :per_page => 20)
+    @companies = @search.order("id DESC").paginate(:page => params[:page], :per_page => 20)
     store_params
   end
 

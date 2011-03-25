@@ -18,6 +18,30 @@ class CarsController < ApplicationController
     end
   end
 
+  def booth
+    scoped = Car.scoped
+
+    if params[:company_id] && params[:company_id].to_i > 0
+      scoped = scoped.where("company_id = ?", params[:company_id])
+    end
+    
+    if params[:booth_code_id]
+      scoped = Company.where("booth_code = ?", params[:booth_code_id]).first.cars
+    end
+    
+    @cars = scoped.select("cars.id, cars.name, cars.company_id").order("cars.name ASC")
+
+    respond_to do |format|
+      format.json { 
+        render :json => {
+          :cars => @cars,
+          :companyname => @cars.first.company.name
+          }.to_json
+        }
+    end
+  
+  end
+  
   def show
     @car = Car.find(params[:id])
 

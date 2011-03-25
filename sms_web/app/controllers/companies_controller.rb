@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
               scoped.goods_part
              when "has_models"
               company_ids = RacingModel.included_company.select("company_id").map(&:company_id).uniq
-              scoped.where("id IN (?)", company_ids)
+              scoped.where("id IN (?)", company_ids).order("name ASC")
              else
               scoped.car_part
              end

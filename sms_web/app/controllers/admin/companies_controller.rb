@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::CompaniesController < ApplicationController
 
   layout "admin"
@@ -79,4 +80,37 @@ class Admin::CompaniesController < ApplicationController
       page.reload
     end
   end
+
+  def export_to_excel
+    @companies = Company.scoped
+    columns = [
+      { :name => "업체명" },
+      { :category => "참가분야" },
+      { :booth_code => "부스번호" },
+      { :contact => "연락처" },
+      { :address => "주소" },
+      { :product => "출품" },
+      { :site_url => "사이트URL" },
+      { :desc => "설명" }
+    ]
+
+    associations = {
+    }
+
+    egt = Tools::ExcelGenerator.new("cars")
+    egt.export_to_xls([
+      { :sheet_name => "완성차", :collection => @companies.car_part.order("booth_code ASC"), :columns => columns, :assocs => associations},
+      { :sheet_name => "부품업체", :collection => @companies.component_part.order("booth_code ASC"), :columns => columns, :assocs => associations},
+      { :sheet_name => "용품업체", :collection => @companies.goods_part.order("booth_code ASC"), :columns => columns, :assocs => associations}
+    ])
+
+    suffix = Time.zone.now.strftime("%Y%m%d_%H%M")
+    download_filename = "CompaniesList-#{suffix}.xls"
+
+    send_file(egt.output_file_path, {
+      :filename => download_filename,
+      :type => "application/vnd.ms-excel;charset=utf-8"
+    })
+  end
+
 end

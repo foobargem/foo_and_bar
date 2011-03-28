@@ -75,7 +75,9 @@ class Admin::ApplicantsController < ApplicationController
     }
 
     egt = Tools::ExcelGenerator.new("applicants")
-    egt.export_to_xls("applicants", @applicants, columns, associations)
+    egt.export_to_xls([
+      { :sheet_name => "applicants", :collection => @applicants, :columns => columns, :assocs => associations }
+    ])
 
     suffix = Time.zone.now.strftime("%Y%m%d_%H%M")
     download_filename = "ApplicantsList-#{suffix}.xls"

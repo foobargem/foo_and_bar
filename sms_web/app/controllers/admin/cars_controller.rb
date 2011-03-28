@@ -104,7 +104,9 @@ class Admin::CarsController < ApplicationController
     }
 
     egt = Tools::ExcelGenerator.new("cars")
-    egt.export_to_xls("cars", @cars, columns, associations)
+    egt.export_to_xls([
+      { :sheet_name => "cars", :collection => @cars, :columns => columns, :assocs => associations }
+    ])
 
     suffix = Time.zone.now.strftime("%Y%m%d_%H%M")
     download_filename = "CarsList-#{suffix}.xls"

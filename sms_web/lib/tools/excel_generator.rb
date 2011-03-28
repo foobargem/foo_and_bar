@@ -12,41 +12,50 @@ module Tools
       @content_format = Spreadsheet::Format.new(:align => :center)
     end
 
-    def export_to_xls(sheet_name, collection, columns, assocs)
+    def export_to_xls(sheet_datas)
       doc = Spreadsheet::Workbook.new
 
-      sheet = doc.create_worksheet
-      sheet.name = sheet_name
+      sheet_datas.each do |data|
+        sheet = doc.create_worksheet
+        sheet.name = data[:sheet_name]
 
-      row_index = 0
-      sheet.row(row_index).replace(columns.map{|hs| hs.values.first })
-      sheet.row(row_index).default_format = @header_format
-
-      row_index += 1
-
-      collection.each do |row|
-      
-        values = []
-        columns.map{|hs| hs.keys.first }.each do |c|
-
-          value = if assocs.has_key?(c)
-                    assoc = assocs[c]
-                    row.send(assoc[0])[(assoc[1])]
-                  else
-                    row[c]
-                  end
-
-          values << value
-        end
-
-        sheet.row(row_index).replace(values)
-        sheet.row(row_index).default_format = @content_format
-
-        row_index += 1
+        write_data_to_sheet(sheet, data[:collection], data[:columns], data[:assocs])
       end
 
       doc.write(@output_file_path)
     end
+
+
+    protected
+
+      def write_data_to_sheet(sheet, collection, columns, assocs)
+        row_index = 0
+        sheet.row(row_index).replace(columns.map{|hs| hs.values.first })
+        sheet.row(row_index).default_format = @header_format
+
+        row_index += 1
+
+        collection.each do |row|
+        
+          values = []
+          columns.map{|hs| hs.keys.first }.each do |c|
+
+            value = if assocs.has_key?(c)
+                      assoc = assocs[c]
+                      row.send(assoc[0])[(assoc[1])]
+                    else
+                      row[c]
+                    end
+
+            values << value
+          end
+
+          sheet.row(row_index).replace(values)
+          sheet.row(row_index).default_format = @content_format
+
+          row_index += 1
+        end
+      end
 
   end
 end

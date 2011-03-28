@@ -9,6 +9,8 @@
   <%= link_to "업체 추가하기", new_admin_company_path %>
   |
   <%= link_to "플리커에 사진 일괄 업로드", batch_upload_to_flickr_admin_companies_path, :method => "put", :remote => true, :id => "batch_upload_link" %>
+  |
+  <%= link_to "Excel 다운로드", export_to_excel_admin_companies_path %>
 </div>
 
 <div class="search_container">

@@ -45,19 +45,23 @@
           var booth_link = $(e.currentTarget);
           var booth_code = booth_link.attr("href");
 
+          var my_text = booth_link.attr("data-view-text");
+          
 			    navigator.notification.confirm(
 			        '',
               function(button) {
                 if (button == 1) { // 업체정보
                   window.location.href = 'companies_show.html' + booth_code;
                 } else if (button == 2) { // 전시차보기
-                  window.location.href = 'showcars_companies_index.html' + booth_code;
+                  // window.location.href = 'showcars_index.html' + booth_code;
+                  booth_code = booth_code.replace('#', '');
+                  window.location.href = "showcars_index.html?booth_code=" + booth_code + "&" + 'back_url=booths_index.html';
                 } else {
                   return false;
                 }
               },
 			        booth_link.attr("title"),
-			        '업체정보,전시차 보기,닫기'
+			        '업체정보,' + my_text + ',닫기'
 					);
 					
 				});
@@ -85,84 +89,89 @@
 										
                     <!-- 작은 P 블럭 -->
 										
-										<area shape="rect" target="_webapp" coords="83,83,133,126" href="#P-01" title="현대모비스">
-										<area shape="rect" target="_webapp" coords="141,82,164,101" href="#P-02" title="평화정공">										
-										<area shape="rect" target="_webapp" coords="142,109,165,128" href="#P-03" title="대기산업">										
-										<area shape="rect" target="_webapp" coords="172,83,192,102" href="#P-04" title="한국파워트레인">										
-										<area shape="rect" target="_webapp" coords="172,109,193,127" href="#P-05" title="서한산업">										
-										<area shape="rect" target="_webapp" coords="201,83,224,101" href="#P-06" title="대원강업">										
-										<area shape="rect" target="_webapp" coords="199,108,223,127" href="#P-07" title="KCW">										
-										<area shape="rect" target="_webapp" coords="230,82,242,101" href="#P-08" title="이미지넥스트">										
-										<area shape="rect" target="_webapp" coords="230,109,242,125" href="#P-09" title="센트랄">										
-										<area shape="rect" target="_webapp" coords="250,84,262,102" href="#P-10" title="대성엘텍">								
-										<area shape="rect" target="_webapp" coords="250,110,262,127" href="#P-11" title="에이디엠이십일">
-										<area shape="rect" target="_webapp" coords="269,83,285,101" href="#P-12" title="인지컨트롤스">
-										<area shape="rect" target="_webapp" coords="269,109,285,128" href="#P-13" title="한일프로텍">
-										<area shape="rect" target="_webapp" coords="291,83,312,96" href="#P-14" title="벡터코리아아이티">
-										<area shape="rect" target="_webapp" coords="318,83,336,94" href="#P-15" title="태양금속공업">
-										<area shape="rect" target="_webapp" coords="344,83,360,94" href="#P-16" title="맑은서울자동차">
-										<area shape="rect" target="_webapp" coords="366,83,381,94" href="#P-17" title="유니크">
-										<area shape="rect" target="_webapp" coords="389,83,400,94" href="#P-18" title="자트코코리아서비스">
-										<area shape="rect" target="_webapp" coords="406,83,418,95" href="#P-19" title="명화공업">
-										<area shape="rect" target="_webapp" coords="438,83,450,93" href="#P-20" title="대성전기공업">
-										<area shape="rect" target="_webapp" coords="456,83,468,94" href="#P-21" title="선일다이파스">
-										<area shape="rect" target="_webapp" coords="438,93,450,101" href="#P-22" title="에스디상사">
-										<area shape="rect" target="_webapp" coords="456,94,468,100" href="#P-23" title="씨브이티코리아">
-										<area shape="rect" target="_webapp" coords="291,103,323,128" href="#P-24" title="유라코퍼레이션">
-										<area shape="rect" target="_webapp" coords="511,83,516,90" href="#P-25" title="태성멀티테크">
-										<area shape="rect" target="_webapp" coords="372,103,395,128" href="#P-26" title="두원공조">
-										<area shape="rect" target="_webapp" coords="403,103,432,128" href="#P-27" title="경신공업">
-										<area shape="rect" target="_webapp" coords="438,105,449,112" href="#P-28" title="씨트론">
-										<area shape="rect" target="_webapp" coords="438,113,449,128" href="#P-29" title="진합">
-										<area shape="rect" target="_webapp" coords="456,105,467,112" href="#P-30" title="열쇠특공대">
-										<area shape="rect" target="_webapp" coords="456,113,468,128" href="#P-31" title="남양공업">
-										<area shape="rect" target="_webapp" coords="474,93,487,101" href="#P-32" title="삼목강업">
-										<area shape="rect" target="_webapp" coords="474,104,479,112" href="#P-33" title="대성G-3">
-										<area shape="rect" target="_webapp" coords="480,104,486,111" href="#P-34" title="로고스만">
-										<area shape="rect" target="_webapp" coords="474,113,479,119" href="#P-35" title="대화연료펌프">
-										<area shape="rect" target="_webapp" coords="474,120,479,126" href="#P-36" title="유니월드오토테크">
-										<area shape="rect" target="_webapp" coords="480,112,485,126" href="#P-37" title="삼성공조">
-										<area shape="rect" target="_webapp" coords="492,90,498,96" href="#P-38" title="케이테크로버">
-										<area shape="rect" target="_webapp" coords="499,82,504,96" href="#P-39" title="케이엔씨">
-										<area shape="rect" target="_webapp" coords="563,82,596,126" href="#P-40" title="한라공조">
-										<area shape="rect" target="_webapp" coords="617,69,659,101" href="#P-41" title="만도">
-										<area shape="rect" target="_webapp" coords="552,139,596,189" href="#P-42" title="금호타이어">
-										<area shape="rect" target="_webapp" coords="517,82,523,88" href="#P-43" title="TYREDOG">
-										<area shape="rect" target="_webapp" coords="511,90,516,96" href="#P-44" title="인도자동차기술연구협회">
-										<area shape="rect" target="_webapp" coords="517,90,523,97" href="#P-45" title="GR텔레콤">
-										<area shape="rect" target="_webapp" coords="423,82,431,95" href="#P-46" title="일진글로벌">
+										<area shape="rect" target="_webapp" coords="83,83,133,126" href="#P-01" title="현대모비스" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="141,82,164,101" href="#P-02" title="평화정공" data-view-text="전시품 보기">										
+										<area shape="rect" target="_webapp" coords="142,109,165,128" href="#P-03" title="대기산업" data-view-text="전시품 보기">										
+										<area shape="rect" target="_webapp" coords="172,83,192,102" href="#P-04" title="한국파워트레인" data-view-text="전시품 보기">										
+										<area shape="rect" target="_webapp" coords="172,109,193,127" href="#P-05" title="서한산업" data-view-text="전시품 보기">										
+										<area shape="rect" target="_webapp" coords="201,83,224,101" href="#P-06" title="대원강업" data-view-text="전시품 보기">										
+										<area shape="rect" target="_webapp" coords="199,108,223,127" href="#P-07" title="KCW" data-view-text="전시품 보기">										
+										<area shape="rect" target="_webapp" coords="230,82,242,101" href="#P-08" title="이미지넥스트" data-view-text="전시품 보기">										
+										<area shape="rect" target="_webapp" coords="230,109,242,125" href="#P-09" title="센트랄" data-view-text="전시품 보기">										
+										<area shape="rect" target="_webapp" coords="250,84,262,102" href="#P-10" title="대성엘텍" data-view-text="전시품 보기">								
+										<area shape="rect" target="_webapp" coords="250,110,262,127" href="#P-11" title="에이디엠이십일" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="269,83,285,101" href="#P-12" title="인지컨트롤스" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="269,109,285,128" href="#P-13" title="한일프로텍" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="291,83,312,96" href="#P-14" title="벡터코리아아이티" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="318,83,336,94" href="#P-15" title="태양금속공업" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="344,83,360,94" href="#P-16" title="맑은서울자동차" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="366,83,381,94" href="#P-17" title="유니크" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="389,83,400,94" href="#P-18" title="자트코코리아서비스" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="406,83,418,95" href="#P-19" title="명화공업" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="438,83,450,93" href="#P-20" title="대성전기공업" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="456,83,468,94" href="#P-21" title="선일다이파스" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="438,93,450,101" href="#P-22" title="에스디상사" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="456,94,468,100" href="#P-23" title="씨브이티코리아" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="291,103,323,128" href="#P-24" title="유라코퍼레이션" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="511,83,516,90" href="#P-25" title="태성멀티테크" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="372,103,395,128" href="#P-26" title="두원공조" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="403,103,432,128" href="#P-27" title="경신공업" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="438,105,449,112" href="#P-28" title="씨트론" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="438,113,449,128" href="#P-29" title="진합" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="456,105,467,112" href="#P-30" title="열쇠특공대" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="456,113,468,128" href="#P-31" title="남양공업" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="474,93,487,101" href="#P-32" title="삼목강업" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="474,104,479,112" href="#P-33" title="대성G-3" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="480,104,486,111" href="#P-34" title="로고스만" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="474,113,479,119" href="#P-35" title="대화연료펌프" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="474,120,479,126" href="#P-36" title="유니월드오토테크" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="480,112,485,126" href="#P-37" title="삼성공조" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="492,90,498,96" href="#P-38" title="케이테크로버" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="499,82,504,96" href="#P-39" title="케이엔씨" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="563,82,596,126" href="#P-40" title="한라공조" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="617,69,659,101" href="#P-41" title="만도" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="552,139,596,189" href="#P-42" title="금호타이어" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="517,82,523,88" href="#P-43" title="TYREDOG" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="511,90,516,96" href="#P-44" title="인도자동차기술연구협회" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="517,90,523,97" href="#P-45" title="GR텔레콤" data-view-text="전시품 보기">
+										<area shape="rect" target="_webapp" coords="423,82,431,95" href="#P-46" title="일진글로벌" data-view-text="전시품 보기">
 
 									  <!-- 제일 큰 외곽 C 블럭 -->
 										
-										<area shape="rect" target="_webapp" coords="2,73,60,199" href="#C-01" title="르노삼성">
-									  <area shape="rect" target="_webapp" coords="5,212,60,325" href="#C-02" title="쌍용">
-										<area shape="rect" target="_webapp" coords="4,349,212,426" href="#C-03" title="기아">
-										<area shape="rect" target="_webapp" coords="223,347,458,425" href="#C-04" title="현대">	
-										<area shape="rect" target="_webapp" coords="473,347,678,425" href="#C-05" title="쉐보레 캐딜락">	
-										<area shape="rect" target="_webapp" coords="619,248,679,327" href="#C-06" title="현대(상용차)">		
-										<area shape="rect" target="_webapp" coords="618,204,680,231" href="#C-07" title="기아(상용차)">	
-										<area shape="rect" target="_webapp" coords="617,173,680,197" href="#C-08" title="대우버스">
-										<area shape="rect" target="_webapp" coords="619,108,680,166" href="#C-09" title="타타대우">	
-										<area shape="rect" target="_webapp" coords="84,141,139,228" href="#C-10" title="아우디">
-										<area shape="rect" target="_webapp" coords="84,240,140,329" href="#C-11" title="포드&#13링컨">
-										<area shape="rect" target="_webapp" coords="151,141,222,227" href="#C-12" title="렉서스">		
-									  <area shape="rect" target="_webapp" coords="152,241,222,327" href="#C-13" title="토요타">		
-									  <area shape="rect" target="_webapp" coords="234,141,275,228" href="#C-14" title="닛산">		
-										<area shape="rect" target="_webapp" coords="234,240,275,328" href="#C-15" title="크라이슬러짚">		
-										<area shape="rect" target="_webapp" coords="288,141,328,229" href="#C-16" title="인피니티">		
-										<area shape="rect" target="_webapp" coords="288,241,328,328" href="#C-17" title="재규어 랜드로버">		
-										<area shape="rect" target="_webapp" coords="341,141,410,229" href="#C-18" title="메르세데스-벤츠">		
-										<area shape="rect" target="_webapp" coords="340,240,410,329" href="#C-19" title="폭스바겐">		
-										<area shape="rect" target="_webapp" coords="423,141,485,229" href="#C-20" title="푸조 시트로엥">		
-										<area shape="rect" target="_webapp" coords="422,240,485,327" href="#C-21" title="비엠더블유미니">		
-										<area shape="rect" target="_webapp" coords="502,264,541,191" href="#C-22" title="포르쉐">		
-										<area shape="rect" target="_webapp" coords="496,202,596,263" href="#C-23" title="혼다">		
-										<area shape="rect" target="_webapp" coords="497,274,547,328" href="#C-24" title="볼보">		
-										<area shape="rect" target="_webapp" coords="556,274,598,328" href="#C-25" title="스바루">		
-										<area shape="rect" target="_webapp" coords="530,106,558,129" href="#C-26" title="파워프라자">		
-										<area shape="rect" target="_webapp" coords="332,104,364,129" href="#C-27" title="에이디모터스">		
-										<area shape="rect" target="_webapp" coords="511,104,524,129" href="#C-28" title="지앤디윈텍">		
+										<area shape="rect" target="_webapp" coords="2,73,60,199" href="#C-01" title="르노삼성" data-view-text="전시차 보기">
+									  <area shape="rect" target="_webapp" coords="5,212,60,325" href="#C-02" title="쌍용" data-view-text="전시차 보기">
+										<area shape="rect" target="_webapp" coords="4,349,212,426" href="#C-03" title="기아" data-view-text="전시차 보기">
+										<area shape="rect" target="_webapp" coords="223,347,458,425" href="#C-04" title="현대" data-view-text="전시차 보기">	
+										<area shape="rect" target="_webapp" coords="473,347,678,425" href="#C-05" title="쉐보레 캐딜락" data-view-text="전시차 보기">	
+										<area shape="rect" target="_webapp" coords="619,248,679,327" href="#C-06" title="현대(상용차)" data-view-text="전시차 보기">		
+										<area shape="rect" target="_webapp" coords="618,204,680,231" href="#C-07" title="기아(상용차)" data-view-text="전시차 보기">	
+										<area shape="rect" target="_webapp" coords="617,173,680,197" href="#C-08" title="대우버스" data-view-text="전시차 보기">
+										<area shape="rect" target="_webapp" coords="619,108,680,166" href="#C-09" title="타타대우" data-view-text="전시차 보기">	
+										<area shape="rect" target="_webapp" coords="84,141,139,228" href="#C-10" title="아우디" data-view-text="전시차 보기">
+										<area shape="rect" target="_webapp" coords="84,240,140,329" href="#C-11" title="포드&#13링컨" data-view-text="전시차 보기">
+										<area shape="rect" target="_webapp" coords="151,141,222,227" href="#C-12" title="렉서스" data-view-text="전시차 보기">		
+									  <area shape="rect" target="_webapp" coords="152,241,222,327" href="#C-13" title="토요타" data-view-text="전시차 보기">		
+									  <area shape="rect" target="_webapp" coords="234,141,275,228" href="#C-14" title="닛산" data-view-text="전시차 보기">		
+										<area shape="rect" target="_webapp" coords="234,240,275,328" href="#C-15" title="크라이슬러짚" data-view-text="전시차 보기">		
+										<area shape="rect" target="_webapp" coords="288,141,328,229" href="#C-16" title="인피니티" data-view-text="전시차 보기">		
+										<area shape="rect" target="_webapp" coords="288,241,328,328" href="#C-17" title="재규어 랜드로버" data-view-text="전시차 보기">		
+										<area shape="rect" target="_webapp" coords="341,141,410,229" href="#C-18" title="메르세데스-벤츠" data-view-text="전시차 보기">		
+										<area shape="rect" target="_webapp" coords="340,240,410,329" href="#C-19" title="폭스바겐" data-view-text="전시차 보기">		
+										<area shape="rect" target="_webapp" coords="423,141,485,229" href="#C-20" title="푸조 시트로엥" data-view-text="전시차 보기">		
+										<area shape="rect" target="_webapp" coords="422,240,485,327" href="#C-21" title="비엠더블유미니" data-view-text="전시차 보기">		
+										<area shape="rect" target="_webapp" coords="490,130,534,186" href="#C-22" title="포르쉐" data-view-text="전시차 보기">		
+										<area shape="rect" target="_webapp" coords="496,202,596,263" href="#C-23" title="혼다" data-view-text="전시차 보기">		
+										<area shape="rect" target="_webapp" coords="497,274,547,328" href="#C-24" title="볼보" data-view-text="전시차 보기">		
+										<area shape="rect" target="_webapp" coords="556,274,598,328" href="#C-25" title="스바루" data-view-text="전시차 보기">		
+										<area shape="rect" target="_webapp" coords="530,106,558,129" href="#C-26" title="파워프라자" data-view-text="전시품 보기">		
+										<area shape="rect" target="_webapp" coords="332,104,364,129" href="#C-27" title="에이디모터스" data-view-text="전시품 보기">		
+										<area shape="rect" target="_webapp" coords="511,104,524,129" href="#C-28" title="지앤디윈텍" data-view-text="전시품 보기">		
 														
+										<!-- 작은 A 블럭 -->
+										<area shape="rect" target="_webapp" coords="487,82,492,88" href="#A-01" title="도서출판 골든벨" data-view-text="전시품 보기">		
+										<area shape="rect" target="_webapp" coords="524,83,549,94" href="#A-02" title="삼천리자전거" data-view-text="전시품 보기">		
+										<area shape="rect" target="_webapp" coords="486,103,497,124" href="#A-03" title="파워프라자" data-view-text="전시품 보기">		
+									
 									</map>
 	              </div>
 	            </td>

@@ -2,7 +2,7 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 var SMS = {
-  //baseURL: "http://10.1.1.91:3000"
+  // baseURL: "http://localhost:3000"
   baseURL: "http://2011sms.top-rider.com"
 };
 
@@ -29,8 +29,11 @@ SMS.API = {
   },
 
   Car: {
-    indexURL: function() {
-      return SMS.baseURL + "/cars.json";
+    indexURL: function(company_id) {
+      return SMS.baseURL + "/cars.json?company_id=" + company_id;
+    },
+    indexURLbyBoothcode: function(booth_code) {
+      return SMS.baseURL + "/cars/booth.json?booth_code_id=" + booth_code;
     },
     galleryURL: function(company_id) {
       return SMS.API.Photo.indexURL('car');
@@ -75,6 +78,9 @@ SMS.API = {
     },
     showURL: function(id) {
       return SMS.baseURL + "/racing_models/" + id + ".json";
+    },
+    photosURL: function(id) {
+      return SMS.baseURL + "/racing_models/" + id + "/photos.json";
     }
   }
 
@@ -122,15 +128,14 @@ Banner.prototype.display = function() {
   $(this.element).html(this.embed_code);
   this.forceSetStyle();
   this.addEventListener();
-  $(this.element).show();
 }
 
 Banner.prototype.forceSetStyle = function() {
   $(this.element).
-    css("padding", 0).
-    css("position", "absolute").
-    css("width", "100%").
-    css("top", ($(document).height() - 46) + "px");
+  css("padding", 0).
+  css("position", "absolute").
+  css("width", "100%").
+  css("top", ($(document).height() - 46) + "px");
 }
 
 Banner.prototype.addEventListener = function() {

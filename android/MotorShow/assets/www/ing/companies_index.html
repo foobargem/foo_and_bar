@@ -6,15 +6,15 @@
         <title>2011서울모토쇼</title>
         <style type="text/css" media="screen">@import "../jqtouch/jqtouch.css";</style>
         <style type="text/css" media="screen">@import "../themes/jqt/theme.css";</style>
-        <style type="text/css" media="screen">@import "../stylesheets/ing_application.css";</style>
-
 
         <script src="../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
         <script src="../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
         <script src="../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
         <script src="../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+			  <script src="../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
 
+        <style type="text/css" media="screen">@import "../stylesheets/ing_application.css";</style>
 
         <script type="text/javascript" charset="utf-8">
             //change dynamic css
@@ -33,6 +33,8 @@
 
 
 			$(document).ready(function(){
+				// ChildBrowser.install();
+				
         new Banner("div.banner-container");
 			});
 
@@ -41,28 +43,31 @@
     <body>
 		<div id="jqt">
 
-			<div id="companies_main">
+			<div id="companies_index">
 				<div class="toolbar">
 					<h1>참가업체</h1>
 					<a href="index.html" rel="external" class="back btn">이전</a>
 					<a href="index.html" rel="external" class="homeButton"></a>
 				</div>
 
-        <div class="content-wrapper">
-					<div class="content-container"></div>
-					<div class="buttons-container">
-						<div class="button-wrapper first-wrapper">
-							<a href="companies_index_show.html#car" rel="external"><img src="../images/sub_btn1.png" /></a>
-						</div>
-						<div class="button-wrapper">
-							<a href="companies_index_show.html#component" rel="external"><img src="../images/sub_btn2.png" /></a>
-						</div>
-						<div class="button-wrapper">
-							<a href="companies_index_show.html#goods" rel="external"><img src="../images/sub_btn3.png" /></a>
-						</div>
-					</div>
-				</div>
-				<div class="toolbar banner-container" style="display:none">
+		    <div class="content-wrapper">
+
+	        <div class="top-blank-box"></div>
+	        <div class="buttons-container">
+	          <div class="button-wrapper first-wrapper">
+	            <a href="companies_index_show.html?category=car&back_url=companies_index.html" rel="external"><img src="../images/sub_btn1.png" /></a>
+	          </div>
+	          <div class="button-wrapper">
+	            <a href="companies_index_show.html?category=component&back_url=companies_index.html" rel="external"><img src="../images/sub_btn2.png" /></a>
+	          </div>
+	          <div class="button-wrapper">
+	            <a href="companies_index_show.html?category=goods&back_url=companies_index.html" rel="external"><img src="../images/sub_btn3.png" /></a>
+	          </div>
+	        </div>
+
+	      </div>
+			
+				<div class="toolbar banner-container">
 					Banner
 				</div>
 			</div>

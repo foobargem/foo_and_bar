@@ -14,6 +14,7 @@
   <script src="../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
   <script src="../phonegap.0.9.4.js" type="text/javascript" charset="utf-8"></script>
   <script src="../javascripts/application.js" charset="utf-8"></script>
+  <script src="../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
 
   
   <script type="text/javascript" charset="utf-8">
@@ -33,6 +34,8 @@
 
 
     $(document).ready(function(){
+			// ChildBrowser.install();
+	
       new Banner("div.banner-container");
     });
 
@@ -50,21 +53,21 @@
 				<a href="index.html" rel="external" class="homeButton"></a>
 			</div>
 
-			<div class="content-wrapper">
+				<div class="content-wrapper">
   
-        <div class="blank-box-top"></div>
+	        <div class="top-blank-box"></div>
 	
-        <div class="buttons-container">
-          <div class="button-wrapper">
-            <a href="sketches_models_gallery_index.html" rel="external"><img src="../images/sub_btn7.png" /></a>
-          </div>
-          <div class="button-wrapper">
-            <a href="sketches_models_booths_index.html" rel="external"><img src="../images/sub_btn8.png" /></a>
-          </div>
-        </div>
+	        <div class="buttons-container">
+	          <div class="button-wrapper">
+	            <a href="sketches_models_gallery_index.html" rel="external"><img src="../images/sub_btn7.png" /></a>
+	          </div>
+	          <div class="button-wrapper">
+	            <a href="sketches_models_booths_index.html" rel="external"><img src="../images/sub_btn8.png" /></a>
+	          </div>
+	        </div>
 				
 			</div>
-			<div class="toolbar banner-container" style="display:none">
+			<div class="toolbar banner-container">
 				Banner
 			</div>
 		</div>

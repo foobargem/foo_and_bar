@@ -16,6 +16,7 @@
   <script src="../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
   <script src="../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
 
 
   <script type="text/javascript" charset="utf-8">
@@ -44,7 +45,7 @@
       var _url = SMS.API.Photo.indexURL();
 
       if (last_page) return false;
-      //showIndicatorByView();
+      showIndicatorByView_gallery();
 
       jQuery.ajax({
         url: _url,
@@ -89,7 +90,7 @@
         $("#exhibition_gallery div.thumbnail-container li#more").replaceWith(li_eles);
       }
       
-      //hideIndicatorByView();
+      hideIndicatorByView_gallery();
     }
 
 
@@ -122,7 +123,7 @@
     function fetchPhoto(photo_id) {
       var _url = SMS.API.Photo.showURL(photo_id);
       
-      showIndicatorByView2();
+      showIndicatorByView_show();
       
       jQuery.ajax({
         url: _url,
@@ -146,26 +147,26 @@
 
       $("#exhibition_photo_show div.photo-container img")[0].src = photo.thumb_url;
       
-      hideIndicatorByView2();
+      hideIndicatorByView_show();
       
     }
 
 
-    function showIndicatorByView() {
+    function showIndicatorByView_gallery() {
       $("#exhibition_gallery div.loading-container").show();
     }
 
-    function hideIndicatorByView() {
+    function hideIndicatorByView_gallery() {
       setTimeout(function(){
         $("#exhibition_gallery div.loading-container").hide();
       }, 600);
     }
 
-    function showIndicatorByView2() {
+    function showIndicatorByView_show() {
       $("#exhibition_photo_show div.loading-container").show();
     }
 
-    function hideIndicatorByView2() {
+    function hideIndicatorByView_show() {
       setTimeout(function(){
         $("#exhibition_photo_show div.loading-container").hide();
       }, 600);
@@ -173,6 +174,7 @@
 
 
     $(document).ready(function(){
+			// ChildBrowser.install();
 
       SuddenlybuntCmd.install();
 
@@ -193,7 +195,7 @@
       <a href="sketches_index.html" rel="external" class="back btn">이전</a>
 			<a href="index.html" rel="external" class="homeButton"></a>
     </div>
-    <!-- <div class="loading-container"><img src="../images/loading/loading_indicator.gif" /></div> -->
+    <div class="loading-container"><img src="../images/loading/loading_indicator.gif" /></div>
 
     <div class="vertical-scroll"><div class="content-wrapper">
 

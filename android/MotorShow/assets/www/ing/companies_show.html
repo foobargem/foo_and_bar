@@ -39,6 +39,8 @@
 
 
 
+      var _booth_code = null;
+
       function fetchCompany() {
         var _url = SMS.API.Company.showURL(booth_code);
 
@@ -66,6 +68,10 @@
       function updateCompanyInfo(data) {
 
         var company = data.company;
+
+        _booth_code = company.booth_code;
+
+	      $("#companies_show div.vertical-scroll > div").trigger("reset");
 
         $("#companies_show h1").text(company.name);
 
@@ -124,11 +130,16 @@
       }
 
 			$(document).ready(function(){
-				//$(document).bind("deviceready", function(){
+				// ChildBrowser.install();	
         fetchCompany();
-        //}, false);
 	      
         new Banner("div.banner-container");
+
+        // ToDo:
+        $("#company_cars_btn").bind("click", function(){
+          // window.location.href = "showcars_index.html#" + _booth_code;
+          window.location.href = "showcars_index.html?booth_code=" + _booth_code + "&" + 'back_url=companies_show.html#' + _booth_code;
+        });
 			});
 
     </script>
@@ -152,6 +163,9 @@
 							<img id="company_logo" src="../images/loading_image.jpg" width="270" height="116" />
 						</div>
 					</div>
+          <div class="buttons-container">
+            <p align="center"><img id="company_cars_btn" src="../images/view_btn3.png" /></p>
+          </div>
 					<div class="content-container">
 
 						<div id="company_contact" class="field-wrapper">
@@ -185,7 +199,7 @@
 
 					</div>
 				</div></div>
-				<div class="toolbar banner-container" style="display:none">
+				<div class="toolbar banner-container">
 					Banner
 				</div>
 			</div>

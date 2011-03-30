@@ -16,13 +16,15 @@
   <script src="../phonegap.0.9.4.js" type="text/javascript" charset="utf-8"></script>
   <script src="../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
   <script src="../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
 
+  <script type="text/javascript" charset="utf-8" src="../jqtouch/racing_models_sub_gallery.js"></script>
   <script type="text/javascript" charset="utf-8">
 
     //change dynamic css
     var jQT = new $.jQTouch({
         slideSelector: '#jqt li a, .slide',
-        flipSelector: '#jqt li a.detail-link, .flip',
+        flipSelector: '#jqt li a.detail-link, #jqt li a.photo-link, .flip',
         icon: '../images/jqtouch.png',
         addGlossToIcon: false,
         startupScreen: '../images/jqt_startup.png',
@@ -34,6 +36,8 @@
             '../themes/jqt/img/loading.gif' ]
     });
 
+
+    var _model_id = null;
 
     // TableView
 
@@ -80,6 +84,8 @@
       $("a.gallery-link").bind("click", function(event){
         event.preventDefault();
         var company_id = $(event.currentTarget).attr("data-id");
+        $("#model_gallery h1").text($(event.currentTarget).text());
+
         fetch_and_update_model_gallery(company_id);
       });
     }
@@ -132,6 +138,7 @@
         event.preventDefault();
         var model_id = $(event.currentTarget).attr("data-id");
         //window.plugins.suddenlybuntCmd.debug(photo_id);
+        _model_id = model_id;
         fetchRacingModel(model_id);
       });
     }
@@ -139,6 +146,8 @@
 
     function fetchRacingModel(model_id) {
       var _url = SMS.API.RacingModel.showURL(model_id);
+      
+      $("#model_profile_image")[0].src = "../images/loading_image.jpg";
       
       showIndicatorByView3();
 
@@ -160,7 +169,12 @@
 
       var model = data.racing_model;
 
+      $("#model_show div.vertical-scroll > div").trigger("reset");
+
       $("#model_show h1").text(model.name);
+      $("#model_sub_gallery h1").text(model.name);
+      $("#model_photo h1").text(model.name);
+
       $("#model_name div").text(model.name);
 
       if (model.birth && model.birth.trim() != "") {
@@ -185,25 +199,11 @@
         height_weight += model.weight;
       }
 
-      if (height_weight.trim() != "") {
-        $("#model_height_weight").show();
-        $("#model_height_weight div").text(height_weight);
-      } else {
-        $("#model_height_weight").hide();
-      }
-
       if (model.dress_size && model.dress_size.trim() != "") {
         $("#model_dress_size").show();
         $("#model_dress_size div").text(model.dress_size);
       } else {
         $("#model_dress_size").hide();
-      }
-
-      if (model.bwh && model.bwh.trim() != "") {
-        $("#model_bwh").show();
-        $("#model_bwh div").text(model.bwh);
-      } else {
-        $("#model_bwh").hide();
       }
 
       if (model.shoe_size && model.shoe_size.trim() != "") {
@@ -248,6 +248,7 @@
         $("#model_profile_image")[0].src = "../images/loading_image.jpg";
       }
       
+      RacingModelSubGallery.updateSubGalleryButton(model);
       hideIndicatorByView3();
 
     }
@@ -283,9 +284,15 @@
     }
 
     $(document).ready(function(){
+			// ChildBrowser.install();
       SuddenlybuntCmd.install();
       fetch_and_update_companies_list();
       new Banner("div.banner-container");
+
+      $("#sub_gallery_btn").bind("click", function(event){
+        RacingModelSubGallery.fetch_model_photos_and_update_sub_gallery();
+      });
+
     });
 
 
@@ -308,7 +315,7 @@
           <ul><!-- company list --></ul>
         </div>
       </div></div>
-      <div class="toolbar banner-container" style="display:none">
+      <div class="toolbar banner-container">
         Banner
       </div>
     </div>
@@ -316,13 +323,13 @@
 
     <div id="model_gallery">
       <div class="toolbar">
-        <h1>레이싱 모델</h1>
+        <h1></h1>
         <a href="#sketches_models_booth_index" rel="external" class="back btn">이전</a>
 				<a href="index.html" rel="external" class="homeButton"></a>
       </div>
 	    <div class="loading-container"><img src="../images/loading/loading_indicator.gif" /></div>
 
-      <div class="vertical-scroll"><div class="content-wrapper">
+      <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../images/com_bg2.png) repeat-y;background-size:100%">
 
         <div class="thumbnail-container">
           <ul><!-- photo gallery --></ul>
@@ -330,7 +337,8 @@
 
       </div></div>
     </div>
-    <!-- // thumbs_container -->
+    <!-- // model_gallery -->
+
         
     <div id="model_show">
       <div class="toolbar">
@@ -339,8 +347,7 @@
 				<a href="index.html" rel="external" class="homeButton"></a>
       </div>
 	    <div class="loading-container"><img src="../images/loading/loading_indicator.gif" /></div>
-
-      <div class="vertical-scroll"><div class="content-wrapper">
+      <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../images/com_bg2.png) repeat-y;background-size:100%">
 
         <div class="top-blank-box"></div>
         <div class="photo-container">
@@ -353,6 +360,9 @@
           <!-- <div class="next-btn-container">
             <img src="../images/icon_next1.png" />
           </div> -->
+        </div>
+        <div class="buttons-container">
+          <p align="center"><a href="#model_sub_gallery" id="sub_gallery_btn" class="pop"><img src="../images/view_btn3.png" /></a></p>
         </div>
         <div class="content-container">
 
@@ -377,25 +387,11 @@
             <div><!-- blood_type --></div>
           </div>
 
-          <div id="model_height_weight" class="field-wrapper">
-            <label>
-              <img src="../images/view_list20.png" />
-            </label>
-            <div><!-- height and weight --></div>
-          </div>
-
           <div id="model_dress_size" class="field-wrapper">
             <label>
               <img src="../images/view_list21.png" />
             </label>
             <div><!-- dress_size --></div>
-          </div>
-
-          <div id="model_bwh" class="field-wrapper">
-            <label>
-              <img src="../images/view_list22.png" />
-            </label>
-            <div><!-- bwh --></div>
           </div>
 
           <div id="model_shoe_size" class="field-wrapper">
@@ -434,6 +430,49 @@
 
       </div></div>
     </div>
+    <!-- // model_show -->
+
+
+    <div id="model_sub_gallery">
+      <div class="toolbar">
+        <h1></h1>
+        <a href="#model_show" class="back btn">이전</a>
+        <a href="index.html" rel="external" class="homeButton"></a>
+      </div>
+      <!-- <div class="loading-container"><img src="../images/loading/loading_indicator.gif" /></div> -->
+      <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../images/com_bg2.png) repeat-y;background-size:100%">
+
+        <div class="thumbnail-container">
+          <ul>
+            <li id="more" class="more"><a href="#">More</a></li>
+            <!-- photo gallery -->
+          </ul>
+        </div>
+
+      </div></div>
+    </div>
+    <!-- // model_photo_gallery -->
+
+
+    <div id="model_photo">
+      <div class="toolbar">
+        <h1></h1>
+        <a href="#model_sub_gallery" class="back btn">이전</a>
+        <a href="index.html" rel="external" class="homeButton"></a>
+      </div>
+      <div class="content-wrapper" style="background:url(../images/com_bg2.png) repeat-y;background-size:100%">
+        <div class="horizontal-scroll">
+          <table class="with-scrollbar">
+            <tr>
+              <td>
+                <div><img id="model_large_image" src="" /></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
 
 
 

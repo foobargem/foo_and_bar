@@ -1,13 +1,13 @@
 module Admin::PhotosHelper
 
   def racing_model_collection
-    RacingModel.select("id, name").all.map do |m|
+    RacingModel.select("id, name").order("name ASC").all.map do |m|
       [m.name, m.id]
     end
   end
 
   def car_collection
-    Car.select("id, name").all.map do |c|
+    Car.select("id, name").order("name ASC").all.map do |c|
       [c.name, c.id]
     end
   end

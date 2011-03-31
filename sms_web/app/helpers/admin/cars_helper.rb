@@ -15,7 +15,7 @@ module Admin::CarsHelper
               scoped
              end
     
-    scoped.select("id, name").all.map do |company|
+    scoped.select("id, name").order("name ASC").all.map do |company|
       [company.name, company.id]
     end
   end

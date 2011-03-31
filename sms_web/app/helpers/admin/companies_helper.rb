@@ -25,7 +25,7 @@ module Admin::CompaniesHelper
   end
 
   def grouped_company_collection
-    Company.select("id, name, category").all.group_by(&:category).map do |k, v|
+    Company.select("id, name, category").order("name ASC").all.group_by(&:category).map do |k, v|
       cate_name = case k
                   when "component"
                     "부품"

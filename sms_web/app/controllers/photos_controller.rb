@@ -37,6 +37,7 @@ class PhotosController < ApplicationController
 
     @racing_models = company.racing_models.
                       where("photo_thumb_url is not null").
+                      order("id DESC").
                       select("id, photo_thumb_url")
 
     photos = []

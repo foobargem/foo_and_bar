@@ -36,7 +36,6 @@ class Car < ActiveRecord::Base
   attr_accessor :represent_on
 
   validates_presence_of :company_id
-  validates_presence_of :name, :price
 
   belongs_to :company
   has_many :photos

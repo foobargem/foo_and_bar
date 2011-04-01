@@ -44,6 +44,9 @@ class Car < ActiveRecord::Base
 
   default_scope :order => "id DESC"
 
+  scope :published, where("published = ?", true)
+  scope :unpublished, where("published = ?", false)
+
 
   # image_raw
   has_attached_file :image_raw,

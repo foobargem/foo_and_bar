@@ -37,8 +37,8 @@ class Company < ActiveRecord::Base
   scope :component_part, where("category = ?", "component")
   scope :goods_part, where("category = ?", "goods")
 
-  scope :published, where("drafted_at is null")
-  scope :unpublished, where("drafted_at is not null")
+  scope :published, where("published = ?", true)
+  scope :unpublished, where("published = ?", false)
 
 
   # image_raw

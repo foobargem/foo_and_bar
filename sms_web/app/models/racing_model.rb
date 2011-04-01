@@ -41,6 +41,8 @@ class RacingModel < ActiveRecord::Base
   scope :published, where("published = ?", true)
   scope :unpublished, where("published = ?", false)
 
+  scope :included_company, where("company_id is not null")
+
 
   # image_raw
   has_attached_file :image_raw,

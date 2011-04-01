@@ -28,4 +28,12 @@ module Admin::PhotosHelper
     end
   end
 
+  def display_photo_flickr_image(p)
+    unless p.thumb_url.nil?
+      image_tag p.thumb_url, :size => "80x80"
+    else
+      "-"
+    end
+  end
+
 end

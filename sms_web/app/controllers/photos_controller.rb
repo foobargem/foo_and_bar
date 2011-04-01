@@ -35,7 +35,7 @@ class PhotosController < ApplicationController
   def models_by_company
     company = Company.find(params[:company_id])
 
-    @racing_models = company.racing_models.
+    @racing_models = company.racing_models.published.
                       where("photo_thumb_url is not null").
                       order("id DESC").
                       select("id, photo_thumb_url")

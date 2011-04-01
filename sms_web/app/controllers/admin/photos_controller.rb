@@ -93,9 +93,9 @@ class Admin::PhotosController < ApplicationController
 
 
   def batch_upload_to_flickr
-    @photos = Photo.
-                where("image_raw_file_name is not null")
-                #where("thumb_url is null or large_url is null")
+    @photos = Photo
+                .where("image_raw_file_name is not null")
+                .where("thumb_url is null or large_url is null"
     @photos.each do |photo|
       begin
         photo.upload_image_to_flickr

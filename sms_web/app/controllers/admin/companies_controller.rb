@@ -65,9 +65,9 @@ class Admin::CompaniesController < ApplicationController
   end
 
   def batch_upload_to_flickr
-    @companies = Company.
-                    where("image_raw_file_name is not null")
-                    #where("logo_url is null")
+    @companies = Company
+                    .where("image_raw_file_name is not null")
+                    .where("logo_url is null")
     @companies.each do |company|
       begin
         company.upload_image_to_flickr

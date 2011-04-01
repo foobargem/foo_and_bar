@@ -64,9 +64,9 @@ class Admin::CarsController < ApplicationController
   end
 
   def batch_upload_to_flickr
-    @cars = Car.
-              where("image_raw_file_name is not null")
-              #where("photo_thumb_url is null or photo_large_url is null")
+    @cars = Car
+              .where("image_raw_file_name is not null")
+              .where("photo_thumb_url is null or photo_large_url is null")
     @cars.each do |car|
       begin
         car.upload_image_to_flickr

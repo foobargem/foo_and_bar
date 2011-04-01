@@ -9,7 +9,7 @@
   </td>
   <td class="published"><%= display_published_status(car.published) %></td>
   <td class="actions">
-    <% if car.image_raw_file_name && car.photo_large_url.nil? %>
+    <% unless car.image_raw_file_name.nil? %>
       <%= link_to 'Upload to Flickr', upload_to_flickr_admin_car_path(car), :remote => true %>
     <% end %>
     <%= link_to 'Edit', edit_admin_car_path(car) %>

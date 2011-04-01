@@ -8,7 +8,7 @@
   <td class="priority"><%= company.priority %></td>
   <td class="drafted_at"><%= display_published_status(company.published) %></td>
   <td class="actions">
-    <% if company.image_raw_file_name && company.logo_url.nil? %>
+    <% unless company.image_raw_file_name.nil? %>
       <%= link_to 'Upload to Flickr', upload_to_flickr_admin_company_path(company), :remote => true %>
     <% end %>
     <%= link_to 'Edit', edit_admin_company_path(company) %>

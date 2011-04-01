@@ -5,7 +5,9 @@ class Admin::RacingModelsController < ApplicationController
   #before_filter :flickr_authorized!
 
   def index
-    @search = RacingModel.search(params[:search])
+    @search = RacingModel.
+                includes(:company, :photos).
+                search(params[:search])
     @racing_models = @search.paginate(:page => params[:page], :per_page => 20)
     store_params
   end

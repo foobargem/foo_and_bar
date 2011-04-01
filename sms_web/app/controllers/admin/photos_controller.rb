@@ -16,7 +16,9 @@ class Admin::PhotosController < ApplicationController
              else
               scoped
              end
-    @photos = scoped.paginate(:page => params[:page], :per_page => 20)
+    @photos = scoped.
+                includes(:car, :racing_model).
+                paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /admin/photos/1

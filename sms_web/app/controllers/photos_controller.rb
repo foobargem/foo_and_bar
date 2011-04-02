@@ -36,6 +36,7 @@ class PhotosController < ApplicationController
     company = Company.find(params[:company_id])
 
     @racing_models = company.racing_models.
+                      where("photo_thumb_url is not null").
                       select("id, photo_thumb_url")
 
     photos = []

@@ -84,7 +84,7 @@ class PhotosController < ApplicationController
   protected
 
     def models
-      scoped = RacingModel.scoped
+      scoped = RacingModel.scoped.where("photo_thumb_url is not null")
 
       @racing_models = scoped.
                         select("id, photo_thumb_url").

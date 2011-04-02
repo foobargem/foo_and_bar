@@ -63,7 +63,7 @@ form#event_correct_answer .content-wrapper {
       height: 20px;
       width: 150px; }
     form#event_correct_answer .content-wrapper .inputs-container .input {
-      padding: 1px; }
+      padding: 2px; }
   form#event_correct_answer .content-wrapper .buttons-container {
     padding-top: 30px;
     text-align: center; }

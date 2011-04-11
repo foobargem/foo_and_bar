@@ -49,6 +49,43 @@ module Tools
     end
 
 
+    def write_to_excel(file_path)
+      header_format = Spreadsheet::Format.new(:align => :center, :color => :gray)
+      body_format = Spreadsheet::Format.new(:align => :center)
+
+      doc = Spreadsheet::Workbook.new
+
+      [["car", @car_stats], ["model", @model_stats]].each do |sheet_name, stats|
+        sheet = doc.create_worksheet
+        sheet.name = sheet_name
+
+        row_index = 0
+        sheet.row(row_index).replace(["이름", "조회수"])
+        sheet.row(row_index).default_format = header_format
+
+        row_index += 1
+
+        stats.sort_by{|k, v| v }.reverse.each do |k, v|
+          m = if sheet_name == "car"
+                cars
+              else
+                models
+              end
+
+          m = m.find_by_id(k)
+          next if m.nil?
+
+          sheet.row(row_index).replace([m.name, v])
+          sheet.row(row_index).default_format = body_format
+
+          row_index += 1
+        end
+      end
+
+      doc.write(file_path)
+    end
+
+
     protected
 
       def analysis_car(uri)

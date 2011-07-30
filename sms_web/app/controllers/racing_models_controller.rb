@@ -30,6 +30,13 @@ class RacingModelsController < ApplicationController
     end
   end
 
+  def profiles
+    @models = RacingModel.order("name asc")
+    respond_to do |format|
+      format.json { render :json => @models.to_json(:methods => :company_name) }
+    end
+  end
+
   def show
     @racing_model = RacingModel.find(params[:id])
 

@@ -81,4 +81,8 @@ class RacingModel < ActiveRecord::Base
     hw.join("/")
   end
 
+  def company_name
+    self.company.name
+  end
+
 end

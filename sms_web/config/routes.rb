@@ -38,6 +38,9 @@ SmsWeb::Application.routes.draw do
   end
   
   resources :racing_models do
+    collection do
+      get "profiles"
+    end
     member do
       get "photos"
     end

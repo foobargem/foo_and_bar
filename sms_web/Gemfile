@@ -39,7 +39,7 @@ gem "meta_search"
 #   gem 'webrat'
 # end
 group :development, :test do
-  gem "haml"
+  gem "haml", "3.0.24"
   gem "annotate"
 end
 
